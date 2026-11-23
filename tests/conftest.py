@@ -30,6 +30,7 @@ def no_waiting(monkeypatch):
     from jobwatcher import fetch
 
     monkeypatch.setattr(fetch, "WORKDAY_DELAY", 0)
+    monkeypatch.setattr(fetch, "DEADLINE", None)
     monkeypatch.setattr(fetch.time, "sleep", lambda seconds: None)
 
 

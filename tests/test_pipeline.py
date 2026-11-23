@@ -179,3 +179,26 @@ def test_failed_source_is_retried_and_can_recover(data_dir):
     assert calls["other"] == 2
     assert [s["ok"] for s in status["sources"]] == [True, True]
     assert (data_dir / "raw" / "2026-11-01" / "other.json.gz").exists()
+
+
+def test_time_limit_turns_late_sources_into_failures_and_the_run_still_finishes(data_dir):
+    from jobwatcher import fetch
+
+    def fetcher(source, session):
+        return fetch.fetch_source(source, session)  # honours fetch.DEADLINE
+
+    class Session:
+        def request(self, *a, **k):
+            raise AssertionError("no request should start after the deadline")
+
+    import jobwatcher.run as run_module
+
+    original = run_module.new_session
+    run_module.new_session = lambda: Session()
+    try:
+        results = run_module.fetch_all(data_dir, "2026-11-01", SOURCES, fetcher, retry_rounds=0, time_limit=-1)
+    finally:
+        run_module.new_session = original
+    assert [r["ok"] for r in results] == [False, False]
+    assert "time limit" in results[0]["error"]
+    assert fetch.DEADLINE is None  # reset for the next run

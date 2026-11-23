@@ -78,7 +78,7 @@ Every board returns JSON to a request with no login. The tool never reads a web 
 Notes on the data:
 
 - A board that suddenly returns no postings, or whose paging stops early, is treated as a failure, not as "every posting was removed".
-- Workday boards return at most 20 postings per request, so each board is read page by page (3 requests at a time, with a pause, because Workday throttles shared cloud addresses). The facet counts Workday adds to each response are not postings and are not saved.
+- Workday boards return at most 20 postings per request, so each board is read page by page, one request at a time across all Workday boards with a short pause (Workday answers a burst of requests with HTTP 429). A run stops starting new requests after 25 minutes, so a throttled run still finishes and commits. The facet counts Workday adds to each response are not postings and are not saved.
 - Workday shows `2 Locations` for multi-location postings. The tool uses the first location from the posting's URL path instead (for example `McLean, VA`).
 - Workday's list has no department or exact posted date, and Greenhouse's list has no department, so those columns are empty for those sources.
 

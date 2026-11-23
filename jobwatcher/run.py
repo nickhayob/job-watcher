@@ -19,7 +19,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import store
+from . import fetch, store
 from .build import build_history, write_history
 from .fetch import count_postings, fetch_source, new_session
 from .issues import GitHub, render_body
@@ -29,13 +29,17 @@ from .status import build_status, write_status
 WORKERS = 8
 
 
-def fetch_all(data_dir, date, sources, fetcher=fetch_source, retry_rounds=2, retry_wait=60):
+def fetch_all(
+    data_dir, date, sources, fetcher=fetch_source, retry_rounds=2, retry_wait=60, time_limit=25 * 60
+):
     """Fetch every source in parallel and save the raw files. Returns the results.
 
     Sources that fail are tried again, one at a time, after a pause, because most
-    failures are a board that is briefly busy or throttling.
+    failures are a board that is briefly busy or throttling. After time_limit seconds
+    no new request starts, so a throttled run still finishes and commits.
     """
     store.reset_day(data_dir, date)
+    fetch.DEADLINE = time.time() + time_limit
 
     def one(source):
         started = time.time()
@@ -61,6 +65,7 @@ def fetch_all(data_dir, date, sources, fetcher=fetch_source, retry_rounds=2, ret
         time.sleep(retry_wait)
         for i in failed:
             results[i] = one(sources[i])
+    fetch.DEADLINE = None
     store.write_run_log(data_dir, date, results)
     return results
 

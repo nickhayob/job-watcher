@@ -12,11 +12,12 @@ import requests
 
 USER_AGENT = "job-watcher/1.0 (class project; reads public job boards once a day)"
 TIMEOUT = (10, 60)  # connect, read
-BACKOFF = [5, 15, 30, 60, 90]  # seconds to wait before each retry
-# Workday throttles shared cloud IPs (HTTP 429), so its boards are read gently:
-# at most 3 requests at a time with a short pause after each.
-WORKDAY_GATE = threading.Semaphore(3)
-WORKDAY_DELAY = 0.25
+BACKOFF = [5, 15, 30, 60]  # seconds to wait before each retry
+# Workday answers a burst of requests with HTTP 429, so all of its boards are read
+# gently: one request at a time across every Workday board, with a pause after each.
+WORKDAY_GATE = threading.Semaphore(1)
+WORKDAY_DELAY = 0.5
+DEADLINE = None  # time.time() after which no new request starts (set by the run)
 MAX_POSTINGS = 5000  # a board larger than this must be read with a search term
 WORKDAY_PAGE = 20  # Workday returns at most 20 postings per request
 SMARTRECRUITERS_PAGE = 100
@@ -47,6 +48,8 @@ def _request_json(session, method, url, **kwargs):
     """Request JSON, retrying on network errors, 429 and 5xx with a growing wait."""
     last = None
     for attempt in range(len(BACKOFF) + 1):
+        if DEADLINE is not None and time.time() > DEADLINE:
+            raise SourceError("run time limit reached before this source finished")
         response = None
         try:
             response = session.request(method, url, timeout=TIMEOUT, **kwargs)

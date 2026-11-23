@@ -126,3 +126,12 @@ def test_gives_up_after_the_last_retry(monkeypatch):
     with pytest.raises(SourceError, match="HTTP 429"):
         fetch_source(lever, session)
     assert len(session.calls) == len(fetch.BACKOFF) + 1
+
+
+def test_no_request_starts_after_the_deadline(monkeypatch):
+    monkeypatch.setattr(fetch, "DEADLINE", 0)  # long past
+    lever = Source("l", "L", "lever", {"company": "l"})
+    session = FakeSession(lambda m, u, k: FakeResponse([{"id": "1", "text": "x"}]))
+    with pytest.raises(SourceError, match="run time limit"):
+        fetch_source(lever, session)
+    assert session.calls == []
