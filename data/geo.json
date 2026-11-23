@@ -1,74 +1,31 @@
 {
-"100 Crosby Pkwy, Covington KY": null,
-"100 New Millennium Way, Bldg 2, Durham NC": null,
-"127 Perimeter Center West, Dunwoody GA": null,
-"200 Seaport Blvd, Boston MA": null,
-"245 Summer St, Boston MA": null,
-"430 William Hilton Parkway, Hilton Head SC": null,
-"AE - Dubai, United Arab Emirates": null,
-"ANCHORAGE, AK": [
-61.218,
--149.9
+"AU - Melbourne": null,
+"AU - Sydney": null,
+"Aarhus, Denmark": [
+56.157,
+10.211
 ],
-"AR - Buenos Aires, Argentina": null,
-"ARVADA, CO": [
-39.803,
--105.087
-],
-"ATLANTA, GA": [
-33.749,
--84.388
-],
-"AU - Sydney, Australia": null,
-"AUSTIN, TX": [
-30.267,
--97.743
-],
-"AZ - Phoenix": null,
 "Addison, Texas, United States": [
 32.962,
 -96.829
 ],
-"Alabang, Muntinlupa City": null,
-"Albuquerque, NM": [
-35.084,
--106.651
-],
-"Alexandria, VA": [
-38.805,
--77.047
-],
-"Alpharetta, GA": [
-34.075,
--84.294
+"Amsterdam": [
+52.374,
+4.89
 ],
 "Amsterdam, , Netherlands": null,
 "Amsterdam, Netherlands": null,
-"Ann Arbor, MI": [
-42.278,
--83.741
+"Amsterdam, The Netherlands": [
+52.374,
+4.89
 ],
-"Annapolis, MD": [
-38.979,
--76.492
+"Amsterdam, The Netherlands; Dublin, Ireland": null,
+"Armonk, NY, United States": [
+41.126,
+-73.714
 ],
-"Arlington Virginia": null,
-"Arlington, Virginia": [
-38.881,
--77.104
-],
-"Asheville, NC": [
-35.601,
--82.554
-],
-"Atlanta GA - 303 Peachtree Center Avenue": null,
-"Atlanta GA - Regions Plaza Office": null,
-"Atlanta Georgia": null,
-"Atlanta, GA": [
-33.749,
--84.388
-],
-"Atlanta, GA - Regions Plaza Office": null,
+"Atlanta, GA - Hybrid; Denver, CO - Hybrid": null,
+"Atlanta, GA - Hybrid; Denver, CO - Hybrid; New York, NY - Hybrid; San Francisco, CA - Hybrid; Scottsdale, AZ - Hybrid": null,
 "Atlanta, GEORGIA, United States": [
 33.749,
 -84.388
@@ -81,11 +38,14 @@
 33.749,
 -84.388
 ],
-"Auckland": [
+"Auckland, New Zealand": [
 -36.849,
 174.763
 ],
-"Austin Texas United States of America": null,
+"Austin": [
+30.267,
+-97.743
+],
 "Austin, TEXAS, United States": [
 30.267,
 -97.743
@@ -94,83 +54,64 @@
 30.267,
 -97.743
 ],
+"Austin, TX, United States": [
+30.267,
+-97.743
+],
+"Austin, Texas": [
+30.267,
+-97.743
+],
 "Austin, Texas, United States": [
 30.267,
 -97.743
 ],
-"Austin, Texas, United States of America": [
-30.267,
--97.743
+"Australia": [
+-25.0,
+135.0
 ],
-"BALTIMORE, MD": [
-39.29,
--76.612
+"Aventura, FL, United States": [
+25.956,
+-80.139
 ],
-"BILLINGS, MT": [
-45.783,
--108.501
-],
-"BIRMINGHAM, AL": [
-33.521,
--86.802
-],
-"BOCA RATON, FL": [
-26.359,
--80.083
-],
-"BOSTON": [
-42.358,
--71.06
-],
-"BR - Remote - Brazil": null,
-"BR - São Paulo, Brazil": null,
-"BRADENTON, FL": [
-27.499,
--82.575
-],
-"BROOKLYN, NY": [
-40.65,
--73.95
-],
-"BU3-Budapest-GTC White House, Vaci ut 47, District XIII, Budapest": null,
-"Baltimore, MD": [
-39.29,
--76.612
-],
+"BZ - Sao Paulo": null,
 "Bangalore": [
 24.872,
 67.084
 ],
-"Bangalore India": null,
-"Bangalore Karnataka India": null,
 "Bangalore, , India": null,
-"Bangalore, In": null,
 "Bangalore, India": null,
-"Bangalore, Karnataka": null,
 "Bangalore, Karnataka, India": null,
-"Bangkok": [
-13.754,
-100.501
-],
 "Barcelona": [
 41.389,
 2.159
 ],
-"Baton Rouge, LA": [
-30.443,
--91.187
+"Barcelona, Spain": [
+41.389,
+2.159
 ],
 "Bay Area, CA, United States of America": null,
-"Beijing China": null,
-"Bel Air, MD": [
-39.536,
--76.348
+"Beijing": [
+39.907,
+116.397
+],
+"Belgrade, Serbia": [
+44.804,
+20.465
 ],
 "Bellevue, WA": [
 47.61,
 -122.201
 ],
 "Bellevue, WA; Menlo Park, CA; New York, NY": null,
+"Bellevue, Washington": [
+47.61,
+-122.201
+],
+"Bellevue, Washington; Chicago, Illinois; New York, New York; Washington, DC": null,
+"Bellevue, Washington; Chicago, Illinois; San Francisco, California": null,
+"Bellevue, Washington; San Francisco, California": null,
+"Bellevue, Washington; Seattle, Washington": null,
 "Bengaluru": [
 12.972,
 77.594
@@ -179,50 +120,73 @@
 12.972,
 77.594
 ],
+"Bengaluru, India; Mumbai, India": null,
+"Bengaluru; Gurugram": null,
+"Berkeley, CA, United States": [
+37.872,
+-122.273
+],
 "Berlin": [
 52.524,
 13.411
 ],
-"Berlin, Berlin, Germany": null,
-"Besiktas, Istanbul Turkey": null,
-"Beverly Hills, CA": [
+"Berlin, Germany": [
+52.524,
+13.411
+],
+"Berlin, Germany; Munich, Germany": null,
+"Bethesda, MD, United States": [
+38.981,
+-77.1
+],
+"Betterment HQ - New York City": null,
+"Beverly Hills, CA, United States": [
 34.074,
 -118.4
 ],
-"Birmingham AL - Regions Center": null,
-"Birmingham, AL - Regions Center": null,
-"Bloomington, MN": [
-44.841,
--93.298
+"Bloomfield Hills, MI, United States": [
+42.584,
+-83.245
 ],
 "Blumenau, , Brazil": [
 -26.919,
 -49.066
 ],
 "Blumenau, SC, Brazil": null,
-"Boca Raton, FL": [
-26.359,
--80.083
-],
-"Bogota, Colombia": [
-4.61,
--74.082
-],
-"Bogota, Colombia (Bldg 978)": null,
 "Bogotá, , Colombia": [
 4.61,
 -74.082
 ],
-"Boise, ID": [
-43.614,
--116.203
+"Boston": [
+42.358,
+-71.06
 ],
-"Boston Massachusetts": null,
 "Boston, MA": [
 42.358,
 -71.06
 ],
+"Boston, MA, United States": [
+42.358,
+-71.06
+],
+"Boston, MA; Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY; Washington, DC": null,
 "Boston, Massachusetts": [
+42.358,
+-71.06
+],
+"Boston, Massachusetts, USA": [
+42.358,
+-71.06
+],
+"Boston, Massachusetts, USA; Denver, Colorado, USA; New York, New York, USA": [
+42.358,
+-71.06
+],
+"Boston, Massachusetts, USA; New York, New York, USA": [
+42.358,
+-71.06
+],
+"Boston, Massachusetts, USA; New York, New York, USA; San Francisco, California, USA": [
 42.358,
 -71.06
 ],
@@ -230,41 +194,13 @@
 42.358,
 -71.06
 ],
-"Boulder, CO": [
-40.015,
--105.271
+"Brazil": [
+-10.0,
+-55.0
 ],
-"Bowling Green, KY": [
-36.99,
--86.444
-],
-"Boyertown, PA": [
-40.334,
--75.637
-],
-"Bozeman, MT": [
-45.68,
--111.039
-],
-"Brentwood, TN": [
-36.033,
--86.783
-],
-"Brookfield, WI": [
-43.061,
--88.106
-],
-"Brooklyn, NY": [
-40.65,
--73.95
-],
-"Broomfield, CO": [
-39.921,
--105.087
-],
-"Brussels": [
-50.85,
-4.349
+"Brisbane, Australia": [
+-27.468,
+153.028
 ],
 "Brussels, , Belgium": [
 50.85,
@@ -278,94 +214,45 @@
 -34.613,
 -58.377
 ],
-"Burlington Massachusetts": null,
+"Burbank, CA, United States": [
+34.181,
+-118.309
+],
 "CA - San Francisco": null,
-"CA - San Francisco 94105": null,
 "CA - San Francisco; WA - Seattle": null,
-"CA - Toronto, Canada": null,
-"CHANDLER, AZ": [
-33.306,
--111.841
+"CA - Toronto": null,
+"CN - Shanghai": null,
+"CN - Shenzhen": null,
+"California": [
+38.628,
+-92.567
 ],
-"CHARLOTTE, NC": [
-35.227,
--80.843
-],
-"CHESAPEAKE, VA": [
-36.819,
--76.275
-],
-"CHICAGO, IL": [
-41.85,
--87.65
-],
-"CI - Abidjan, Cote D'Ivoire": null,
-"CITY OF LONDON,": [
-51.513,
--0.092
-],
-"CN - Shanghai, China": null,
-"CO - Bogota, Colombia": null,
-"CONCORD, CA": [
-37.978,
--122.031
-],
-"CT Wilton": null,
-"CUPERTINO, CA": [
-37.323,
--122.032
-],
-"Cambridge, MA": [
-42.375,
--71.106
-],
+"California, USA, Remote": null,
+"California, USA, Remote; Colorado, USA, Remote; Washington, USA, Remote": null,
 "Canada": [
 60.109,
 -113.643
 ],
-"Capelle aan den IJssel": [
-51.929,
-4.578
+"Canberra, Australia": [
+-35.283,
+149.128
 ],
-"Cary, NC": [
-35.792,
--78.781
+"Cardiff, London or Remote (UK)": null,
+"Carlsbad, CA, United States": [
+33.158,
+-117.351
 ],
-"Central Singapore, Singapore": null,
-"Chapel Hill, NC": [
-35.913,
--79.056
-],
-"Charleston Meeting Street Main": null,
-"Charleston, SC": [
-32.776,
--79.933
-],
-"Charleston, WV": [
-38.35,
--81.633
-],
-"Charlotte NC - 214 North Tryon Street": null,
-"Charlotte NC - 2320 Cascade Pointe Boulevard": null,
-"Charlotte NC - Charlotte Uptown Branch": null,
-"Charlotte, NC": [
+"Central - United States; Northeast - United States; Southeast - United States": null,
+"Central - United States; West Coast - United States": null,
+"Charlotte, NC, United States": [
 35.227,
 -80.843
 ],
-"Charlotte, NC - Charlotte Uptown Branch": null,
-"Charlottesville, VA": [
-38.029,
--78.477
+"Charlotte, NC, United States; Denver, Colorado, United States; Seattle, Washington, United States": [
+35.227,
+-80.843
 ],
-"Chattanooga, TN": [
-35.046,
--85.31
-],
-"Chennai, India": [
-13.088,
-80.278
-],
-"Chennai, Tamil Nadu, India": [
+"Chennai": [
 13.088,
 80.278
 ],
@@ -373,9 +260,24 @@
 41.85,
 -87.65
 ],
-"Chicago Illinois United States of America": null,
 "Chicago, Atlanta, US-Remote, Toro": null,
 "Chicago, IL": [
+41.85,
+-87.65
+],
+"Chicago, IL, USA": [
+41.85,
+-87.65
+],
+"Chicago, IL, USA; New York, NY, USA; San Francisco, CA, USA": [
+41.85,
+-87.65
+],
+"Chicago, IL, USA; San Francisco, CA, USA": [
+41.85,
+-87.65
+],
+"Chicago, IL, United States": [
 41.85,
 -87.65
 ],
@@ -383,10 +285,17 @@
 41.85,
 -87.65
 ],
-"Chicago, IL; Denver, CO; Lake Mary, FL; New York, NY": null,
 "Chicago, IL; Denver, CO; Westlake, TX": null,
 "Chicago, IL; Menlo Park, CA; New York, NY": null,
 "Chicago, ILLINOIS, United States": [
+41.85,
+-87.65
+],
+"Chicago, Illinois": [
+41.85,
+-87.65
+],
+"Chicago, Illinois, USA": [
 41.85,
 -87.65
 ],
@@ -394,125 +303,89 @@
 41.85,
 -87.65
 ],
-"Chicago, Illinois, United States of America": [
+"Chicago,IL": [
 41.85,
 -87.65
 ],
-"Cincinnati, OH": [
-39.127,
--84.514
-],
-"Cleveland, OH": [
-41.499,
--81.695
-],
-"Clifton New Jersey": null,
-"Clifton, New Jersey": [
-40.858,
--74.164
-],
-"Coimbatore, India": [
-11.006,
-76.966
-],
-"Columbia, SC": [
-34.001,
--81.035
-],
-"Columbus, OH": [
-39.961,
--82.999
+"China": [
+35.0,
+105.0
 ],
 "Columbus, Ohio, United States": [
 39.961,
 -82.999
 ],
-"Concord, NC": [
-35.409,
--80.582
+"Coral Gables, FL, United States": [
+25.721,
+-80.268
 ],
-"Conway, SC": [
-33.836,
--79.048
+"Cork, Ireland; Dublin, Ireland": null,
+"Costa Rica": [
+10.0,
+-84.0
 ],
-"Cookeville, TN": [
-36.163,
--85.502
+"Culver City, CA, United States": [
+34.021,
+-118.396
 ],
-"Courbevoie": [
-48.897,
-2.257
-],
-"Covington, KY": [
-39.084,
--84.509
-],
-"Cumming, GA": [
-34.207,
--84.14
+"Cyberjaya, , Malaysia": [
+2.923,
+101.657
 ],
 "Cyberjaya, Selangor, Malaysia": [
 2.923,
 101.657
 ],
-"DC - Washington (20006)": null,
-"DE - Frankfurt, Germany": null,
-"DENVER, CO": [
-39.739,
--104.985
-],
-"DES MOINES, IA": [
-41.601,
--93.609
-],
-"DOTHAN, AL": [
-31.223,
--85.39
-],
-"DRAPER, UT": [
-40.525,
--111.864
-],
+"DE - Berlin": null,
+"DE - Munich": null,
 "Dallas, TX": [
 32.783,
 -96.807
 ],
-"Dallas/Ft. Worth, TX": null,
-"DallasFt Worth, TX": null,
-"Dayton, OH": [
-39.759,
--84.192
+"Dallas, TX, United States": [
+32.783,
+-96.807
+],
+"Dallas, Texas": [
+32.783,
+-96.807
+],
+"Darien, CT, United States": [
+41.079,
+-73.469
 ],
 "Denver, CO": [
 39.739,
 -104.985
 ],
+"Denver, CO - Hybrid": null,
+"Denver, CO - Hybrid; New York, NY - Hybrid": null,
+"Denver, CO - Hybrid; New York, NY - Hybrid; San Francisco, CA - Hybrid": null,
 "Denver, CO, United States of America": [
 39.739,
 -104.985
 ],
 "Denver, CO; Westlake, TX": null,
+"Denver, Colorado": [
+39.739,
+-104.985
+],
+"Denver, Colorado, USA": [
+39.739,
+-104.985
+],
+"Denver, Colorado, USA; San Francisco, California, USA": [
+39.739,
+-104.985
+],
 "Denver, Colorado, United States": [
 39.739,
 -104.985
 ],
-"Des Moines, IA": [
-41.601,
--93.609
-],
-"Detroit, MI": [
-42.331,
--83.046
-],
-"Downers Grove, IL": [
-41.809,
--88.011
-],
+"Distributed": null,
+"Distributed; Hybrid": null,
+"District of Columbia, USA, Remote; Maryland, USA, Remote; Virginia, USA, Remote": null,
 "Dubai": [
-25.077,
-55.309
-],
-"Dubai, United Arab Emirates": [
 25.077,
 55.309
 ],
@@ -520,257 +393,101 @@
 53.333,
 -6.249
 ],
-"Dublin 2, Ireland": null,
 "Dublin, , Ireland": [
 53.333,
 -6.249
 ],
-"Dublin, County Dublin, Ireland": null,
+"Dublin, IE": [
+53.333,
+-6.249
+],
 "Dublin, Ireland": [
 53.333,
 -6.249
 ],
+"Dublin, Ireland; London, United Kingdom": null,
 "Dublin, London": null,
-"Duluth, GA": [
-34.003,
--84.145
+"Düsseldorf, , Germany": [
+51.223,
+6.779
 ],
-"Duluth, MN": [
-46.783,
--92.107
+"ES - Barcelona": null,
+"FR - Paris": null,
+"Fairfield, CT, United States": null,
+"Finland": [
+64.0,
+26.0
 ],
-"Durham, NC": [
-35.994,
--78.899
-],
-"EG - Cairo, Egypt": null,
-"ES - Madrid, Spain": null,
-"Edinburgh, Scotland": [
-55.952,
--3.196
-],
-"Evansville, IN": [
-37.975,
--87.556
-],
-"FL - Coral Gables": null,
-"FL - Fort Lauderdale": null,
-"FL - Jacksonville (32256)": null,
-"FL - Orlando (32801)": null,
-"FLUSHING, NY": [
-40.765,
--73.817
-],
-"FORT MYERS, FL": [
-26.622,
--81.841
-],
-"FR - Paris, France": null,
-"FREDERICKSBURG, VA": [
-38.303,
--77.461
-],
-"Fairlawn, OH": [
-41.128,
--81.61
-],
-"Farmington Hills, MI": [
-42.485,
--83.377
-],
-"Fayetteville, NC": [
-35.053,
--78.878
-],
-"Firstside Center Bldg PA373": null,
-"Florence, KY": [
-38.999,
--84.627
-],
-"Fort Lauderdale, FL": [
-26.122,
--80.143
-],
-"Fort Lauderdale, FL - Ft Lauderdale Office": null,
-"Fort Myers, FL": [
-26.622,
--81.841
-],
-"Fort Worth, TX": [
-32.725,
--97.321
-],
-"Frankfurt": [
-50.116,
-8.684
-],
+"Frankfurt am Main, HESSEN, Germany": null,
 "Frankfurt, , Germany": [
 50.116,
 8.684
-],
-"Frankfurt, Germany": [
-50.116,
-8.684
-],
-"Fresno, CA": [
-36.748,
--119.772
-],
-"Frisco, TX": [
-33.151,
--96.824
-],
-"Ft Lauderdale, FL": null,
-"GA - Atlanta (30309)": null,
-"GA - Atlanta 30309": null,
-"GA Atlanta": null,
-"GA-Atlanta": null,
-"GB - Basingstoke, United Kingdom": null,
-"GB - London, United Kingdom": null,
-"GREEN BAY, WI": [
-44.519,
--88.02
-],
-"Gainesville, FL": [
-29.652,
--82.325
-],
-"Gainesville, GA": [
-34.298,
--83.824
-],
-"Galway, Ireland": [
-53.272,
--9.051
-],
-"Garland, TX": [
-32.913,
--96.639
-],
-"Gdansk Poland": null,
-"Gdansk, Poland": [
-54.352,
-18.649
 ],
 "Germany": [
 51.5,
 10.5
 ],
-"Goldsboro, NC": [
-35.385,
--77.993
+"Glendale, CA, United States": [
+34.143,
+-118.255
 ],
-"Grand Rapids, MI": [
-42.963,
--85.668
+"Great Neck, NY, United States": [
+40.801,
+-73.728
 ],
-"Greensboro, NC": [
-36.073,
--79.792
-],
-"Greenville, SC": [
-34.853,
--82.394
-],
-"Greenwich, CT": [
+"Greenwich, CT, United States": [
 41.026,
 -73.628
 ],
-"Greenwood Village, CO": [
-39.617,
--104.951
-],
-"Gresham, OR": [
-45.498,
--122.431
+"Guangzhou, China": [
+23.117,
+113.25
 ],
 "Gurgaon, , India": [
 19.342,
 77.268
 ],
-"Gurgaon, India": [
-19.342,
-77.268
+"Gurugram": [
+28.46,
+77.026
 ],
 "Gurugram, India": [
 28.46,
 77.026
 ],
-"HINJEWADI PUNE": null,
-"HK - Hong Kong, China": null,
-"HOUSTON, TX": [
-29.763,
--95.363
-],
-"Hangzhou": [
-30.294,
-120.161
-],
-"Hangzhou, China": [
-30.294,
-120.161
-],
-"Hanoi, Vietnam": [
-21.024,
-105.841
-],
-"Harrisburg, PA": [
-40.274,
--76.884
-],
-"Hato Rey": null,
-"Hattiesburg, MS - Loan Operations Center": null,
-"Henderson, NV": [
-36.04,
--114.982
+"HK - Hong Kong SAR": null,
+"Hawthorne, CA, United States": [
+33.916,
+-118.353
 ],
 "Heredia, Heredia, Costa Rica": null,
-"Hollywood, FL": [
-26.011,
--80.149
-],
-"Home Location KS KSH01": null,
-"Home Location PA PAH01": null,
+"Herzliya, Tel Aviv District, Israel": null,
 "Hong Kong": [
 22.278,
 114.175
 ],
-"Hong Kong, China": null,
-"Hong Kong, Hong Kong": null,
 "Honolulu, HI": [
 21.307,
 -157.858
-],
-"Hoover AL - Riverchase North Building Birmingham AL": null,
-"Hoover AL - Riverchase Operations Center Birmingham AL": null,
-"Hoover, AL - Riverchase North Building (Birmingham, AL)": null,
-"Hoover, AL - Riverchase Operations Center (Birmingham, AL)": null,
-"Hopkins, MN": [
-44.925,
--93.463
 ],
 "Houston, TX": [
 29.763,
 -95.363
 ],
-"Houston, TX - Regions Houston Headquarters Office": null,
-"Hunt Valley, MD": [
-39.5,
--76.641
+"Houston, TX, United States": [
+29.763,
+-95.363
 ],
-"Huntsville, AL": [
-34.73,
--86.586
+"Huntington Beach, CA, United States": [
+33.66,
+-117.999
 ],
+"Hybrid": null,
 "Hybrid - Luxembourg": null,
 "Hybrid - New York, NY": null,
 "Hybrid - San Francisco, CA": null,
-"Hyderabad India": null,
+"Hybrid; In-Office": null,
 "Hyderabad, , India": [
-17.384,
-78.456
-],
-"Hyderabad, India": [
 17.384,
 78.456
 ],
@@ -778,183 +495,77 @@
 17.384,
 78.456
 ],
-"ID - Jakarta, Indonesia": null,
-"IL - Itasca": null,
-"IL Chicago": null,
-"IL-Chicago": null,
-"IN - Bengaluru, India": null,
-"IN - Mumbai, India": null,
-"IN-Jeffersonville": null,
-"IRVINE, CA": [
+"IL - Tel Aviv": null,
+"IN - Bangalore": null,
+"In-Office": null,
+"India": [
+22.0,
+79.0
+],
+"Ireland": [
+53.0,
+-8.0
+],
+"Irvine, CA, United States": [
 33.669,
 -117.823
 ],
-"IRVING, TX": [
-32.814,
--96.949
+"Israel": [
+31.5,
+34.75
 ],
-"ISELIN, NJ": [
-40.575,
--74.322
+"JP - Tokyo": null,
+"Japan": [
+35.685,
+139.753
 ],
-"Indianapolis, IN": [
-39.768,
--86.158
-],
-"Irvine, CA": [
-33.669,
--117.823
-],
-"Irving, TX": [
-32.814,
--96.949
-],
-"Iselin, NJ": [
-40.575,
--74.322
-],
-"JACKSONVILLE, FL": [
-30.332,
--81.656
-],
-"JP - Tokyo, Japan": null,
-"Jacksonville, FL": [
-30.332,
--81.656
-],
-"Jakarta": [
--6.215,
-106.845
-],
-"Jakarta, Indonesia (6th Floor)": null,
-"Jasper, IN": [
-38.391,
--86.931
-],
-"Jersey City, NJ": [
-40.728,
--74.078
-],
-"Johnson City, TN": [
-36.313,
--82.353
-],
-"KATY, TX": [
-29.786,
--95.824
-],
-"KR - Seoul, South Korea": null,
-"KS Lenexa": null,
-"KY - Louisville (40202)": null,
-"KZ - Almaty, Kazakhstan": null,
-"Kansas City, MO": [
-39.1,
--94.579
-],
-"Kansas City, Missouri": [
-39.1,
--94.579
-],
-"Kilkenny, Ireland": [
-52.654,
--7.252
-],
-"Kingwood Annex": null,
+"KR - Seoul": null,
 "Kirkland, Washington, United States": [
 47.681,
 -122.209
-],
-"Knoxville, TN": [
-35.961,
--83.921
-],
-"Krakow Poland": null,
-"Krakow, Poland": [
-50.061,
-19.937
-],
-"Kuala Lumpur": [
-3.141,
-101.687
 ],
 "Kuala Lumpur, , Malaysia": [
 3.141,
 101.687
 ],
-"Kuala Lumpur, Malaysia": [
-3.141,
-101.687
-],
-"LAKE OSWEGO, OR": [
-45.421,
--122.671
-],
-"LAS VEGAS, NV": [
-36.175,
--115.137
-],
 "LOCATION": [
 33.327,
 -84.636
 ],
-"LOS ANGELES, CA": [
-34.052,
--118.244
-],
-"Lake Forest, IL": [
-42.259,
--87.841
-],
-"Lakeland, FL": [
-28.039,
--81.95
-],
-"Las Vegas, NV": [
-36.175,
--115.137
-],
-"Laurel, MD": [
-39.099,
--76.848
-],
-"Lexington, KY": [
-37.989,
--84.478
-],
-"Limerick, Ireland": [
-52.665,
--8.623
-],
-"Lisbon, Portugal": [
-38.725,
--9.15
-],
+"LT - Vilnius": null,
 "London": [
 51.509,
 -0.126
 ],
-"London Eng": null,
-"London England": null,
 "London Office": null,
 "London, , United Kingdom": [
 51.509,
 -0.126
 ],
-"London, County London, England, United Kingdom": null,
-"London, Eng": null,
+"London, ENGLAND, United Kingdom": [
+51.509,
+-0.126
+],
 "London, England": [
 51.509,
 -0.126
 ],
-"London, England (Angel Lane)": null,
+"London, England, United Kingdom": [
+51.509,
+-0.126
+],
 "London, GREATER LONDON, United Kingdom": null,
-"London, Greater London": null,
 "London, UK": null,
+"London, UK; Ontario, CAN; Remote-Friendly, United States; San Francisco, CA": null,
 "London, United Kingdom": [
 51.509,
 -0.126
 ],
-"Los Angeles, CA": [
+"Longueuil, Canada": [
+45.515,
+-73.468
+],
+"Los Angeles, CA, United States": [
 34.052,
 -118.244
 ],
@@ -962,62 +573,12 @@
 34.052,
 -118.244
 ],
-"Loughlinstown, Ireland": [
-53.244,
--6.133
-],
-"Louisville, KY": [
-38.254,
--85.759
-],
-"Lumberton, NC": [
-34.618,
--79.01
-],
 "Luxembourg": [
 49.75,
 6.167
 ],
-"Luxembourg City, Luxembourg, Luxembourg": null,
-"Luxembourg, Luxembourg": [
-49.75,
-6.167
-],
-"Lynchburg, VA": [
-37.414,
--79.142
-],
-"MEDIA, PA": [
-39.917,
--75.388
-],
-"MI - Troy (48084)": null,
-"MIAMI, FL": [
-25.774,
--80.194
-],
-"MINNEAPOLIS, MN": [
-44.98,
--93.264
-],
-"MOBILE, AL": [
-30.694,
--88.043
-],
-"MOUNT PLEASANT, SC": [
-32.794,
--79.863
-],
-"MX - Mexico City, Mexico": null,
-"MY - Kuala Lumpur, Malaysia": null,
-"Macon, GA": [
-32.841,
--83.632
-],
-"Madison, WI": [
-43.073,
--89.401
-],
+"MX - Mexico City": null,
+"MY - Kuala Lumpur": null,
 "Madrid": [
 40.416,
 -3.703
@@ -1030,31 +591,24 @@
 40.416,
 -3.703
 ],
-"Makati City": [
-14.55,
-121.033
+"Malta": [
+35.917,
+14.433
 ],
-"Malvern, PA": [
-40.036,
--75.514
-],
-"Manchester": [
-53.481,
--2.237
-],
-"Manchester, United Kingdom": [
-53.481,
--2.237
+"Mamaroneck, NY, United States": [
+40.949,
+-73.733
 ],
 "Manila, Philippines": [
 14.604,
 120.982
 ],
-"Maryville, TN": [
-35.756,
--83.97
+"Marina del Rey, CA, United States": [
+33.982,
+-118.454
 ],
-"McLean, VA": [
+"Maryland; Virginia; Washington, D.C.": null,
+"McLean, Virginia": [
 38.934,
 -77.177
 ],
@@ -1062,17 +616,9 @@
 -37.814,
 144.963
 ],
-"Melbourne, FL": [
-28.084,
--80.608
-],
 "Melbourne, Victoria, Australia": [
 -37.814,
 144.963
-],
-"Memphis, TN": [
-35.15,
--90.049
 ],
 "Menlo Park, CA": [
 37.454,
@@ -1080,10 +626,6 @@
 ],
 "Menlo Park, CA; New York, NY": null,
 "Menlo Park, CA; New York, NY; Washington, DC": null,
-"Merrimack, NH": [
-42.865,
--71.493
-],
 "Mexico": [
 23.0,
 -102.0
@@ -1096,17 +638,13 @@
 19.428,
 -99.128
 ],
-"Miami Beach, FL": [
+"Miami Beach, FL, United States": [
 25.791,
 -80.13
 ],
-"Miami, FL": [
+"Miami, FL, United States": [
 25.774,
 -80.194
-],
-"Midlothian, VA": [
-37.506,
--77.649
 ],
 "Milan, , Italy": [
 45.464,
@@ -1116,33 +654,11 @@
 45.464,
 9.19
 ],
-"Milano": [
-30.71,
--96.863
-],
-"Milwaukee, WI": [
-43.039,
--87.906
-],
-"Minato-ku, Tokyo": null,
-"Minneapolis, MN": [
-44.98,
--93.264
-],
 "Minneapolis, Minnesota, United States": [
 44.98,
 -93.264
 ],
-"Mobile, AL - RSA Tower": null,
-"Monroe, NC": [
-34.985,
--80.55
-],
-"Montgomery, AL": [
-32.367,
--86.3
-],
-"Montreal": [
+"Montreal, Canada": [
 45.509,
 -73.588
 ],
@@ -1150,15 +666,11 @@
 45.509,
 -73.588
 ],
-"Montreal, Quebec": [
-45.509,
--73.588
-],
-"Morristown, TN": [
-36.214,
--83.295
-],
 "Mountain View, CALIFORNIA, United States": [
+37.386,
+-122.084
+],
+"Mountain View, California": [
 37.386,
 -122.084
 ],
@@ -1166,7 +678,12 @@
 37.386,
 -122.084
 ],
-"Mumbai India": null,
+"Mountain View, California; San Francisco, California": null,
+"Mountain View, California; San Francisco, California; Seattle, Washington": null,
+"Mumbai": [
+19.073,
+72.883
+],
 "Mumbai, , India": [
 19.073,
 72.883
@@ -1183,51 +700,38 @@
 48.137,
 11.575
 ],
-"Murrells Inlet, SC": [
-33.551,
--79.041
-],
-"Myrtle Beach, SC": [
-33.689,
--78.887
+"Munich, Germany": [
+48.137,
+11.575
 ],
 "N/A": null,
-"NC - Charlotte (28210)": null,
-"NEW YORK, NY": [
-40.714,
--74.006
-],
-"NJ Jersey City": null,
-"NL - Amsterdam, Netherlands": null,
-"NY New York": null,
-"NY-New York": null,
-"NY7 - 50 Hudson Yards, New York": null,
+"NL - Amsterdam": null,
 "NYC-Privy": null,
-"Naperville, IL": [
-41.786,
--88.147
-],
-"Naples, FL": [
-26.142,
--81.796
-],
+"NZ - Auckland": null,
 "Nashville, TN": [
 36.166,
 -86.784
 ],
-"Nashville, TN - Music Row Branch": null,
-"Navi Mumbai, India (Finicity)": null,
-"New Orleans, LA": [
-29.955,
--90.075
+"Nashville, TN, United States": [
+36.166,
+-86.784
 ],
 "New York": [
 40.714,
 -74.006
 ],
-"New York City New York": null,
-"New York City New York United States of America": null,
+"New York City": [
+40.714,
+-74.006
+],
 "New York City Office": null,
+"New York City, NY": [
+40.714,
+-74.006
+],
+"New York City, NY; San Francisco, CA": null,
+"New York City, NY; San Francisco, CA | New York City, NY": null,
+"New York City, NY; San Francisco, CA; Seattle, WA": null,
 "New York City, New York": [
 40.714,
 -74.006
@@ -1236,11 +740,6 @@
 40.714,
 -74.006
 ],
-"New York City, New York, United States of America": [
-40.714,
--74.006
-],
-"New York New York": null,
 "New York, NEW YORK, United States": [
 40.714,
 -74.006
@@ -1250,6 +749,20 @@
 -74.006
 ],
 "New York, NY (HQ)": null,
+"New York, NY - Hybrid": null,
+"New York, NY - Hybrid; San Francisco, CA - Hybrid": null,
+"New York, NY, USA": [
+40.714,
+-74.006
+],
+"New York, NY, USA; San Francisco, CA, USA": [
+40.714,
+-74.006
+],
+"New York, NY, United States": [
+40.714,
+-74.006
+],
 "New York, NY, United States of America": [
 40.714,
 -74.006
@@ -1258,93 +771,61 @@
 40.714,
 -74.006
 ],
+"New York, New York, USA": [
+40.714,
+-74.006
+],
+"New York, New York, USA; Pittsburgh, Pennsylvania, USA": [
+40.714,
+-74.006
+],
+"New York, New York, USA; San Francisco, California, USA": [
+40.714,
+-74.006
+],
 "New York, New York, United States": [
 40.714,
 -74.006
 ],
-"Newport Beach, CA": [
+"New York; San Francisco": null,
+"Newport Beach, CA, United States": [
 33.619,
 -117.929
 ],
-"Norfolk, VA": [
-36.847,
--76.285
+"Newton, MA, United States": [
+42.337,
+-71.209
 ],
 "North Sydney, NSW, Australia": null,
-"Nottingham Eng": null,
+"Northeast - United States": null,
 "Nottingham, , United Kingdom": [
 52.954,
 -1.15
-],
-"Nottingham, Eng": null,
-"O'Fallon, Missouri": [
-38.811,
--90.7
-],
-"OH - Cincinnati (45202)": null,
-"OH - Cleveland (44114)": null,
-"OH - Cleveland 44114": null,
-"OMAHA, NE": [
-41.256,
--95.94
-],
-"ORLANDO, FL": [
-28.538,
--81.379
-],
-"Omaha, NE": [
-41.256,
--95.94
-],
-"Orland Park, IL": [
-41.63,
--87.854
-],
-"Orlando, FL": [
-28.538,
--81.379
 ],
 "Orlando, Florida, United States": [
 28.538,
 -81.379
 ],
-"Overland Park, KS": [
-38.982,
--94.671
+"Palm Beach, FL, United States": [
+26.706,
+-80.036
 ],
-"Owensboro, KY": [
-37.774,
--87.113
-],
-"PA - Erie (16501)": null,
-"PA - Philadelphia (19103)": null,
-"PA - Pittsburgh": null,
-"PA - Pittsburgh (15219)": null,
-"PA - Pittsburgh (15222)": null,
-"PA - Pittsburgh 15219": null,
-"PA - Pittsburgh 15222": null,
-"PARK CITY, UT": [
-40.646,
--111.498
-],
-"PH - Makati, Philippines": null,
-"PH - Pasay, Philippines - Manila": null,
-"PHILADELPHIA, PA": [
-39.952,
--75.164
-],
-"PHOENIX, AZ": [
-33.448,
--112.074
-],
-"PL - Warsaw, Poland": null,
-"PORTLAND, OR": [
-45.523,
--122.676
+"Palo Alto": [
+37.442,
+-122.143
 ],
 "Palo Alto, CA": [
 37.442,
 -122.143
+],
+"Palo Alto, CA (Open to US-based Remote)": null,
+"Palo Alto, CA, United States": [
+37.442,
+-122.143
+],
+"Paramus, NJ, United States": [
+40.945,
+-74.075
 ],
 "Paris": [
 48.853,
@@ -1354,223 +835,82 @@
 48.853,
 2.349
 ],
+"Pasadena, CA, United States": [
+34.148,
+-118.145
+],
 "Petah Tikva, , Israel": [
 32.089,
 34.887
 ],
-"Philadelphia, PA": [
+"Philadelphia, PA, United States": [
 39.952,
 -75.164
 ],
-"Philippines, Manila": null,
-"Phoenix, AZ": [
-33.448,
--112.074
+"Philadelphia, Pennsylvania": [
+39.952,
+-75.164
 ],
 "Phoenix, Arizona, United States": [
 33.448,
 -112.074
 ],
-"Pineville, NC": [
-35.083,
--80.892
-],
-"Pittsburgh, PA": [
-40.441,
--79.996
-],
-"Plano, TX": [
+"Plano, TX, United States": [
 33.02,
 -96.699
 ],
-"Portland, OR": [
-45.523,
--122.676
-],
-"Princeton New Jersey": null,
-"Princeton, NJ": [
-40.349,
--74.659
-],
-"Princeton, New Jersey": [
-40.349,
--74.659
-],
-"Pune India": null,
-"Pune, India": [
-18.52,
-73.855
-],
-"Purchase New York": null,
-"Purchase, New York": [
-41.041,
--73.715
-],
-"Quincy Massachusetts": null,
-"Quincy, Massachusetts": [
-42.253,
--71.002
-],
-"RALEIGH, NC": [
-35.772,
--78.639
-],
-"RENO, NV": [
-39.53,
--119.814
-],
-"RICHMOND, VA": [
-37.554,
--77.46
-],
-"ROANOKE, VA": [
-37.271,
--79.941
-],
-"ROCHESTER, MN": [
-44.022,
--92.47
-],
-"ROSENBERG, TX": [
-29.557,
--95.809
-],
-"Raleigh, NC": [
-35.772,
--78.639
-],
-"Reading, PA": [
-40.336,
--75.927
-],
-"Redding, CA": [
-40.587,
--122.392
+"Poland": [
+52.0,
+20.0
 ],
 "Remote": null,
+"Remote (Canada)": null,
 "Remote (US)": null,
 "Remote - Brazil": null,
+"Remote - California": null,
+"Remote - California; San Francisco, California": null,
 "Remote - Canada": null,
+"Remote - Denmark": null,
 "Remote - India": null,
-"Remote - National": null,
+"Remote - New York": null,
 "Remote - Singapore": null,
+"Remote - Texas": null,
 "Remote - UAE": null,
 "Remote - UK": null,
+"Remote - US": null,
 "Remote - USA": null,
+"Remote - Virginia; Remote - Washington D.C.": null,
+"Remote - Washington D.C.": null,
 "Remote Canada": null,
 "Remote Poland": null,
 "Remote Spain": null,
 "Remote UK": null,
 "Remote US": null,
 "Remote United States": null,
-"Remote, CA": null,
-"Reynoldsburg, OH": [
-39.955,
--82.812
-],
-"Richmond, VA": [
-37.554,
--77.46
-],
-"Riverwoods, IL": [
-42.168,
--87.897
-],
+"Remote, US": null,
+"Remote, USA": null,
+"Remote, United States": null,
+"Remote-Friendly (Travel Required) | San Francisco, CA": null,
+"Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY": null,
+"Remote-Friendly, United States": null,
 "Riyadh, , Saudi Arabia": [
 24.688,
 46.722
 ],
-"Riyadh, Saudi Arabia": [
-24.688,
-46.722
-],
-"Roanoke, VA": [
-37.271,
--79.941
-],
-"Rosemont, IL": [
-41.995,
--87.885
-],
-"Roseville, MI": [
-42.497,
--82.937
-],
-"SA - Riyadh, Saudi Arabia": null,
-"SAINT LOUIS, MO": null,
-"SALT LAKE CITY, UT": [
-40.761,
--111.891
-],
-"SAN ANTONIO, TX": [
-29.424,
--98.494
-],
-"SAN DIEGO, CA": [
-32.716,
--117.165
-],
-"SAN FRANCISCO, CA": [
-37.775,
--122.419
-],
-"SAN JOSE, CA": [
-37.339,
--121.895
-],
-"SANTA CLARA, CA": [
-37.354,
--121.955
-],
-"SANTA FE, NM": [
-35.687,
--105.938
-],
-"SARASOTA, FL": [
-27.336,
--82.531
+"Roslyn, NY, United States": [
+40.8,
+-73.651
 ],
 "SG - Singapore": null,
-"SPRING, TX": [
-30.08,
--95.417
-],
 "Sacramento, CA": [
 38.582,
 -121.494
 ],
-"Sacramento, California": [
-38.582,
--121.494
-],
-"Saint Joseph, MO": [
-39.769,
--94.847
-],
-"Saint Louis, MO": null,
-"Saint Paul, MN": [
-44.944,
--93.093
-],
-"Saint Peter Port, Guernsey": null,
-"Saint Petersburg, FL": [
-27.725,
--82.741
-],
-"Salem, OR": [
-44.943,
--123.035
-],
-"Salt Lake City UT LOB": null,
-"Salt Lake City, UT": [
+"Salt Lake City, Utah, United States": [
 40.761,
 -111.891
 ],
-"San Antonio, TX": [
-29.424,
--98.494
-],
-"San Diego, CA": [
+"San Diego, CA, United States": [
 32.716,
 -117.165
 ],
@@ -1591,7 +931,29 @@
 37.775,
 -122.419
 ],
+"San Francisco, CA - Hybrid": null,
+"San Francisco, CA | New York City, NY": null,
+"San Francisco, CA | New York City, NY | Seattle, WA": null,
+"San Francisco, CA | New York City, NY | Washington, DC": null,
+"San Francisco, CA | Seattle, WA": null,
+"San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC": null,
+"San Francisco, CA, USA": [
+37.775,
+-122.419
+],
+"San Francisco, CA, United States": [
+37.775,
+-122.419
+],
 "San Francisco, CALIFORNIA, United States": [
+37.775,
+-122.419
+],
+"San Francisco, California": [
+37.775,
+-122.419
+],
+"San Francisco, California, USA": [
 37.775,
 -122.419
 ],
@@ -1599,16 +961,25 @@
 37.775,
 -122.419
 ],
+"San Francisco, California; Seattle, Washington": null,
+"San Francisco, California; United States": null,
 "San Francisco, New York, Seattle, Chicago, Atlanta, Remote in the US": null,
 "San Francisco, Seattle, New York": null,
-"San Jose California United States of America": null,
-"San Jose, CA": [
-37.339,
--121.895
+"San Francisco, United States": [
+37.775,
+-122.419
 ],
-"San Jose, California, United States of America": [
-37.339,
--121.895
+"San Mateo, CA, United States": [
+37.563,
+-122.326
+],
+"San Ramon, CA, United States": [
+37.78,
+-121.978
+],
+"Sandy, UT": [
+40.592,
+-111.884
 ],
 "Santa Clara, CALIFORNIA, United States": [
 37.354,
@@ -1618,46 +989,21 @@
 37.354,
 -121.955
 ],
-"Santa Fe, NM": [
-35.687,
--105.938
+"Santa Monica, CA, United States": [
+34.019,
+-118.491
 ],
-"Santiago, Chile": [
--33.457,
--70.648
-],
-"Santo Domingo, Dominican Republic": [
-18.472,
--69.892
-],
-"Sao Paulo": [
--23.547,
--46.636
+"Sao Jose dos Campos": [
+-23.179,
+-45.887
 ],
 "Sao Paulo, Brazil": [
 -23.547,
 -46.636
 ],
-"Sarasota, FL": [
-27.336,
--82.531
-],
-"Savannah, GA": [
-32.084,
--81.1
-],
-"Schaumburg, IL": [
-42.033,
--88.083
-],
-"Scottsdale Arizona United States of America": null,
-"Scottsdale, AZ": [
-33.509,
--111.899
-],
-"Scottsdale, Arizona, United States of America": [
-33.509,
--111.899
+"Scarsdale, NY, United States": [
+41.005,
+-73.785
 ],
 "Seattle": [
 47.606,
@@ -1668,33 +1014,48 @@
 47.606,
 -122.332
 ],
+"Seattle, WA, United States": [
+47.606,
+-122.332
+],
 "Seattle, WA, United States of America": [
 47.606,
 -122.332
 ],
+"Seattle, Washington": [
+47.606,
+-122.332
+],
+"Seattle, Washington, United States": [
+47.606,
+-122.332
+],
+"Seoul": [
+37.566,
+126.978
+],
 "Seoul, , Korea, republic of": null,
-"Seoul, Korea": null,
 "Seoul, South Korea": [
 37.566,
 126.978
+],
+"Seoul, South Korea; Sydney, Australia; Tokyo, Japan": null,
+"Shanghai": [
+31.222,
+121.458
 ],
 "Shanghai, China": [
 31.222,
 121.458
 ],
-"Shelby, MI": [
-42.671,
--83.033
-],
-"Silver Spring, MD": [
-38.991,
--77.026
+"Shenzhen, China": [
+22.546,
+114.068
 ],
 "Singapore": [
 1.29,
 103.85
 ],
-"Singapore Singapore": null,
 "Singapore, , Singapore": [
 1.29,
 103.85
@@ -1707,37 +1068,22 @@
 1.29,
 103.85
 ],
-"Sioux Falls, SD": [
-43.544,
--96.728
-],
-"Smithfield, RI": [
-41.922,
--71.55
-],
 "Sofia, , Bulgaria": [
 42.698,
 23.324
 ],
-"Spartanburg, SC": [
-34.95,
--81.932
-],
-"Spokane, WA": [
-47.66,
--117.429
-],
-"St. Petersburg, FL": [
-27.771,
--82.679
+"Sofia, Sofia City Province, Bulgaria": null,
+"South San Francisco, CA": [
+37.655,
+-122.408
 ],
 "Staines, , United Kingdom": [
 51.431,
 -0.506
 ],
-"Sterling Heights, MI": [
-42.58,
--83.03
+"Stamford, CT": [
+41.053,
+-73.539
 ],
 "Stockholm": [
 59.329,
@@ -1747,16 +1093,18 @@
 59.329,
 18.069
 ],
-"Sugar Land, TX": [
-29.62,
--95.635
+"Stockholm, Sweden": [
+59.329,
+18.069
 ],
-"Sumida-ku": null,
+"Summit, NJ, United States": [
+40.716,
+-74.365
+],
 "Sydney": [
 -33.868,
 151.207
 ],
-"Sydney Australia": null,
 "Sydney Or Melbourne": null,
 "Sydney, , Australia": [
 -33.868,
@@ -1776,59 +1124,49 @@
 -47.891
 ],
 "São Carlos, SP, Brazil": null,
+"São Paulo": [
+-23.547,
+-46.636
+],
 "São Paulo, , Brazil": [
 -23.547,
 -46.636
 ],
+"São Paulo, Brazil": [
+-23.547,
+-46.636
+],
 "São Paulo, SP, Brazil": null,
-"TAGUIG CITY, 00": null,
-"TEMPE, AZ": [
-33.415,
--111.909
+"São Paulo, São Paulo, Brazil": [
+-23.547,
+-46.636
 ],
-"TH - Bangkok, Thailand": null,
-"TUCSON, AZ": [
-32.222,
--110.926
-],
-"TW - Taipei, Taiwan": null,
-"TX - Dallas (75201)": null,
-"TX - Dallas 75201": null,
-"TX - Houston (77056)": null,
-"TX - Houston 77056": null,
-"TX - Richardson": null,
-"TX-Houston": null,
-"Tacoma, WA": [
-47.253,
--122.444
-],
-"Taguig City, Philippines": null,
-"Taipei, Taiwan": [
+"Taipei": [
 25.053,
 121.526
 ],
-"Tampa, FL": [
-27.948,
--82.458
+"Taiwan": [
+24.0,
+121.0
+],
+"Tel Aviv": [
+32.081,
+34.781
 ],
 "Tel Aviv, , Israel": [
 32.081,
 34.781
 ],
+"Tel Aviv, Israel": [
+32.081,
+34.781
+],
 "Tel Aviv-Yafo, Tel Aviv District, Israel": null,
-"Tempe, AZ": [
-33.415,
--111.909
-],
-"Texas": [
-20.026,
--99.196
-],
+"Texas, USA, Remote": null,
 "Tokyo": [
 35.69,
 139.692
 ],
-"Tokyo Japan": null,
 "Tokyo, , Japan": [
 35.69,
 139.692
@@ -1836,11 +1174,6 @@
 "Tokyo, Japan": [
 35.69,
 139.692
-],
-"Tokyo, Tokyo Prefecture, Japan": null,
-"Toledo, OH": [
-41.664,
--83.555
 ],
 "Toronto": [
 43.706,
@@ -1850,43 +1183,38 @@
 43.706,
 -79.399
 ],
-"Toronto, Canada (Ethoca)": null,
 "Toronto, ON": null,
-"Toronto, Ontario": [
-43.706,
--79.399
-],
+"Toronto, ON, Canada": null,
 "Toronto, Ontario, Canada": [
 43.706,
 -79.399
 ],
-"Torrance, CA": [
-33.836,
--118.341
+"Tysons, VA, United States": [
+38.919,
+-77.231
 ],
-"UA - Kyiv, Ukraine": null,
+"UK - Birmingham": null,
+"UK - London": null,
 "US": [
 49.1,
 1.967
 ],
-"US - Ashburn VA": null,
-"US - Ashburn, VA": null,
-"US - Atlanta GA": null,
-"US - Atlanta, GA": null,
-"US - Austin TX": null,
-"US - Austin, TX": null,
-"US - Bellevue, WA": null,
-"US - Denver, CO": null,
-"US - Foster City CA": null,
-"US - Foster City, CA": null,
-"US - Miami, FL": null,
-"US - New York, NY": null,
-"US - San Francisco CA": null,
-"US - San Francisco, CA": null,
-"US - Washington, DC": null,
+"US - Dallas": null,
+"US - New York": null,
+"US - Remote": null,
+"US - San Francisco": null,
+"US - Seattle": null,
 "US / Canada": null,
 "US Remote": null,
 "US-Remote": null,
+"USA": [
+38.674,
+29.406
+],
+"United Kingdom": [
+54.758,
+-2.695
+],
 "United States": [
 39.76,
 -98.5
@@ -1895,27 +1223,15 @@
 39.76,
 -98.5
 ],
-"Utah, United States of America (Virtual)": null,
-"VIRGINIA BEACH, VA": [
-36.853,
--75.978
-],
-"VN - Hanoi, Vietnam": null,
-"Vancouver, Canada": [
+"VN - Ho Chi Minh City": null,
+"Vancouver, BC, Canada": null,
+"Vancouver, British Columbia, Canada": [
 49.25,
 -123.119
 ],
-"Vancouver, WA": [
-45.639,
--122.661
-],
-"Venice, FL": [
-27.1,
--82.454
-],
-"Vestavia Hills, AL": [
-33.449,
--86.788
+"Vancouver, Canada": [
+49.25,
+-123.119
 ],
 "Vienna, VIRGINIA, United States": [
 38.901,
@@ -1925,43 +1241,32 @@
 38.901,
 -77.265
 ],
-"Vineland, NJ": [
-39.486,
--75.026
-],
-"Virtual": null,
-"WEST DES MOINES, IA": [
-41.577,
--93.711
-],
-"WEST PALM BEACH, FL": [
-26.715,
--80.053
-],
-"WILMINGTON, DE": [
-39.746,
--75.547
-],
-"WIS NE Remote Omaha": null,
-"Walla Walla, WA": [
-46.065,
--118.343
+"Virginia": [
+36.853,
+-75.978
 ],
 "Waltham, Massachusetts, United States": [
 42.376,
 -71.236
 ],
-"Wanchai, Hong Kong": null,
-"Warrington, PA": [
-40.249,
--75.134
+"Warsaw": [
+52.23,
+21.012
 ],
 "Warsaw, Poland": [
 52.23,
 21.012
 ],
+"Washington D.C.": [
+38.895,
+-77.036
+],
 "Washington, D.C.": null,
 "Washington, DC": [
+38.895,
+-77.036
+],
+"Washington, DC, United States": [
 38.895,
 -77.036
 ],
@@ -1969,19 +1274,12 @@
 38.895,
 -77.036
 ],
-"Wayne, PA": [
-40.044,
--75.388
+"West Coast - United States": null,
+"West Hollywood, CA, United States": [
+34.09,
+-118.362
 ],
-"Wesley Chapel, FL": [
-28.24,
--82.328
-],
-"West Chester, OH": [
-39.332,
--84.407
-],
-"West Palm Beach, FL": [
+"West Palm Beach, FL, United States": [
 26.715,
 -80.053
 ],
@@ -1989,60 +1287,35 @@
 26.715,
 -80.053
 ],
-"Westerville, OH": [
-40.126,
--82.929
-],
-"Westlake, OH": [
-41.455,
--81.918
+"Westlake Village, CA, United States": [
+34.146,
+-118.806
 ],
 "Westlake, TX": [
 32.991,
 -97.195
 ],
+"Westwood, CA, United States": [
+40.306,
+-121.006
+],
 "Wien, , Austria": [
 48.508,
 14.723
 ],
-"Wilmington, DE": [
-39.746,
--75.547
-],
-"Wilmington, NC": [
-34.236,
--77.946
-],
-"Wilson, NC": [
-35.721,
--77.916
-],
-"Winston Salem, NC": [
-36.1,
--80.244
-],
-"Winston-Salem, NC": [
-36.1,
--80.244
-],
-"Winter Park, FL": [
-28.6,
--81.339
-],
-"Wixom, MI": [
-42.525,
--83.536
-],
-"Work From Home": null,
-"Worthington, OH": [
-40.093,
--83.018
-],
-"Yakima, WA": [
-46.602,
--120.506
+"Woodbury, NY, United States": [
+40.826,
+-73.468
 ],
 "Zurich, , Switzerland": [
+47.367,
+8.55
+],
+"Zürich, CH": [
+47.367,
+8.55
+],
+"Zürich, Switzerland": [
 47.367,
 8.55
 ]
