@@ -1,5 +1,5 @@
 /* Service worker: online, always ask the network; offline, serve the last copy. */
-const CACHE = "jobwatcher-v3";
+const CACHE = "jobwatcher-v4";
 const SHELL = [
   "./",
   "index.html",
@@ -27,7 +27,7 @@ self.addEventListener("install", (event) => {
         cache
           .addAll(SHELL)
           // map coordinates are an extra: a missing file must not stop the install
-          .then(() => cache.add("data/geo.json").catch(() => {}))
+          .then(() => Promise.all(["data/geo.json", "data/details.csv", "skills.json"].map((f) => cache.add(f).catch(() => {}))))
       )
       .then(() => self.skipWaiting())
   );

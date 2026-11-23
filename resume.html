@@ -76,9 +76,11 @@
 
       <section class="card" aria-labelledby="gap-h">
         <h2 id="gap-h">What the postings ask for</h2>
-        <p class="hint">Topics named in the titles being compared, and whether your resume covers them.</p>
-        <h3>Not found in your resume</h3><ul class="chips gap" id="gaps"></ul>
-        <h3>Covered</h3><ul class="chips" id="strengths"></ul>
+        <p class="hint">Skills come from the posting descriptions (counted in how many of the compared postings each appears); topics come from the titles.</p>
+        <h3>Skills the postings name that your resume does not</h3><ul class="chips gap" id="skill-gaps"></ul>
+        <h3>Skills the postings name that your resume has</h3><ul class="chips" id="skill-strengths"></ul>
+        <h3>Topics in the titles that your resume does not cover</h3><ul class="chips gap" id="gaps"></ul>
+        <h3>Topics in the titles that your resume covers</h3><ul class="chips" id="strengths"></ul>
       </section>
 
       <section class="card" aria-labelledby="chk-h">
@@ -87,7 +89,7 @@
       </section>
     </div>
 
-    <p class="hint">How it works: the history has each posting's title, employer and location but not its job description, so a posting is matched on its title. The score (0 to 100) adds up topic overlap (45), whether the title is in my role (20), how well the title's level fits yours (25) and whether it was posted this past week (10). Treat it as a way to sort postings, not a verdict.</p>
+    <p class="hint">How it works: while fetching, the pipeline reads each job description once and keeps only the skills it names, the years of experience it asks for and any pay (the long text is not kept), so postings are matched on those and on the title. The score (0 to 100) adds up skills the description names that your resume has (30), topic overlap with the title (20), whether the title is in my role (15), how well the level fits yours (25, halved if the posting asks for more years than you have) and whether it was first seen this past week (10). Postings whose board gives no description are scored on the title alone (topic 45, role 20). Treat it as a way to sort postings, not a verdict.</p>
   </main>
 
   <script src="app.js"></script>
@@ -96,7 +98,7 @@
     JW.renderNav("resume.html");
     JW.watchConnection();
     var $ = function (id) { return document.getElementById(id); };
-    var KEY = "jobwatcher.resume", scopeRole = true, data = null;
+    var KEY = "jobwatcher.resume", scopeRole = true, data = null, skillList = [];
 
     JWResume.LEVELS.forEach(function (l) {
       $("level").insertAdjacentHTML("beforeend", '<option value="' + l + '">' + JWResume.LEVEL_LABEL[l] + "</option>");
@@ -126,7 +128,7 @@
       var pool = data.open.filter(function (r) {
         return (!scopeRole || r.in_role) && (!loc || r.location.toLowerCase().indexOf(loc) !== -1);
       });
-      var result = JWResume.analyze(text, pool, { level: $("level").value || undefined, today: data.runDate, limit: 25 });
+      var result = JWResume.analyze(text, pool, { level: $("level").value || undefined, today: data.runDate, limit: 25, skills: skillList });
 
       $("results").hidden = false;
       $("level-line").textContent = "Treated as: " + JWResume.LEVEL_LABEL[result.profile.level] +
@@ -140,17 +142,25 @@
       $("matches").innerHTML = result.matches.length ? result.matches.map(function (m) {
         var p = m.posting, on = saved.indexOf(p.posting_id) !== -1;
         var matchedLabels = result.topics.filter(function (t) { return m.matched.indexOf(t.id) !== -1; }).map(function (t) { return t.label; });
-        var line = [matchedLabels.length ? "Matches: " + matchedLabels.join(", ") : "No topic match in the title",
-                    "level: " + m.level].join(" · ");
+        var names = result.skillNames;
+        var line = [matchedLabels.length ? "Title matches: " + matchedLabels.join(", ") : "No topic match in the title",
+                    "level: " + m.level + (m.tooSenior ? " (asks for " + p.min_years + "+ years)" : "")].join(" \u00b7 ");
+        var skillLine = (m.skillsMatched.length ? "Your skills it names: " + m.skillsMatched.map(function (id) { return names[id] || id; }).join(", ") : "") +
+          (m.skillsMissing.length ? (m.skillsMatched.length ? " \u00b7 " : "") + "Missing: " + m.skillsMissing.slice(0, 4).map(function (id) { return names[id] || id; }).join(", ") : "");
+        var pay = JW.formatPay(p);
         return '<div class="job"><button type="button" class="star" data-id="' + JW.esc(p.posting_id) + '" aria-pressed="' + on +
           '" aria-label="' + (on ? "Remove from shortlist: " : "Add to shortlist: ") + JW.esc(p.title) + '">' + (on ? "★" : "☆") + "</button>" +
           '<div><div class="title"><span class="score" aria-label="Match score">' + m.score + "</span> " + JW.esc(p.title) +
           (p.in_role ? ' <span class="badge role">my role</span>' : "") + "</div>" +
           '<div class="meta">' + JW.esc([p.employer, p.location].filter(Boolean).join(" · ")) + "</div>" +
-          '<div class="meta">' + JW.esc(line) + "</div></div>" +
+          '<div class="meta">' + JW.esc(line) + "</div>" +
+          (skillLine ? '<div class="meta">' + JW.esc(skillLine) + "</div>" : "") +
+          (pay ? '<div class="meta">Pay: ' + JW.esc(pay) + "</div>" : "") + "</div>" +
           '<a class="apply" href="' + JW.esc(p.url) + '" target="_blank" rel="noopener">Apply</a></div>';
       }).join("") : '<p class="empty">No open postings match those filters.</p>';
 
+      chips($("skill-gaps"), result.skillGaps.map(function (g) { return g.label + " (" + g.count + ")"; }), "No skills data for these postings yet.");
+      chips($("skill-strengths"), result.skillStrengths.map(function (g) { return g.label + " (" + g.count + ")"; }), "None of the skills these postings name appear in your resume.");
       chips($("gaps"), result.gaps.map(function (g) { return g.label + " (" + g.count + (g.count === 1 ? " title)" : " titles)"); }), "Nothing missing among the topics in these titles.");
       chips($("strengths"), result.strengths.map(function (g) { return g.label + " (" + g.count + (g.count === 1 ? " title)" : " titles)"); }), "None of the topics in these titles appear in your resume.");
       $("checks").innerHTML = result.checks.map(function (c) {
@@ -186,7 +196,9 @@
       if (kept) { $("text").value = kept; $("remember").checked = true; }
     } catch (e) { /* storage blocked */ }
 
-    JW.loadData().then(function (d) {
+    Promise.all([JW.loadData(), JW.getSkills()]).then(function (all) {
+      var d = all[0];
+      skillList = all[1];
       d.open = d.rows.filter(function (r) { return r.status === "open"; });
       data = d;
       if ($("text").value.trim()) run();

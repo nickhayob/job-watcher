@@ -120,22 +120,49 @@
 
   function levelFit(person, title) { return FIT[person][titleLevel(title)]; }
 
-  /* Score one posting against a resume profile. Returns {score, matched, topics, level}. */
+  /* years of experience each level has, for comparing with what a posting asks for */
+  var YEARS = { student: 0, entry: 1, mid: 4, senior: 8 };
+
+  /* Skill ids from skills.json that the text names. */
+  function skillsIn(text, dictionary) {
+    return (dictionary || []).filter(function (s) { return new RegExp(s.pattern, "i").test(text); })
+      .map(function (s) { return s.id; });
+  }
+
+  /* Score one posting against a resume profile. Returns {score, matched, topics, level, skillsMatched, skillsMissing, tooSenior}.
+   * A posting whose description named skills is scored on them (30 points); one without (its board gave no
+   * description) puts those points on the title topics instead. */
   function scorePosting(posting, profile, today) {
     var topics = topicsIn(posting.title, 3);
     var matched = topics.filter(function (t) { return profile.has.indexOf(t) !== -1; });
-    var topicPart = topics.length ? (matched.length / topics.length) * 45 : 20;
-    var rolePart = posting.in_role ? 20 : 0;
+    var postingSkills = posting.skills || {}, ids = Object.keys(postingSkills);
+    var hasSkills = ids.length > 0;
+    var total = 0, got = 0;
+    ids.forEach(function (id) {
+      var w = Math.min(postingSkills[id], 3);
+      total += w;
+      if (profile.skills.indexOf(id) !== -1) got += w;
+    });
+    var topicMax = hasSkills ? 20 : 45, roleMax = hasSkills ? 15 : 20;
+    var topicPart = topics.length ? (matched.length / topics.length) * topicMax : topicMax * 0.45;
+    var skillPart = hasSkills ? (got / total) * 30 : 0;
+    var rolePart = posting.in_role ? roleMax : 0;
     var level = titleLevel(posting.title);
-    var levelPart = FIT[profile.level][level] * 25;
+    var fit = FIT[profile.level][level];
+    var tooSenior = !!(posting.min_years && posting.min_years > YEARS[profile.level] + 2);
+    if (tooSenior) fit *= 0.5;
+    var levelPart = fit * 25;
     var freshPart = 0;
     if (today && posting.first_seen) {
       var age = Math.round((Date.parse(today) - Date.parse(posting.first_seen)) / 86400000);
       if (age <= 7 && !posting.first_run) freshPart = 10;
     }
     return {
-      score: Math.round(topicPart + rolePart + levelPart + freshPart),
-      matched: matched, topics: topics, level: level,
+      score: Math.round(topicPart + skillPart + rolePart + levelPart + freshPart),
+      matched: matched, topics: topics, level: level, tooSenior: tooSenior,
+      skillsMatched: ids.filter(function (id) { return profile.skills.indexOf(id) !== -1; }),
+      skillsMissing: ids.filter(function (id) { return profile.skills.indexOf(id) === -1; })
+        .sort(function (a, b) { return postingSkills[b] - postingSkills[a]; }),
     };
   }
 
@@ -143,10 +170,11 @@
   function analyze(text, postings, opts) {
     opts = opts || {};
     var has = topicsIn(text, 2);
-    var profile = { has: has, level: opts.level || detectLevel(text) };
+    var profile = { has: has, level: opts.level || detectLevel(text), skills: skillsIn(text, opts.skills) };
     var ranked = postings.map(function (p) {
       var s = scorePosting(p, profile, opts.today);
-      return { posting: p, score: s.score, matched: s.matched, topics: s.topics, level: s.level };
+      return { posting: p, score: s.score, matched: s.matched, topics: s.topics, level: s.level,
+        tooSenior: s.tooSenior, skillsMatched: s.skillsMatched, skillsMissing: s.skillsMissing };
     }).sort(function (a, b) {
       return b.score - a.score || (a.posting.first_seen < b.posting.first_seen ? 1 : -1) || a.posting.title.localeCompare(b.posting.title);
     });
@@ -156,8 +184,19 @@
     var rows = Object.keys(demand).map(function (id) {
       return { id: id, label: labelOf(id), count: demand[id], has: has.indexOf(id) !== -1 };
     }).sort(function (a, b) { return b.count - a.count; });
+    // how many of the postings being compared name each skill, and whether the resume has it
+    var skillDemand = {};
+    postings.forEach(function (p) { Object.keys(p.skills || {}).forEach(function (id) { skillDemand[id] = (skillDemand[id] || 0) + 1; }); });
+    var names = {};
+    (opts.skills || []).forEach(function (s) { names[s.id] = s.label; });
+    var skillRows = Object.keys(skillDemand).map(function (id) {
+      return { id: id, label: names[id] || id, count: skillDemand[id], has: profile.skills.indexOf(id) !== -1 };
+    }).sort(function (a, b) { return b.count - a.count; });
     return {
       profile: profile,
+      skillNames: names,
+      skillGaps: skillRows.filter(function (r) { return !r.has; }).slice(0, 8),
+      skillStrengths: skillRows.filter(function (r) { return r.has; }).slice(0, 8),
       tools: toolsIn(text),
       topics: has.map(function (id) { return { id: id, label: labelOf(id) }; }),
       matches: ranked.slice(0, opts.limit || 25),
@@ -206,7 +245,7 @@
   }
 
   window.JWResume = {
-    analyze: analyze, detectLevel: detectLevel, titleLevel: titleLevel, checks: checks,
+    analyze: analyze, skillsIn: skillsIn, detectLevel: detectLevel, titleLevel: titleLevel, checks: checks,
     topicsIn: topicsIn, readDocx: readDocx, xmlToText: xmlToText, LEVELS: LEVELS, LEVEL_LABEL: LEVEL_LABEL,
   };
 })();

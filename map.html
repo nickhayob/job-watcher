@@ -66,7 +66,8 @@
       draw();
     }
     function browseLink(loc, role) {
-      return "browse.html?location=" + encodeURIComponent(loc) + (role ? "" : "&scope=all");
+      // Browse filters on the location text, so use the city part of an exact place
+      return "browse.html?location=" + encodeURIComponent(loc.split(",")[0]) + (role ? "" : "&scope=all");
     }
 
     function groups() {
@@ -75,10 +76,10 @@
         if (scopeRole && !r.in_role) return;
         if (emp && r.employer !== emp) return;
         total++;
-        var pos = geo[r.location];
+        var key = r.place || r.location, pos = geo[key] || geo[r.location];
         if (!pos) { unplaced++; return; }
         placed++;
-        var g = byLoc[r.location] || (byLoc[r.location] = { loc: r.location, pos: pos, rows: [], role: 0 });
+        var g = byLoc[key] || (byLoc[key] = { loc: key, pos: pos, rows: [], role: 0 });
         g.rows.push(r);
         if (r.in_role) g.role++;
       });

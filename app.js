@@ -79,11 +79,57 @@
       });
   };
 
-  /* Both data files, plus the date of the latest run. */
+  /* details.csv: pay, exact place and skills for each posting (an extra file; the page works without it) */
+  JW.getDetails = function () {
+    return fetch("data/details.csv", { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.text() : ""; })
+      .then(function (t) { return t ? JW.parseCSV(t) : []; })
+      .catch(function () { return []; });
+  };
+  JW.getSkills = function () {
+    return fetch("skills.json", { cache: "no-cache" }).then(function (r) { return r.json(); }).catch(function () { return []; });
+  };
+
+  /* "excel:2;sql:1" as {excel: 2, sql: 1} */
+  function parseSkills(text) {
+    var out = {};
+    (text || "").split(";").forEach(function (p) {
+      var kv = p.split(":");
+      if (kv[0]) out[kv[0]] = +kv[1] || 1;
+    });
+    return out;
+  }
+
+  /* All data files, plus the date of the latest run. Each row also gets the detail columns. */
   JW.loadData = function () {
-    return Promise.all([JW.getJSON("data/status.json"), JW.getHistory()]).then(function (a) {
+    return Promise.all([JW.getJSON("data/status.json"), JW.getHistory(), JW.getDetails()]).then(function (a) {
+      var byId = {};
+      a[2].forEach(function (d) { byId[d.posting_id] = d; });
+      a[1].forEach(function (r) {
+        var d = byId[r.posting_id] || {};
+        r.place = d.place || r.location;
+        r.city = d.city || ""; r.region = d.region || ""; r.country = d.country || "";
+        r.salary_min = d.salary_min ? +d.salary_min : null;
+        r.salary_max = d.salary_max ? +d.salary_max : null;
+        r.salary_currency = d.salary_currency || "";
+        r.salary_source = d.salary_source || "";
+        r.min_years = d.min_years ? +d.min_years : null;
+        r.skills = parseSkills(d.skills);
+      });
       return { status: a[0], rows: a[1], runDate: String(a[0].run_time).slice(0, 10) };
     });
+  };
+
+  /* "$120K-$150K a year" for a row with pay (empty string without). */
+  var SYMBOL = { USD: "$", GBP: "\u00a3", EUR: "\u20ac", CAD: "CA$", AUD: "A$", SGD: "S$" };
+  function money(n, symbol) {
+    return symbol + (n >= 10000 ? Math.round(n / 1000) + "K" : n.toLocaleString());
+  }
+  JW.formatPay = function (r) {
+    if (!r.salary_min) return "";
+    var sym = SYMBOL[r.salary_currency] || (r.salary_currency ? r.salary_currency + " " : "$");
+    var hi = r.salary_max && r.salary_max !== r.salary_min ? "\u2013" + money(r.salary_max, "") : "";
+    return money(r.salary_min, sym) + hi + " a year";
   };
 
   JW.dayNumber = function (iso) {

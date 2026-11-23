@@ -39,8 +39,12 @@
           <option value="30">30 days or less</option>
           <option value="31">More than 30 days</option>
         </select></div>
-      <div><label for="sort">Sort by first seen</label>
-        <select id="sort"><option value="new">Newest first</option><option value="old">Oldest first</option></select></div>
+      <div><label for="sort">Sort by</label>
+        <select id="sort"><option value="new">First seen: newest</option><option value="old">First seen: oldest</option>
+          <option value="pay">Pay: highest first (US dollars)</option></select></div>
+      <div><label for="minpay">Minimum pay (US dollars a year)</label><input type="number" id="minpay" min="0" step="5000" placeholder="for example 90000"></div>
+      <div><label for="skill">Skill named in the posting</label><select id="skill"><option value="">Any</option></select></div>
+      <div><label><input type="checkbox" id="paid"> Pay listed only</label></div>
       <div><label><input type="checkbox" id="starred"> Shortlist only (<span id="star-count">0</span>)</label></div>
     </form>
 
@@ -53,7 +57,7 @@
   <script>
     JW.renderNav("browse.html");
     JW.watchConnection();
-    var PAGE = 100, shown = PAGE, data = null, scopeRole = true;
+    var PAGE = 100, shown = PAGE, data = null, scopeRole = true, skillNames = {};
     var $ = function (id) { return document.getElementById(id); };
 
     function setScope(role) {
@@ -63,24 +67,32 @@
       shown = PAGE; render();
     }
 
+    function usd(r) { return !r.salary_currency || r.salary_currency === "USD"; }
+    function payOf(r) { return usd(r) ? (r.salary_max || r.salary_min || 0) : 0; }
     function daysOpenOf(r) { return JW.daysBetween(r.first_seen, data.runDate); }
 
     function filtered() {
       var q = $("q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
       var emp = $("employer").value, loc = $("location").value.trim().toLowerCase();
       var days = $("days").value, starredOnly = $("starred").checked;
+      var skill = $("skill").value, minpay = +$("minpay").value || 0;
       var saved = JW.shortlist.ids();
       var out = data.open.filter(function (r) {
         if (scopeRole && !r.in_role) return false;
         if (emp && r.employer !== emp) return false;
         if (loc && r.location.toLowerCase().indexOf(loc) === -1) return false;
         if (starredOnly && saved.indexOf(r.posting_id) === -1) return false;
+        if (skill && !r.skills[skill]) return false;
+        if ($("paid").checked && !r.salary_min) return false;
+        if (minpay && (!usd(r) || (r.salary_max || r.salary_min || 0) < minpay)) return false; // only US-dollar pay is comparable
         if (q.length) { var t = r.title.toLowerCase(); if (!q.every(function (w) { return t.indexOf(w) !== -1; })) return false; }
         if (days) { var d = daysOpenOf(r); if (days === "31" ? d <= 30 : d > +days) return false; }
         return true;
       });
       var dir = $("sort").value === "new" ? -1 : 1;
       out.sort(function (a, b) {
+        if ($("sort").value === "pay") return payOf(b) - payOf(a) ||
+          a.employer.localeCompare(b.employer) || a.title.localeCompare(b.title);
         return dir * (a.first_seen < b.first_seen ? -1 : a.first_seen > b.first_seen ? 1 : 0) ||
           a.employer.localeCompare(b.employer) || a.title.localeCompare(b.title);
       });
@@ -97,11 +109,18 @@
         var seen = r.first_run
           ? "open since at least " + r.first_seen + " (start of tracking)"
           : "first seen " + r.first_seen + " · open " + d + (d === 1 ? " day" : " days");
+        var pay = JW.formatPay(r);
+        var skillLabels = Object.keys(r.skills).sort(function (x, y) { return r.skills[y] - r.skills[x]; }).slice(0, 5)
+          .map(function (id) { return skillNames[id] || id; });
+        var more = [pay ? "Pay: " + pay + (r.salary_source === "text" ? " (from the description)" : "") : "",
+          r.min_years ? "asks for " + r.min_years + "+ years" : "",
+          skillLabels.length ? "skills: " + skillLabels.join(", ") : ""].filter(Boolean).join(" \u00b7 ");
         return '<div class="job"><button type="button" class="star" data-id="' + JW.esc(r.posting_id) + '" aria-pressed="' + on +
           '" aria-label="' + (on ? "Remove from shortlist: " : "Add to shortlist: ") + JW.esc(r.title) + '">' + (on ? "★" : "☆") + "</button>" +
           '<div><div class="title">' + JW.esc(r.title || "(untitled)") + (r.in_role ? ' <span class="badge role">my role</span>' : "") + "</div>" +
           '<div class="meta">' + JW.esc([r.employer, r.location, r.department].filter(Boolean).join(" · ")) + "</div>" +
-          '<div class="meta">' + JW.esc(seen) + (r.posted_date ? " · posted " + JW.esc(r.posted_date) : "") + "</div></div>" +
+          '<div class="meta">' + JW.esc(seen) + (r.posted_date ? " · posted " + JW.esc(r.posted_date) : "") + "</div>" +
+          (more ? '<div class="meta">' + JW.esc(more) + "</div>" : "") + "</div>" +
           '<a class="apply" href="' + JW.esc(r.url) + '" target="_blank" rel="noopener">Apply</a></div>';
       }).join("");
       $("more").hidden = rows.length <= shown;
@@ -117,13 +136,20 @@
     $("more").onclick = function () { shown += PAGE; render(); };
     $("scope-role").onclick = function () { setScope(true); };
     $("scope-all").onclick = function () { setScope(false); };
-    ["q", "employer", "location", "days", "sort", "starred"].forEach(function (id) {
+    ["q", "employer", "location", "days", "sort", "starred", "minpay", "skill", "paid"].forEach(function (id) {
       $(id).addEventListener("input", function () { shown = PAGE; render(); });
     });
 
-    JW.loadData().then(function (d) {
+    Promise.all([JW.loadData(), JW.getSkills()]).then(function (all) {
+      var d = all[0];
       d.open = d.rows.filter(function (r) { return r.status === "open"; });
       data = d;
+      var counts = {};
+      d.open.forEach(function (r) { Object.keys(r.skills).forEach(function (id) { counts[id] = (counts[id] || 0) + 1; }); });
+      all[1].forEach(function (s) { skillNames[s.id] = s.label; });
+      $("skill").insertAdjacentHTML("beforeend", Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; }).map(function (id) {
+        return '<option value="' + id + '">' + JW.esc(skillNames[id] || id) + " (" + counts[id] + ")</option>";
+      }).join(""));
       var emps = {}, locs = {};
       d.open.forEach(function (r) { emps[r.employer] = 1; locs[r.location] = (locs[r.location] || 0) + 1; });
       $("employer").insertAdjacentHTML("beforeend", Object.keys(emps).sort().map(function (e) {
