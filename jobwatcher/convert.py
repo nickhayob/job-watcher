@@ -111,54 +111,11 @@ def convert_smartrecruiters(source, raw):
     return rows
 
 
-_MULTI_LOCATION = re.compile(r"\d+ Locations?", re.IGNORECASE)
-
-
-def workday_location(locations_text, external_path):
-    """Workday shows '2 Locations' for multi-location postings.
-
-    In that case use the first location, which is the second segment of the
-    posting's URL path (for example /job/McLean-VA/Title_R1 gives 'McLean, VA').
-    """
-    text = clean(locations_text)
-    if text and not _MULTI_LOCATION.fullmatch(text):
-        return text
-    parts = (external_path or "").split("/")
-    if len(parts) > 2 and parts[2]:
-        slug = parts[2]
-        if "---" in slug:  # for example Remote---US
-            return clean(slug.replace("---", "\0").replace("-", " ").replace("\0", " - "))
-        return re.sub(r" ([A-Z]{2})$", r", \1", clean(slug.replace("-", " ")))
-    return text
-
-
-def convert_workday(source, raw):
-    host = source.params["host"]
-    site = source.params["site"]
-    rows = []
-    for job in raw.get("jobPostings", []):
-        path = job.get("externalPath") or ""
-        bullets = job.get("bulletFields") or []
-        source_id = bullets[0] if bullets else path
-        rows.append(
-            _row(
-                source_id,
-                job.get("title"),
-                workday_location(job.get("locationsText"), path),
-                "",  # the list endpoint has no department
-                "",  # it only says 'Posted Today' / '30+ Days Ago'
-                f"https://{host}/en-US/{site}{path}",
-            )
-        )
-    return rows
-
-
 CONVERTERS = {
     "greenhouse": convert_greenhouse,
     "lever": convert_lever,
     "ashby": convert_ashby,
     "smartrecruiters": convert_smartrecruiters,
-    "workday": convert_workday,
 }
 
 

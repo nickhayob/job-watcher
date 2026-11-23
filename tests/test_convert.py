@@ -1,18 +1,12 @@
 """Each source's raw JSON becomes the common columns."""
 
-from jobwatcher.convert import COMMON, convert, workday_location
+from jobwatcher.convert import COMMON, convert
 from jobwatcher.sources import Source
 
 GREENHOUSE = Source("acme", "Acme", "greenhouse", {"token": "acme"})
 LEVER = Source("lev", "Lev", "lever", {"company": "lev"})
 ASHBY = Source("ash", "Ash", "ashby", {"board": "ash"})
 SMART = Source("smart", "Smart", "smartrecruiters", {"company": "SmartCo"})
-WORKDAY = Source(
-    "wd",
-    "WD",
-    "workday",
-    {"host": "wd.wd5.myworkdayjobs.com", "tenant": "wd", "site": "Careers", "search": ""},
-)
 
 
 def test_greenhouse():
@@ -112,40 +106,3 @@ def test_smartrecruiters():
     assert rows[0]["url"] == "https://jobs.smartrecruiters.com/SmartCo/744000163289359"
     assert rows[1]["location"] == "Dublin, IE"
     assert rows[1]["department"] == ""
-
-
-def test_workday():
-    raw = {
-        "jobPostings": [
-            {
-                "title": "Financial Analyst",
-                "externalPath": "/job/McLean-VA/Financial-Analyst_R1006022-1",
-                "locationsText": "McLean, VA",
-                "postedOn": "Posted Today",
-                "bulletFields": ["R1006022"],
-            },
-            {
-                "title": "Cloud Engineer",
-                "externalPath": "/job/New-York-NY/Cloud-Engineer_R5-1",
-                "locationsText": "4 Locations",
-                "bulletFields": [],
-            },
-        ]
-    }
-    rows = convert(WORKDAY, raw)
-    assert rows[0]["source_id"] == "R1006022"
-    assert rows[0]["location"] == "McLean, VA"
-    assert rows[0]["posted_date"] == "" and rows[0]["department"] == ""
-    assert rows[0]["url"] == (
-        "https://wd.wd5.myworkdayjobs.com/en-US/Careers/job/McLean-VA/Financial-Analyst_R1006022-1"
-    )
-    # no requisition number: fall back to the path; multi-location: first location from the path
-    assert rows[1]["source_id"] == "/job/New-York-NY/Cloud-Engineer_R5-1"
-    assert rows[1]["location"] == "New York, NY"
-
-
-def test_workday_location():
-    assert workday_location("Richmond, VA", "/job/x/y") == "Richmond, VA"
-    assert workday_location("2 Locations", "/job/McLean-VA/t_R1") == "McLean, VA"
-    assert workday_location("1 Location", "/job/Remote---US/t_R1") == "Remote - US"
-    assert workday_location("3 Locations", "") == "3 Locations"

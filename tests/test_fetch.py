@@ -6,12 +6,7 @@ from jobwatcher import fetch
 from jobwatcher.fetch import SourceError, fetch_source
 from jobwatcher.sources import Source
 
-WORKDAY = Source(
-    "wd",
-    "WD",
-    "workday",
-    {"host": "wd.wd5.myworkdayjobs.com", "tenant": "wd", "site": "Careers", "search": "analyst"},
-)
+SMART = Source("s", "S", "smartrecruiters", {"company": "Co", "search": "analyst"})
 
 
 class FakeResponse:
@@ -31,45 +26,34 @@ class FakeSession:
         return self.handler(method, url, kwargs)
 
 
-def workday_pages(total, available=None, total_on_first_page_only=False):
+def smart_pages(total, available=None):
+    """A SmartRecruiters-style board that serves 100 postings per page."""
     available = total if available is None else available
 
     def handler(method, url, kwargs):
-        body = kwargs["json"]
-        start = body["offset"]
-        n = max(0, min(body["limit"], available - start))
-        jobs = [{"title": f"t{i}", "externalPath": f"/job/x/t{i}_R{i}", "bulletFields": [f"R{i}"]}
-                for i in range(start, start + n)]
-        shown = 0 if (total_on_first_page_only and start > 0) else total
-        return FakeResponse({"total": shown, "jobPostings": jobs, "facets": [{"big": "x" * 10}]})
+        offset = int(url.split("offset=")[1].split("&")[0])
+        items = [{"id": str(i), "name": "n"} for i in range(offset, min(offset + 100, available))]
+        return FakeResponse({"totalFound": total, "content": items})
 
     return handler
 
 
-def test_workday_pages_and_search_term():
-    session = FakeSession(workday_pages(45))
-    raw = fetch_source(WORKDAY, session)
-    assert len(raw["jobPostings"]) == 45 and raw["total"] == 45
-    assert "facets" not in raw
-    assert [c[2]["json"]["offset"] for c in session.calls] == [0, 20, 40]
-    assert all(c[2]["json"]["searchText"] == "analyst" for c in session.calls)
-    assert session.calls[0][0] == "POST"
-
-
-def test_workday_total_reported_on_the_first_page_only():
-    # several real Workday boards return total=0 on every page after the first
-    raw = fetch_source(WORKDAY, FakeSession(workday_pages(45, total_on_first_page_only=True)))
-    assert len(raw["jobPostings"]) == 45 and raw["total"] == 45
+def test_smartrecruiters_pages_and_search_term():
+    session = FakeSession(smart_pages(230))
+    raw = fetch_source(SMART, session)
+    assert len(raw["content"]) == 230 and raw["totalFound"] == 230
+    assert [c[1].split("offset=")[1].split("&")[0] for c in session.calls] == ["0", "100", "200"]
+    assert all(c[1].endswith("&q=analyst") for c in session.calls)
 
 
 def test_board_over_5000_needs_a_search_term():
     with pytest.raises(SourceError, match="needs a search term"):
-        fetch_source(WORKDAY, FakeSession(workday_pages(5001)))
+        fetch_source(SMART, FakeSession(smart_pages(5001)))
 
 
 def test_incomplete_paging_fails_instead_of_returning_a_partial_board():
     with pytest.raises(SourceError, match="stopped early"):
-        fetch_source(WORKDAY, FakeSession(workday_pages(100, available=20)))
+        fetch_source(SMART, FakeSession(smart_pages(500, available=100)))
 
 
 def test_empty_board_is_a_failure():
@@ -92,18 +76,6 @@ def test_server_error_is_retried(monkeypatch):
     session = FakeSession(lambda m, u, k: answers.pop(0))
     assert fetch_source(lever, session) == [{"id": "1", "text": "x"}]
     assert len(session.calls) == 2
-
-
-def test_smartrecruiters_pages():
-    source = Source("s", "S", "smartrecruiters", {"company": "Co"})
-
-    def handler(method, url, kwargs):
-        offset = int(url.split("offset=")[1])
-        items = [{"id": str(i), "name": "n"} for i in range(offset, min(offset + 100, 130))]
-        return FakeResponse({"totalFound": 130, "content": items})
-
-    raw = fetch_source(source, FakeSession(handler))
-    assert len(raw["content"]) == 130
 
 
 def test_429_waits_for_retry_after_then_succeeds(monkeypatch):

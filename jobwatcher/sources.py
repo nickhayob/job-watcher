@@ -2,6 +2,10 @@
 
 Each source is one employer board on one applicant tracking system (ATS).
 All boards return JSON to a plain request with no login.
+
+(Sixteen banks on Workday were tried first. Workday answered GitHub's servers
+with HTTP 429 and made the daily run take half an hour, so those employers
+were replaced with the boards below, which answer in seconds.)
 """
 
 from dataclasses import dataclass, field
@@ -11,57 +15,59 @@ from dataclasses import dataclass, field
 class Source:
     name: str  # file-safe slug; used in raw file names and posting ids
     employer: str  # display name
-    ats: str  # workday | greenhouse | lever | ashby | smartrecruiters
+    ats: str  # greenhouse | lever | ashby | smartrecruiters
     params: dict = field(default_factory=dict)
 
 
-def _workday(name, employer, host, site, search=""):
-    return Source(
-        name,
-        employer,
-        "workday",
-        {"host": host, "tenant": host.split(".")[0], "site": site, "search": search},
-    )
-
-
-def _greenhouse(name, employer, token):
-    return Source(name, employer, "greenhouse", {"token": token})
+def _greenhouse(name, employer):
+    return Source(name, employer, "greenhouse", {"token": name})
 
 
 SOURCES = [
-    # --- Workday: banks, payments and asset managers ---
-    _workday("capitalone", "Capital One", "capitalone.wd12.myworkdayjobs.com", "Capital_One"),
-    _workday("wellsfargo", "Wells Fargo", "wf.wd1.myworkdayjobs.com", "WellsFargoJobs"),
-    _workday("mastercard", "Mastercard", "mastercard.wd1.myworkdayjobs.com", "CorporateCareers"),
-    _workday("blackrock", "BlackRock", "blackrock.wd1.myworkdayjobs.com", "BlackRock_Professional"),
-    _workday("paypal", "PayPal", "paypal.wd1.myworkdayjobs.com", "jobs"),
-    _workday("truist", "Truist", "truist.wd1.myworkdayjobs.com", "Careers"),
-    _workday("usbank", "U.S. Bank", "usbank.wd1.myworkdayjobs.com", "US_Bank_Careers"),
-    _workday("pnc", "PNC", "pnc.wd5.myworkdayjobs.com", "External"),
-    _workday("regions", "Regions Bank", "regions.wd5.myworkdayjobs.com", "Regions_Careers"),
-    _workday("fifththird", "Fifth Third Bank", "fifththird.wd5.myworkdayjobs.com", "53careers"),
-    _workday("statestreet", "State Street", "statestreet.wd1.myworkdayjobs.com", "Global"),
-    _workday("northerntrust", "Northern Trust", "ntrs.wd1.myworkdayjobs.com", "northerntrust"),
-    _workday("vanguard", "Vanguard", "vanguard.wd5.myworkdayjobs.com", "vanguard_external"),
-    _workday("fidelity", "Fidelity Investments", "fmr.wd1.myworkdayjobs.com", "FidelityCareers"),
-    _workday("visa", "Visa", "visa.wd5.myworkdayjobs.com", "Visa"),
-    _workday("aig", "AIG", "aig.wd1.myworkdayjobs.com", "aig"),
-    # --- Greenhouse: fintech ---
-    _greenhouse("stripe", "Stripe", "stripe"),
-    _greenhouse("robinhood", "Robinhood", "robinhood"),
-    _greenhouse("coinbase", "Coinbase", "coinbase"),
-    _greenhouse("affirm", "Affirm", "affirm"),
-    _greenhouse("sofi", "SoFi", "sofi"),
-    _greenhouse("block", "Block", "block"),
+    # --- Greenhouse: fintech, payments and large tech employers ---
+    _greenhouse("stripe", "Stripe"),
+    _greenhouse("robinhood", "Robinhood"),
+    _greenhouse("coinbase", "Coinbase"),
+    _greenhouse("affirm", "Affirm"),
+    _greenhouse("sofi", "SoFi"),
+    _greenhouse("block", "Block"),
+    _greenhouse("brex", "Brex"),
+    _greenhouse("chime", "Chime"),
+    _greenhouse("carta", "Carta"),
+    _greenhouse("adyen", "Adyen"),
+    _greenhouse("gusto", "Gusto"),
+    _greenhouse("toast", "Toast"),
+    _greenhouse("airbnb", "Airbnb"),
+    _greenhouse("lyft", "Lyft"),
+    _greenhouse("databricks", "Databricks"),
+    _greenhouse("datadog", "Datadog"),
+    _greenhouse("cloudflare", "Cloudflare"),
+    _greenhouse("okta", "Okta"),
+    _greenhouse("mongodb", "MongoDB"),
+    _greenhouse("anthropic", "Anthropic"),
+    _greenhouse("point72", "Point72"),
+    _greenhouse("ripple", "Ripple"),
+    _greenhouse("payoneer", "Payoneer"),
+    _greenhouse("monzo", "Monzo"),
+    _greenhouse("betterment", "Betterment"),
+    _greenhouse("billcom", "Bill"),
+    _greenhouse("lendingtree", "LendingTree"),
     # --- Lever ---
     Source("palantir", "Palantir", "lever", {"company": "palantir"}),
     Source("spotify", "Spotify", "lever", {"company": "spotify"}),
+    Source("nium", "Nium", "lever", {"company": "nium"}),
+    Source("wealthfront", "Wealthfront", "lever", {"company": "wealthfront"}),
+    Source("crypto", "Crypto.com", "lever", {"company": "crypto"}),
     # --- Ashby ---
     Source("ramp", "Ramp", "ashby", {"board": "ramp"}),
     Source("plaid", "Plaid", "ashby", {"board": "plaid"}),
+    Source("notion", "Notion", "ashby", {"board": "notion"}),
+    Source("wealthsimple", "Wealthsimple", "ashby", {"board": "wealthsimple"}),
+    Source("airwallex", "Airwallex", "ashby", {"board": "airwallex"}),
     # --- SmartRecruiters ---
     Source("experian", "Experian", "smartrecruiters", {"company": "Experian"}),
     Source("servicenow", "ServiceNow", "smartrecruiters", {"company": "ServiceNow"}),
+    Source("equinox", "Equinox", "smartrecruiters", {"company": "Equinox"}),
 ]
 
 BY_NAME = {s.name: s for s in SOURCES}

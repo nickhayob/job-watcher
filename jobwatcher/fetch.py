@@ -4,7 +4,6 @@ Every board is read with a plain request and no login. A board that fails
 raises an error; the caller records the failure and carries on with the rest.
 """
 
-import threading
 import time
 from urllib.parse import quote
 
@@ -13,13 +12,8 @@ import requests
 USER_AGENT = "job-watcher/1.0 (class project; reads public job boards once a day)"
 TIMEOUT = (10, 60)  # connect, read
 BACKOFF = [5, 15, 30, 60]  # seconds to wait before each retry
-# Workday answers a burst of requests with HTTP 429, so all of its boards are read
-# gently: one request at a time across every Workday board, with a pause after each.
-WORKDAY_GATE = threading.Semaphore(1)
-WORKDAY_DELAY = 0.5
 DEADLINE = None  # time.time() after which no new request starts (set by the run)
 MAX_POSTINGS = 5000  # a board larger than this must be read with a search term
-WORKDAY_PAGE = 20  # Workday returns at most 20 postings per request
 SMARTRECRUITERS_PAGE = 100
 
 
@@ -101,10 +95,12 @@ def _check_complete(label, got, total):
 def fetch_smartrecruiters(source, session):
     company = source.params["company"]
     base = f"https://api.smartrecruiters.com/v1/companies/{company}/postings"
+    search = source.params.get("search")  # a board over 5,000 postings is read with a search term
+    extra = f"&q={quote(search)}" if search else ""
     content, offset, total = [], 0, None
     while total is None or offset < total:
         page = _request_json(
-            session, "GET", f"{base}?limit={SMARTRECRUITERS_PAGE}&offset={offset}"
+            session, "GET", f"{base}?limit={SMARTRECRUITERS_PAGE}&offset={offset}{extra}"
         )
         total = page.get("totalFound", 0)
         if total > MAX_POSTINGS:
@@ -118,41 +114,11 @@ def fetch_smartrecruiters(source, session):
     return {"totalFound": total or 0, "content": content}
 
 
-def fetch_workday(source, session):
-    p = source.params
-    url = f"https://{p['host']}/wday/cxs/{p['tenant']}/{quote(p['site'])}/jobs"
-    postings, offset, total = [], 0, None
-    while total is None or offset < total:
-        body = {
-            "appliedFacets": {},
-            "limit": WORKDAY_PAGE,
-            "offset": offset,
-            "searchText": p.get("search", ""),
-        }
-        with WORKDAY_GATE:
-            page = _request_json(session, "POST", url, json=body)
-            time.sleep(WORKDAY_DELAY)
-        # some Workday boards report the total on the first page only
-        if total is None or page.get("total"):
-            total = page.get("total", 0)
-        if total > MAX_POSTINGS:
-            raise SourceError(f"{total} postings: more than {MAX_POSTINGS}, needs a search term")
-        batch = page.get("jobPostings", [])
-        if not batch:
-            break
-        postings.extend(batch)
-        offset += WORKDAY_PAGE
-    _check_complete("Workday", len(postings), total or 0)
-    # the facet counts in each response are not postings, so they are not kept
-    return {"total": total or 0, "jobPostings": postings}
-
-
 FETCHERS = {
     "greenhouse": fetch_greenhouse,
     "lever": fetch_lever,
     "ashby": fetch_ashby,
     "smartrecruiters": fetch_smartrecruiters,
-    "workday": fetch_workday,
 }
 
 
@@ -162,9 +128,7 @@ def count_postings(source, raw):
         return len(raw)
     if source.ats == "greenhouse" or source.ats == "ashby":
         return len(raw.get("jobs", []))
-    if source.ats == "smartrecruiters":
-        return len(raw.get("content", []))
-    return len(raw.get("jobPostings", []))
+    return len(raw.get("content", []))
 
 
 def fetch_source(source, session=None):

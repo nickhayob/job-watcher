@@ -3,7 +3,7 @@
 [![Tests](https://github.com/nickhayob/job-watcher/actions/workflows/tests.yml/badge.svg)](https://github.com/nickhayob/job-watcher/actions/workflows/tests.yml)
 [![Daily data](https://github.com/nickhayob/job-watcher/actions/workflows/daily.yml/badge.svg)](https://github.com/nickhayob/job-watcher/actions/workflows/daily.yml)
 
-A tool that watches the job market for me. Every day, on its own, it pulls the open positions at 28 employers, compares them with what it saw the day before, records what is new and what is gone, and publishes the result to a website.
+A tool that watches the job market for me. Every day, on its own, it pulls the open positions at 40 employers, compares them with what it saw the day before, records what is new and what is gone, and publishes the result to a website.
 
 - **My role:** finance analyst (financial analyst, FP&A, credit, treasury, investment and similar analyst titles).
 - **Site:** <https://nickhayob.github.io/job-watcher/>
@@ -42,45 +42,59 @@ This rewrites `data/history.csv` from everything in `data/raw/`. Running it agai
 
 ## Sources
 
-Every board returns JSON to a request with no login. The tool never reads a web page's HTML. No board comes close to 5,000 postings (the largest, Capital One, has about 2,000), so no search term is needed. The tool refuses a board over 5,000 postings unless a search term is set in `jobwatcher/sources.py` (Workday sources take a `search` value).
+Every board returns JSON to a request with no login. The tool never reads a web page's HTML. No board comes close to 5,000 postings (the largest, ServiceNow, has about 1,000), so no search term is needed. The tool refuses a board over 5,000 postings unless a search term is set in `jobwatcher/sources.py` (a `search` value on a SmartRecruiters source).
+
+Sixteen banks on Workday (Capital One, Wells Fargo, Mastercard and others) were tried first. Workday answered GitHub's servers with HTTP 429 and made one daily run take half an hour, so, as the project allows, those employers were replaced with the boards below, which answer in seconds.
 
 | Source (`name`) | Employer | Applicant tracking system |
 |---|---|---|
-| `capitalone` | Capital One | Workday |
-| `wellsfargo` | Wells Fargo | Workday |
-| `mastercard` | Mastercard | Workday |
-| `blackrock` | BlackRock | Workday |
-| `paypal` | PayPal | Workday |
-| `truist` | Truist | Workday |
-| `usbank` | U.S. Bank | Workday |
-| `pnc` | PNC | Workday |
-| `regions` | Regions Bank | Workday |
-| `fifththird` | Fifth Third Bank | Workday |
-| `statestreet` | State Street | Workday |
-| `northerntrust` | Northern Trust | Workday |
-| `vanguard` | Vanguard | Workday |
-| `fidelity` | Fidelity Investments | Workday |
-| `visa` | Visa | Workday |
-| `aig` | AIG | Workday |
 | `stripe` | Stripe | Greenhouse |
 | `robinhood` | Robinhood | Greenhouse |
 | `coinbase` | Coinbase | Greenhouse |
 | `affirm` | Affirm | Greenhouse |
 | `sofi` | SoFi | Greenhouse |
 | `block` | Block | Greenhouse |
+| `brex` | Brex | Greenhouse |
+| `chime` | Chime | Greenhouse |
+| `carta` | Carta | Greenhouse |
+| `adyen` | Adyen | Greenhouse |
+| `gusto` | Gusto | Greenhouse |
+| `toast` | Toast | Greenhouse |
+| `airbnb` | Airbnb | Greenhouse |
+| `lyft` | Lyft | Greenhouse |
+| `databricks` | Databricks | Greenhouse |
+| `datadog` | Datadog | Greenhouse |
+| `cloudflare` | Cloudflare | Greenhouse |
+| `okta` | Okta | Greenhouse |
+| `mongodb` | MongoDB | Greenhouse |
+| `anthropic` | Anthropic | Greenhouse |
+| `point72` | Point72 | Greenhouse |
+| `ripple` | Ripple | Greenhouse |
+| `payoneer` | Payoneer | Greenhouse |
+| `monzo` | Monzo | Greenhouse |
+| `betterment` | Betterment | Greenhouse |
+| `billcom` | Bill | Greenhouse |
+| `lendingtree` | LendingTree | Greenhouse |
 | `palantir` | Palantir | Lever |
 | `spotify` | Spotify | Lever |
+| `nium` | Nium | Lever |
+| `wealthfront` | Wealthfront | Lever |
+| `crypto` | Crypto.com | Lever |
 | `ramp` | Ramp | Ashby |
 | `plaid` | Plaid | Ashby |
+| `notion` | Notion | Ashby |
+| `wealthsimple` | Wealthsimple | Ashby |
+| `airwallex` | Airwallex | Ashby |
 | `experian` | Experian | SmartRecruiters |
 | `servicenow` | ServiceNow | SmartRecruiters |
+| `equinox` | Equinox | SmartRecruiters |
 
 Notes on the data:
 
 - A board that suddenly returns no postings, or whose paging stops early, is treated as a failure, not as "every posting was removed".
-- Workday boards return at most 20 postings per request, so each board is read page by page, one request at a time across all Workday boards with a short pause (Workday answers a burst of requests with HTTP 429). A run stops starting new requests after 25 minutes, so a throttled run still finishes and commits. The facet counts Workday adds to each response are not postings and are not saved.
-- Workday shows `2 Locations` for multi-location postings. The tool uses the first location from the posting's URL path instead (for example `McLean, VA`).
-- Workday's list has no department or exact posted date, and Greenhouse's list has no department, so those columns are empty for those sources.
+- A run stops starting new requests after 25 minutes, so a throttled run still finishes and commits. (A normal run takes about 30 seconds.)
+- Greenhouse's list has no department, so `department` is empty for those sources (and for any other field a board does not provide). Greenhouse's `first_published` is used for `posted_date` when it is present.
+- Each raw file is exactly what the board returned, so files that include full job descriptions (Lever, Ashby) are the largest part of the repository.
 
 ## The title rule
 
@@ -97,7 +111,7 @@ It looks only at the title and ignores case. So `Senior Financial Analyst`, `FP&
 | Path | What it does |
 |---|---|
 | `jobwatcher/sources.py` | The watch list: every employer, its applicant tracking system and board settings. |
-| `jobwatcher/fetch.py` | Calls each ATS's JSON API with retries, back-off on HTTP 429, paging and completeness checks. |
+| `jobwatcher/fetch.py` | Calls each ATS's JSON API with retries, back-off on HTTP 429, paging, completeness checks and the run time limit. |
 | `jobwatcher/convert.py` | One converter per ATS that turns raw JSON into the common columns. |
 | `jobwatcher/roles.py` | The title rule (`in_role`). |
 | `jobwatcher/store.py` | Reads and writes the compressed raw files and each day's `run.json`. |
