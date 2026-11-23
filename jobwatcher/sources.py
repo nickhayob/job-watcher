@@ -15,7 +15,7 @@ from dataclasses import dataclass, field
 class Source:
     name: str  # file-safe slug; used in raw file names and posting ids
     employer: str  # display name
-    ats: str  # greenhouse | lever | ashby | smartrecruiters
+    ats: str  # greenhouse | lever | ashby | smartrecruiters | oracle
     params: dict = field(default_factory=dict)
 
 
@@ -52,6 +52,14 @@ SOURCES = [
     _greenhouse("betterment", "Betterment"),
     _greenhouse("billcom", "Bill"),
     _greenhouse("lendingtree", "LendingTree"),
+    _greenhouse("aqr", "AQR Capital Management"),
+    _greenhouse("virtu", "Virtu Financial"),
+    _greenhouse("dvtrading", "DV Trading"),
+    _greenhouse("drweng", "DRW"),
+    _greenhouse("akunacapital", "Akuna Capital"),
+    _greenhouse("oportun", "Oportun"),
+    _greenhouse("upgrade", "Upgrade"),
+    _greenhouse("clearwater", "Clearwater Analytics"),
     # --- Lever ---
     Source("palantir", "Palantir", "lever", {"company": "palantir"}),
     Source("spotify", "Spotify", "lever", {"company": "spotify"}),
@@ -64,10 +72,17 @@ SOURCES = [
     Source("notion", "Notion", "ashby", {"board": "notion"}),
     Source("wealthsimple", "Wealthsimple", "ashby", {"board": "wealthsimple"}),
     Source("airwallex", "Airwallex", "ashby", {"board": "airwallex"}),
+    Source("rho", "Rho", "ashby", {"board": "rho"}),
     # --- SmartRecruiters ---
     Source("experian", "Experian", "smartrecruiters", {"company": "Experian"}),
     Source("servicenow", "ServiceNow", "smartrecruiters", {"company": "ServiceNow"}),
     Source("equinox", "Equinox", "smartrecruiters", {"company": "Equinox"}),
+    # --- Oracle Recruiting Cloud: a bank. The whole board is about 6,800 postings, over the
+    # 5,000 limit, so it is read with the search term "analyst" (about 1,000 postings).
+    Source(
+        "jpmorgan", "JPMorgan Chase", "oracle",
+        {"host": "jpmc.fa.oraclecloud.com", "site": "CX_1001", "search": "analyst"},
+    ),
 ]
 
 BY_NAME = {s.name: s for s in SOURCES}
