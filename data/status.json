@@ -1,0 +1,150 @@
+{
+  "run_time": "2026-11-23T18:05:11Z",
+  "first_run_date": "2026-11-23",
+  "days_with_success": 1,
+  "open": 3780,
+  "new_today": 0,
+  "removed_today": 0,
+  "sources": [
+    {
+      "name": "capitalone",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "wellsfargo",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "mastercard",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "blackrock",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "paypal",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "truist",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "usbank",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "pnc",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "regions",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "fifththird",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "statestreet",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "northerntrust",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "vanguard",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "fidelity",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "visa",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "aig",
+      "ok": false,
+      "count": 0
+    },
+    {
+      "name": "stripe",
+      "ok": true,
+      "count": 778
+    },
+    {
+      "name": "robinhood",
+      "ok": true,
+      "count": 163
+    },
+    {
+      "name": "coinbase",
+      "ok": true,
+      "count": 251
+    },
+    {
+      "name": "affirm",
+      "ok": true,
+      "count": 217
+    },
+    {
+      "name": "sofi",
+      "ok": true,
+      "count": 53
+    },
+    {
+      "name": "block",
+      "ok": true,
+      "count": 183
+    },
+    {
+      "name": "palantir",
+      "ok": true,
+      "count": 307
+    },
+    {
+      "name": "spotify",
+      "ok": true,
+      "count": 90
+    },
+    {
+      "name": "ramp",
+      "ok": true,
+      "count": 182
+    },
+    {
+      "name": "plaid",
+      "ok": true,
+      "count": 147
+    },
+    {
+      "name": "experian",
+      "ok": true,
+      "count": 403
+    },
+    {
+      "name": "servicenow",
+      "ok": true,
+      "count": 1006
+    }
+  ]
+}
