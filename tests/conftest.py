@@ -24,6 +24,15 @@ def gh(*items):
     }
 
 
+@pytest.fixture(autouse=True)
+def no_waiting(monkeypatch):
+    """Tests never sleep: no Workday pause, no retry waits."""
+    from jobwatcher import fetch
+
+    monkeypatch.setattr(fetch, "WORKDAY_DELAY", 0)
+    monkeypatch.setattr(fetch.time, "sleep", lambda seconds: None)
+
+
 @pytest.fixture
 def data_dir(tmp_path):
     return tmp_path / "data"

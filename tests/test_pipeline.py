@@ -30,7 +30,7 @@ def fetcher_for(responses):
 
 def test_failed_source_does_not_stop_the_run(data_dir):
     fetcher = fetcher_for({"fake": gh((1, "Financial Analyst")), "other": RuntimeError("boom")})
-    date, status, rows = run_pipeline(data_dir, at(1), SOURCES, fetcher)
+    date, status, rows = run_pipeline(data_dir, at(1), SOURCES, fetcher, retry_wait=0)
     assert date == "2026-11-01"
     assert not (data_dir / "raw" / date / "other.json.gz").exists()  # failure writes no raw file
     assert (data_dir / "raw" / date / "fake.json.gz").exists()
@@ -162,3 +162,20 @@ def test_sync_updates_todays_issue_on_a_second_run():
     assert not [c for c in session.calls if c[0] == "POST"]
     patch = [c for c in session.calls if c[1] == "/issues/7"]
     assert patch and patch[0][3] == {"body": "new body", "state": "open"}
+
+
+def test_failed_source_is_retried_and_can_recover(data_dir):
+    calls = {"other": 0}
+
+    def fetcher(source, session):
+        if source.name == "other":
+            calls["other"] += 1
+            if calls["other"] == 1:
+                raise RuntimeError("HTTP 429")
+            return gh((7, "G"))
+        return gh((1, "A"))
+
+    _, status, _ = run_pipeline(data_dir, at(1), SOURCES, fetcher, retry_wait=0)
+    assert calls["other"] == 2
+    assert [s["ok"] for s in status["sources"]] == [True, True]
+    assert (data_dir / "raw" / "2026-11-01" / "other.json.gz").exists()

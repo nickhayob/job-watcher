@@ -4,6 +4,7 @@ Every board is read with a plain request and no login. A board that fails
 raises an error; the caller records the failure and carries on with the rest.
 """
 
+import threading
 import time
 from urllib.parse import quote
 
@@ -11,7 +12,11 @@ import requests
 
 USER_AGENT = "job-watcher/1.0 (class project; reads public job boards once a day)"
 TIMEOUT = (10, 60)  # connect, read
-RETRIES = 3
+BACKOFF = [5, 15, 30, 60, 90]  # seconds to wait before each retry
+# Workday throttles shared cloud IPs (HTTP 429), so its boards are read gently:
+# at most 3 requests at a time with a short pause after each.
+WORKDAY_GATE = threading.Semaphore(3)
+WORKDAY_DELAY = 0.25
 MAX_POSTINGS = 5000  # a board larger than this must be read with a search term
 WORKDAY_PAGE = 20  # Workday returns at most 20 postings per request
 SMARTRECRUITERS_PAGE = 100
@@ -27,10 +32,22 @@ def new_session():
     return session
 
 
+def _wait_time(response, attempt):
+    """Seconds to wait before a retry; honour Retry-After when the server sends it."""
+    retry_after = getattr(response, "headers", {}).get("Retry-After") if response is not None else None
+    try:
+        if retry_after:
+            return min(float(retry_after), 120)
+    except ValueError:
+        pass
+    return BACKOFF[min(attempt, len(BACKOFF) - 1)]
+
+
 def _request_json(session, method, url, **kwargs):
-    """Request JSON, retrying on network errors, 429 and 5xx."""
+    """Request JSON, retrying on network errors, 429 and 5xx with a growing wait."""
     last = None
-    for attempt in range(RETRIES):
+    for attempt in range(len(BACKOFF) + 1):
+        response = None
         try:
             response = session.request(method, url, timeout=TIMEOUT, **kwargs)
             if response.status_code == 429 or response.status_code >= 500:
@@ -43,7 +60,8 @@ def _request_json(session, method, url, **kwargs):
             raise
         except (requests.RequestException, ValueError) as exc:
             last = f"{type(exc).__name__}: {exc}"
-        time.sleep(2 * (attempt + 1))
+        if attempt < len(BACKOFF):
+            time.sleep(_wait_time(response, attempt))
     raise SourceError(f"{last} from {url}")
 
 
@@ -108,7 +126,9 @@ def fetch_workday(source, session):
             "offset": offset,
             "searchText": p.get("search", ""),
         }
-        page = _request_json(session, "POST", url, json=body)
+        with WORKDAY_GATE:
+            page = _request_json(session, "POST", url, json=body)
+            time.sleep(WORKDAY_DELAY)
         # some Workday boards report the total on the first page only
         if total is None or page.get("total"):
             total = page.get("total", 0)

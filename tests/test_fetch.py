@@ -104,3 +104,25 @@ def test_smartrecruiters_pages():
 
     raw = fetch_source(source, FakeSession(handler))
     assert len(raw["content"]) == 130
+
+
+def test_429_waits_for_retry_after_then_succeeds(monkeypatch):
+    waits = []
+    monkeypatch.setattr(fetch.time, "sleep", waits.append)
+
+    class Throttled(FakeResponse):
+        headers = {"Retry-After": "7"}
+
+    answers = [Throttled({}, 429), FakeResponse({}, 429), FakeResponse([{"id": "1", "text": "x"}])]
+    lever = Source("l", "L", "lever", {"company": "l"})
+    assert fetch_source(lever, FakeSession(lambda m, u, k: answers.pop(0))) == [{"id": "1", "text": "x"}]
+    assert waits == [7, 15]  # Retry-After first, then the growing backoff
+
+
+def test_gives_up_after_the_last_retry(monkeypatch):
+    monkeypatch.setattr(fetch.time, "sleep", lambda s: None)
+    lever = Source("l", "L", "lever", {"company": "l"})
+    session = FakeSession(lambda m, u, k: FakeResponse({}, 429))
+    with pytest.raises(SourceError, match="HTTP 429"):
+        fetch_source(lever, session)
+    assert len(session.calls) == len(fetch.BACKOFF) + 1

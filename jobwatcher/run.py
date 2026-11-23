@@ -29,8 +29,12 @@ from .status import build_status, write_status
 WORKERS = 8
 
 
-def fetch_all(data_dir, date, sources, fetcher=fetch_source):
-    """Fetch every source in parallel and save the raw files. Returns the results."""
+def fetch_all(data_dir, date, sources, fetcher=fetch_source, retry_rounds=2, retry_wait=60):
+    """Fetch every source in parallel and save the raw files. Returns the results.
+
+    Sources that fail are tried again, one at a time, after a pause, because most
+    failures are a board that is briefly busy or throttling.
+    """
     store.reset_day(data_dir, date)
 
     def one(source):
@@ -49,17 +53,27 @@ def fetch_all(data_dir, date, sources, fetcher=fetch_source):
 
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         results = list(pool.map(one, sources))
+    for round_number in range(1, retry_rounds + 1):
+        failed = [i for i, r in enumerate(results) if not r["ok"]]
+        if not failed:
+            break
+        print(f"retry round {round_number}: {len(failed)} failed sources, waiting {retry_wait}s")
+        time.sleep(retry_wait)
+        for i in failed:
+            results[i] = one(sources[i])
     store.write_run_log(data_dir, date, results)
     return results
 
 
-def run_pipeline(data_dir=store.DATA_DIR, now=None, sources=None, fetcher=fetch_source, github=None):
+def run_pipeline(
+    data_dir=store.DATA_DIR, now=None, sources=None, fetcher=fetch_source, github=None, retry_wait=60
+):
     """Steps 1 to 4. Returns (date, status, rows)."""
     sources = SOURCES if sources is None else sources
     now = now or datetime.now(timezone.utc)
     date = now.strftime("%Y-%m-%d")
     print(f"Run {now.isoformat(timespec='seconds')}: {len(sources)} sources")
-    results = fetch_all(data_dir, date, sources, fetcher)
+    results = fetch_all(data_dir, date, sources, fetcher, retry_wait=retry_wait)
     rows = build_history(data_dir, sources)
     write_history(rows, Path(data_dir) / "history.csv")
     status = build_status(
