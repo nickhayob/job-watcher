@@ -1,0 +1,30 @@
+name: Daily data
+
+on:
+  schedule:
+    - cron: "23 12 * * *" # every day at 12:23 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write # commit the data files
+  issues: write # open and close the daily issue
+
+concurrency:
+  group: daily-data
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v5
+      - name: Install
+        run: uv sync --locked --no-dev
+      - name: Fetch, build, open the issue, commit
+        run: uv run python -m jobwatcher.run --commit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

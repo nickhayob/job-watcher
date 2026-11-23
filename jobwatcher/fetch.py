@@ -109,7 +109,9 @@ def fetch_workday(source, session):
             "searchText": p.get("search", ""),
         }
         page = _request_json(session, "POST", url, json=body)
-        total = page.get("total", 0)
+        # some Workday boards report the total on the first page only
+        if total is None or page.get("total"):
+            total = page.get("total", 0)
         if total > MAX_POSTINGS:
             raise SourceError(f"{total} postings: more than {MAX_POSTINGS}, needs a search term")
         batch = page.get("jobPostings", [])

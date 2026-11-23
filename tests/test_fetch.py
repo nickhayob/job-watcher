@@ -31,7 +31,7 @@ class FakeSession:
         return self.handler(method, url, kwargs)
 
 
-def workday_pages(total, available=None):
+def workday_pages(total, available=None, total_on_first_page_only=False):
     available = total if available is None else available
 
     def handler(method, url, kwargs):
@@ -40,7 +40,8 @@ def workday_pages(total, available=None):
         n = max(0, min(body["limit"], available - start))
         jobs = [{"title": f"t{i}", "externalPath": f"/job/x/t{i}_R{i}", "bulletFields": [f"R{i}"]}
                 for i in range(start, start + n)]
-        return FakeResponse({"total": total, "jobPostings": jobs, "facets": [{"big": "x" * 10}]})
+        shown = 0 if (total_on_first_page_only and start > 0) else total
+        return FakeResponse({"total": shown, "jobPostings": jobs, "facets": [{"big": "x" * 10}]})
 
     return handler
 
@@ -53,6 +54,12 @@ def test_workday_pages_and_search_term():
     assert [c[2]["json"]["offset"] for c in session.calls] == [0, 20, 40]
     assert all(c[2]["json"]["searchText"] == "analyst" for c in session.calls)
     assert session.calls[0][0] == "POST"
+
+
+def test_workday_total_reported_on_the_first_page_only():
+    # several real Workday boards return total=0 on every page after the first
+    raw = fetch_source(WORKDAY, FakeSession(workday_pages(45, total_on_first_page_only=True)))
+    assert len(raw["jobPostings"]) == 45 and raw["total"] == 45
 
 
 def test_board_over_5000_needs_a_search_term():
