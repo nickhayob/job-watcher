@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Market · Job Watcher</title>
+  <meta name="description" content="A report on the job-posting history the pipeline has built.">
+  <meta name="theme-color" content="#0f6b5c">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="nav"></div>
+  <main>
+    <h1>Market</h1>
+    <p class="sub" id="intro">Loading the history…</p>
+    <div id="offline" class="banner" hidden>You are offline. This page shows the last data it loaded.</div>
+    <div id="error" class="banner" hidden></div>
+    <div id="report"></div>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="charts.js"></script>
+  <script src="market-calc.js"></script>
+  <script>
+    JW.renderNav("market.html");
+    JW.watchConnection();
+
+    function section(id, heading, paragraph) {
+      return '<section class="section card" aria-labelledby="h-' + id + '"><h2 id="h-' + id + '">' + JW.esc(heading) + "</h2>" +
+        "<p>" + paragraph + '</p><div id="c-' + id + '"></div></section>';
+    }
+    function short(iso) { return iso.slice(5); }
+    function plural(n, word) { return n.toLocaleString() + " " + word + (n === 1 ? "" : "s"); }
+    function sum(a) { return a.reduce(function (x, y) { return x + y; }, 0); }
+
+    JW.loadData().then(function (d) {
+      var m = JWMarket.compute(d.rows, d.runDate);
+      var days = d.status.days_with_success;
+      var intro = document.getElementById("intro");
+      intro.textContent ="Every number below is computed in your browser from data/history.csv, " +
+        d.rows.length.toLocaleString() + " postings as of the " + d.runDate + " run (" + plural(days, "day") + " of data).";
+
+      var totalNew = sum(m.newAll), totalNewRole = sum(m.newRole), totalRemoved = sum(m.removedPerDay);
+      var html = [];
+
+      /* 1 */
+      html.push(section("new",
+        totalNew ? "Employers added " + plural(totalNew, "new posting") + " since tracking began, " + totalNewRole + " in my role"
+                 : "No new postings yet: the first run only sets the baseline",
+        "Postings first seen on each day. Postings that were already open on a source's first day are left out, because their real start date is unknown. " +
+        "The legend tells the two series apart: all new postings, and the ones that match my role (a finance-analyst title)."));
+      /* 2 */
+      html.push(section("removed",
+        totalRemoved ? "Employers removed " + plural(totalRemoved, "posting") + " since tracking began" : "No postings have been removed yet",
+        "Postings with a removed date on each day: the board listed them the day before and no longer lists them. " +
+        "First-run postings count here, because removal does not need a start date."));
+      /* 3 */
+      var top = m.perEmployer[0];
+      html.push(section("employer",
+        top ? top[0] + " has the most open postings (" + top[1].toLocaleString() + " of " + m.openTotal.toLocaleString() + ")" : "No open postings",
+        "Open postings per employer as of the last run. Large employers dominate the count, so use the Browse page to look at a single employer or my role."));
+      /* 4 */
+      html.push(section("days",
+        m.daysOpen.length ? "Postings that closed were open a median of " + m.daysOpenMedian + (m.daysOpenMedian === 1 ? " day" : " days")
+                          : "No tracked posting has closed yet, so there is no median",
+        "Days open is the removed date minus the first-seen date, for removed postings that are not first-run postings (" +
+        m.daysOpen.length.toLocaleString() + " so far). The chart groups them by length. Postings still open are not counted, " +
+        "so early numbers lean toward short-lived postings."));
+      /* 5 */
+      html.push(section("share",
+        m.shareRemovedWithin7 === null ? "Too early: no tracked posting is seven days old yet"
+          : Math.round(m.shareRemovedWithin7 * 100) + "% of postings were removed within seven days",
+        "Among postings that are not first-run postings and were first seen at least seven days before the last run (" +
+        m.shareDenominator.toLocaleString() + " postings), the share whose removed date is seven days or fewer after the first-seen date" +
+        (m.shareRemovedWithin7 === null ? "." : ": " + m.shareNumerator.toLocaleString() + " of " + m.shareDenominator.toLocaleString() + ".")));
+      /* 6 */
+      var loc = m.topLocations[0];
+      html.push(section("loc",
+        loc ? loc[0] + " has the most open postings (" + loc[1].toLocaleString() + ")" : "No open postings",
+        "The 15 most common locations among open postings, as the employer's board writes them. " +
+        "Workday boards that list several locations give the first one."));
+      document.getElementById("report").innerHTML = html.join("");
+
+      var dateLabels = m.dates.map(short);
+      JWCharts.bars(document.getElementById("c-new"), {
+        labels: dateLabels,
+        series: [{ name: "All new postings", values: m.newAll }, { name: "New postings in my role", values: m.newRole }],
+      }, "New postings per day, all and in my role");
+      document.getElementById("c-new").insertAdjacentHTML("afterbegin",
+        '<div class="legend"><span><i class="a"></i>All new postings</span><span><i class="b"></i>In my role</span></div>');
+      JWCharts.bars(document.getElementById("c-removed"), {
+        labels: dateLabels, series: [{ name: "Removed postings", values: m.removedPerDay }],
+      }, "Removed postings per day");
+      JWCharts.hbars(document.getElementById("c-employer"), {
+        labels: m.perEmployer.map(function (e) { return e[0]; }), values: m.perEmployer.map(function (e) { return e[1]; }),
+      }, "Open postings per employer");
+      JWCharts.bars(document.getElementById("c-days"), {
+        labels: m.bucketLabels, series: [{ name: "Removed postings", values: m.histogram }],
+      }, "Days open for removed postings");
+      JWCharts.hbars(document.getElementById("c-share"), {
+        labels: ["Removed within 7 days", "Other postings"],
+        values: [m.shareNumerator, m.shareDenominator - m.shareNumerator],
+      }, "Postings removed within seven days versus others");
+      JWCharts.hbars(document.getElementById("c-loc"), {
+        labels: m.topLocations.map(function (e) { return e[0]; }), values: m.topLocations.map(function (e) { return e[1]; }),
+      }, "Top locations among open postings");
+    }).catch(function (e) {
+      document.getElementById("intro").textContent = "No data yet.";
+      var box = document.getElementById("error"); box.hidden = false; box.textContent = "Could not load the data files: " + e.message;
+    });
+  </script>
+</body>
+</html>

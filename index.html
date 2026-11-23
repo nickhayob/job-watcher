@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Today · Job Watcher</title>
+  <meta name="description" content="What the daily job watcher saw in its latest run.">
+  <meta name="theme-color" content="#0f6b5c">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="nav"></div>
+  <main>
+    <h1>Today</h1>
+    <p class="sub">Finance-analyst postings at 28 employers, checked once a day.</p>
+    <div id="offline" class="banner" hidden>You are offline. This page shows the last data it loaded.</div>
+    <div id="error" class="banner" hidden></div>
+
+    <section class="card" aria-labelledby="run-h">
+      <h2 id="run-h">Last run</h2>
+      <p id="run-time" class="empty">Loading…</p>
+      <p id="baseline" class="empty" hidden></p>
+    </section>
+
+    <section class="stats" aria-label="Counts from the latest run">
+      <div class="stat"><div class="n" id="s-days">–</div><div class="l">days with a successful run</div></div>
+      <div class="stat"><div class="n" id="s-open">–</div><div class="l">open postings</div></div>
+      <div class="stat"><div class="n" id="s-new">–</div><div class="l">new today</div></div>
+      <div class="stat"><div class="n" id="s-removed">–</div><div class="l">removed today</div></div>
+    </section>
+
+    <div class="cols">
+      <section class="card" aria-labelledby="new-h">
+        <h2 id="new-h">New postings</h2>
+        <p class="sub" id="new-note"></p>
+        <ul class="plist" id="new-list"></ul>
+      </section>
+      <section class="card" aria-labelledby="rem-h">
+        <h2 id="rem-h">Removed postings</h2>
+        <p class="sub" id="rem-note"></p>
+        <ul class="plist" id="rem-list"></ul>
+      </section>
+    </div>
+
+    <section class="card" aria-labelledby="src-h">
+      <h2 id="src-h">Sources</h2>
+      <table>
+        <thead><tr><th>Source</th><th>Employer</th><th>Status</th><th class="num">Postings</th></tr></thead>
+        <tbody id="sources"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    JW.renderNav("index.html");
+    JW.watchConnection();
+    var LIMIT = 50;
+
+    function list(el, noteEl, rows, emptyText) {
+      var sorted = rows.slice().sort(function (a, b) {
+        return (b.in_role - a.in_role) || a.employer.localeCompare(b.employer) || a.title.localeCompare(b.title);
+      });
+      if (!rows.length) { el.innerHTML = '<li class="empty">' + emptyText + "</li>"; noteEl.textContent = ""; return; }
+      var inRole = rows.filter(function (r) { return r.in_role; }).length;
+      noteEl.textContent = rows.length + " in all, " + inRole + " in my role (shown first).";
+      function draw(all) {
+        el.innerHTML = sorted.slice(0, all ? sorted.length : LIMIT).map(function (r) {
+          return '<li><a href="' + JW.esc(r.url) + '" target="_blank" rel="noopener">' + JW.esc(r.title || "(untitled)") + "</a>" +
+            (r.in_role ? ' <span class="badge role">my role</span>' : "") +
+            '<div class="meta">' + JW.esc([r.employer, r.location].filter(Boolean).join(" · ")) + "</div></li>";
+        }).join("");
+        if (!all && sorted.length > LIMIT) {
+          var li = document.createElement("li");
+          li.innerHTML = '<button type="button">Show all ' + sorted.length + "</button>";
+          li.firstChild.onclick = function () { draw(true); };
+          el.appendChild(li);
+        }
+      }
+      draw(false);
+    }
+
+    JW.loadData().then(function (d) {
+      var s = d.status, rows = d.rows, date = d.runDate;
+      document.getElementById("run-time").textContent = JW.formatRunTime(s.run_time);
+      document.getElementById("s-days").textContent = s.days_with_success;
+      document.getElementById("s-open").textContent = s.open.toLocaleString();
+      document.getElementById("s-new").textContent = s.new_today.toLocaleString();
+      document.getElementById("s-removed").textContent = s.removed_today.toLocaleString();
+
+      if (s.days_with_success <= 1) {
+        var b = document.getElementById("baseline");
+        b.hidden = false;
+        b.textContent = "This is the first day of data (" + s.first_run_date + "). Every posting found today is the starting baseline, " +
+          "so new and removed postings begin with the next run.";
+      }
+
+      var employer = {};
+      rows.forEach(function (r) { employer[r.source] = r.employer; });
+      document.getElementById("sources").innerHTML = s.sources.map(function (x) {
+        return "<tr><td>" + JW.esc(x.name) + "</td><td>" + JW.esc(employer[x.name] || "") + "</td><td>" +
+          (x.ok ? '<span class="badge ok">OK</span>' : '<span class="badge bad">Failed</span>') +
+          '</td><td class="num">' + x.count.toLocaleString() + "</td></tr>";
+      }).join("");
+
+      list(document.getElementById("new-list"), document.getElementById("new-note"),
+        rows.filter(function (r) { return r.first_seen === date && !r.first_run; }),
+        "No new postings in the latest run.");
+      list(document.getElementById("rem-list"), document.getElementById("rem-note"),
+        rows.filter(function (r) { return r.status === "removed" && r.removed_date === date; }),
+        "No postings were removed in the latest run.");
+    }).catch(function (e) {
+      document.getElementById("run-time").textContent = "No data yet.";
+      var box = document.getElementById("error");
+      box.hidden = false;
+      box.textContent = "Could not load the data files: " + e.message;
+    });
+  </script>
+</body>
+</html>

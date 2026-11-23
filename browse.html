@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browse · Job Watcher</title>
+  <meta name="description" content="Search and filter the open postings the job watcher is tracking.">
+  <meta name="theme-color" content="#0f6b5c">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="nav"></div>
+  <main>
+    <h1>Browse</h1>
+    <p class="sub">Open postings. Star a posting to keep it on your shortlist; the shortlist stays in this browser.</p>
+    <div id="offline" class="banner" hidden>You are offline. This page shows the last data it loaded.</div>
+    <div id="error" class="banner" hidden></div>
+
+    <form class="card controls" id="controls" onsubmit="return false" aria-label="Filters">
+      <div>
+        <label id="scope-l">Show</label>
+        <div class="seg" role="group" aria-labelledby="scope-l">
+          <button type="button" id="scope-role" aria-pressed="true">My role</button>
+          <button type="button" id="scope-all" aria-pressed="false">All postings</button>
+        </div>
+      </div>
+      <div><label for="q">Search titles</label><input type="search" id="q" placeholder="for example credit, FP&amp;A"></div>
+      <div><label for="employer">Employer</label><select id="employer"><option value="">All employers</option></select></div>
+      <div><label for="location">Location contains</label><input type="text" id="location" list="locations" placeholder="for example Chicago"><datalist id="locations"></datalist></div>
+      <div><label for="days">Days open</label>
+        <select id="days">
+          <option value="">Any</option>
+          <option value="1">1 day or less</option>
+          <option value="7">7 days or less</option>
+          <option value="14">14 days or less</option>
+          <option value="30">30 days or less</option>
+          <option value="31">More than 30 days</option>
+        </select></div>
+      <div><label for="sort">Sort by first seen</label>
+        <select id="sort"><option value="new">Newest first</option><option value="old">Oldest first</option></select></div>
+      <div><label><input type="checkbox" id="starred"> Shortlist only (<span id="star-count">0</span>)</label></div>
+    </form>
+
+    <p class="count" id="count" aria-live="polite">Loading…</p>
+    <div id="jobs"></div>
+    <p><button type="button" id="more" hidden>Show more</button></p>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    JW.renderNav("browse.html");
+    JW.watchConnection();
+    var PAGE = 100, shown = PAGE, data = null, scopeRole = true;
+    var $ = function (id) { return document.getElementById(id); };
+
+    function setScope(role) {
+      scopeRole = role;
+      $("scope-role").setAttribute("aria-pressed", role);
+      $("scope-all").setAttribute("aria-pressed", !role);
+      shown = PAGE; render();
+    }
+
+    function daysOpenOf(r) { return JW.daysBetween(r.first_seen, data.runDate); }
+
+    function filtered() {
+      var q = $("q").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+      var emp = $("employer").value, loc = $("location").value.trim().toLowerCase();
+      var days = $("days").value, starredOnly = $("starred").checked;
+      var saved = JW.shortlist.ids();
+      var out = data.open.filter(function (r) {
+        if (scopeRole && !r.in_role) return false;
+        if (emp && r.employer !== emp) return false;
+        if (loc && r.location.toLowerCase().indexOf(loc) === -1) return false;
+        if (starredOnly && saved.indexOf(r.posting_id) === -1) return false;
+        if (q.length) { var t = r.title.toLowerCase(); if (!q.every(function (w) { return t.indexOf(w) !== -1; })) return false; }
+        if (days) { var d = daysOpenOf(r); if (days === "31" ? d <= 30 : d > +days) return false; }
+        return true;
+      });
+      var dir = $("sort").value === "new" ? -1 : 1;
+      out.sort(function (a, b) {
+        return dir * (a.first_seen < b.first_seen ? -1 : a.first_seen > b.first_seen ? 1 : 0) ||
+          a.employer.localeCompare(b.employer) || a.title.localeCompare(b.title);
+      });
+      return out;
+    }
+
+    function render() {
+      var rows = filtered(), saved = JW.shortlist.ids();
+      $("star-count").textContent = saved.length;
+      $("count").textContent = rows.length.toLocaleString() + " open posting" + (rows.length === 1 ? "" : "s") +
+        (scopeRole ? " in my role" : "");
+      $("jobs").innerHTML = rows.slice(0, shown).map(function (r) {
+        var on = saved.indexOf(r.posting_id) !== -1, d = daysOpenOf(r);
+        var seen = r.first_run
+          ? "open since at least " + r.first_seen + " (start of tracking)"
+          : "first seen " + r.first_seen + " · open " + d + (d === 1 ? " day" : " days");
+        return '<div class="job"><button type="button" class="star" data-id="' + JW.esc(r.posting_id) + '" aria-pressed="' + on +
+          '" aria-label="' + (on ? "Remove from shortlist: " : "Add to shortlist: ") + JW.esc(r.title) + '">' + (on ? "★" : "☆") + "</button>" +
+          '<div><div class="title">' + JW.esc(r.title || "(untitled)") + (r.in_role ? ' <span class="badge role">my role</span>' : "") + "</div>" +
+          '<div class="meta">' + JW.esc([r.employer, r.location, r.department].filter(Boolean).join(" · ")) + "</div>" +
+          '<div class="meta">' + JW.esc(seen) + (r.posted_date ? " · posted " + JW.esc(r.posted_date) : "") + "</div></div>" +
+          '<a class="apply" href="' + JW.esc(r.url) + '" target="_blank" rel="noopener">Apply</a></div>';
+      }).join("");
+      $("more").hidden = rows.length <= shown;
+      $("more").textContent = "Show more (" + (rows.length - shown) + " left)";
+    }
+
+    $("jobs").addEventListener("click", function (e) {
+      var b = e.target.closest(".star");
+      if (!b) return;
+      JW.shortlist.toggle(b.getAttribute("data-id"));
+      render();
+    });
+    $("more").onclick = function () { shown += PAGE; render(); };
+    $("scope-role").onclick = function () { setScope(true); };
+    $("scope-all").onclick = function () { setScope(false); };
+    ["q", "employer", "location", "days", "sort", "starred"].forEach(function (id) {
+      $(id).addEventListener("input", function () { shown = PAGE; render(); });
+    });
+
+    JW.loadData().then(function (d) {
+      d.open = d.rows.filter(function (r) { return r.status === "open"; });
+      data = d;
+      var emps = {}, locs = {};
+      d.open.forEach(function (r) { emps[r.employer] = 1; locs[r.location] = (locs[r.location] || 0) + 1; });
+      $("employer").insertAdjacentHTML("beforeend", Object.keys(emps).sort().map(function (e) {
+        return '<option value="' + JW.esc(e) + '">' + JW.esc(e) + "</option>";
+      }).join(""));
+      $("locations").innerHTML = Object.keys(locs).sort(function (a, b) { return locs[b] - locs[a]; }).slice(0, 60).map(function (l) {
+        return '<option value="' + JW.esc(l) + '">';
+      }).join("");
+      render();
+    }).catch(function (e) {
+      $("count").textContent = "No data yet.";
+      var box = $("error"); box.hidden = false; box.textContent = "Could not load the data files: " + e.message;
+    });
+  </script>
+</body>
+</html>
