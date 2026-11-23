@@ -21,6 +21,7 @@ from pathlib import Path
 
 from . import fetch, store
 from .build import build_history, write_history
+from .geocode import lookup_location, update_geo
 from .fetch import count_postings, fetch_source, new_session
 from .issues import GitHub, render_body
 from .sources import SOURCES
@@ -71,7 +72,13 @@ def fetch_all(
 
 
 def run_pipeline(
-    data_dir=store.DATA_DIR, now=None, sources=None, fetcher=fetch_source, github=None, retry_wait=60
+    data_dir=store.DATA_DIR,
+    now=None,
+    sources=None,
+    fetcher=fetch_source,
+    github=None,
+    retry_wait=60,
+    geo_lookup=None,
 ):
     """Steps 1 to 4. Returns (date, status, rows)."""
     sources = SOURCES if sources is None else sources
@@ -81,6 +88,11 @@ def run_pipeline(
     results = fetch_all(data_dir, date, sources, fetcher, retry_wait=retry_wait)
     rows = build_history(data_dir, sources)
     write_history(rows, Path(data_dir) / "history.csv")
+    if geo_lookup is not None:  # map coordinates are a best-effort extra, never a reason to fail
+        try:
+            update_geo(rows, Path(data_dir) / "geo.json", geo_lookup)
+        except Exception as exc:
+            print(f"map coordinates not updated: {exc}")
     status = build_status(
         rows, now.strftime("%Y-%m-%dT%H:%M:%SZ"), date, results, data_dir, sources
     )
@@ -126,7 +138,7 @@ def main():
     github = GitHub(repo, token) if repo and token else None
     if github is None:
         print("no GITHUB_REPOSITORY/GITHUB_TOKEN: skipping the issue")
-    date, _, _ = run_pipeline(github=github)
+    date, _, _ = run_pipeline(github=github, geo_lookup=lookup_location)
     if args.commit:
         commit_and_push(date)
 
