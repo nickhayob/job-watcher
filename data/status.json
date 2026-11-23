@@ -1,8 +1,8 @@
 {
-  "run_time": "2026-11-23T18:05:11Z",
+  "run_time": "2026-11-23T18:20:43Z",
   "first_run_date": "2026-11-23",
   "days_with_success": 1,
-  "open": 3780,
+  "open": 1000,
   "new_today": 0,
   "removed_today": 0,
   "sources": [
@@ -53,8 +53,8 @@
     },
     {
       "name": "fifththird",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 1000
     },
     {
       "name": "statestreet",
@@ -88,63 +88,63 @@
     },
     {
       "name": "stripe",
-      "ok": true,
-      "count": 778
+      "ok": false,
+      "count": 0
     },
     {
       "name": "robinhood",
-      "ok": true,
-      "count": 163
+      "ok": false,
+      "count": 0
     },
     {
       "name": "coinbase",
-      "ok": true,
-      "count": 251
+      "ok": false,
+      "count": 0
     },
     {
       "name": "affirm",
-      "ok": true,
-      "count": 217
+      "ok": false,
+      "count": 0
     },
     {
       "name": "sofi",
-      "ok": true,
-      "count": 53
+      "ok": false,
+      "count": 0
     },
     {
       "name": "block",
-      "ok": true,
-      "count": 183
+      "ok": false,
+      "count": 0
     },
     {
       "name": "palantir",
-      "ok": true,
-      "count": 307
+      "ok": false,
+      "count": 0
     },
     {
       "name": "spotify",
-      "ok": true,
-      "count": 90
+      "ok": false,
+      "count": 0
     },
     {
       "name": "ramp",
-      "ok": true,
-      "count": 182
+      "ok": false,
+      "count": 0
     },
     {
       "name": "plaid",
-      "ok": true,
-      "count": 147
+      "ok": false,
+      "count": 0
     },
     {
       "name": "experian",
-      "ok": true,
-      "count": 403
+      "ok": false,
+      "count": 0
     },
     {
       "name": "servicenow",
-      "ok": true,
-      "count": 1006
+      "ok": false,
+      "count": 0
     }
   ]
 }

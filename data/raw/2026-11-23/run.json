@@ -3,196 +3,196 @@
     "name": "capitalone",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://capitalone.wd12.myworkdayjobs.com/wday/cxs/capitalone/Capital_One/jobs",
-    "seconds": 12.3
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "wellsfargo",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://wf.wd1.myworkdayjobs.com/wday/cxs/wf/WellsFargoJobs/jobs",
-    "seconds": 14.1
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "mastercard",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://mastercard.wd1.myworkdayjobs.com/wday/cxs/mastercard/CorporateCareers/jobs",
-    "seconds": 26.8
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "blackrock",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs",
-    "seconds": 14.1
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "paypal",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://paypal.wd1.myworkdayjobs.com/wday/cxs/paypal/jobs/jobs",
-    "seconds": 14.3
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "truist",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://truist.wd1.myworkdayjobs.com/wday/cxs/truist/Careers/jobs",
-    "seconds": 12.4
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "usbank",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://usbank.wd1.myworkdayjobs.com/wday/cxs/usbank/US_Bank_Careers/jobs",
-    "seconds": 15.4
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "pnc",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://pnc.wd5.myworkdayjobs.com/wday/cxs/pnc/External/jobs",
-    "seconds": 27.0
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "regions",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://regions.wd5.myworkdayjobs.com/wday/cxs/regions/Regions_Careers/jobs",
-    "seconds": 25.7
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "fifththird",
-    "ok": false,
-    "count": 0,
-    "error": "HTTP 429 from https://fifththird.wd5.myworkdayjobs.com/wday/cxs/fifththird/53careers/jobs",
-    "seconds": 12.2
+    "ok": true,
+    "count": 1000,
+    "error": "",
+    "seconds": 610.9
   },
   {
     "name": "statestreet",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs",
-    "seconds": 12.2
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "northerntrust",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://ntrs.wd1.myworkdayjobs.com/wday/cxs/ntrs/northerntrust/jobs",
-    "seconds": 13.2
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "vanguard",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://vanguard.wd5.myworkdayjobs.com/wday/cxs/vanguard/vanguard_external/jobs",
-    "seconds": 12.2
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "fidelity",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://fmr.wd1.myworkdayjobs.com/wday/cxs/fmr/FidelityCareers/jobs",
-    "seconds": 12.3
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "visa",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://visa.wd5.myworkdayjobs.com/wday/cxs/visa/Visa/jobs",
-    "seconds": 12.2
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "aig",
     "ok": false,
     "count": 0,
-    "error": "HTTP 429 from https://aig.wd1.myworkdayjobs.com/wday/cxs/aig/aig/jobs",
-    "seconds": 19.0
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "stripe",
-    "ok": true,
-    "count": 778,
-    "error": "",
-    "seconds": 0.2
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "robinhood",
-    "ok": true,
-    "count": 163,
-    "error": "",
-    "seconds": 0.2
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "coinbase",
-    "ok": true,
-    "count": 251,
-    "error": "",
-    "seconds": 0.1
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "affirm",
-    "ok": true,
-    "count": 217,
-    "error": "",
-    "seconds": 0.1
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "sofi",
-    "ok": true,
-    "count": 53,
-    "error": "",
-    "seconds": 0.1
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "block",
-    "ok": true,
-    "count": 183,
-    "error": "",
-    "seconds": 0.1
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "palantir",
-    "ok": true,
-    "count": 307,
-    "error": "",
-    "seconds": 8.5
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "spotify",
-    "ok": true,
-    "count": 90,
-    "error": "",
-    "seconds": 16.3
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "ramp",
-    "ok": true,
-    "count": 182,
-    "error": "",
-    "seconds": 0.3
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "plaid",
-    "ok": true,
-    "count": 147,
-    "error": "",
-    "seconds": 0.2
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "experian",
-    "ok": true,
-    "count": 403,
-    "error": "",
-    "seconds": 2.7
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   },
   {
     "name": "servicenow",
-    "ok": true,
-    "count": 1006,
-    "error": "",
-    "seconds": 5.8
+    "ok": false,
+    "count": 0,
+    "error": "run time limit reached before this source finished",
+    "seconds": 0.0
   }
 ]
