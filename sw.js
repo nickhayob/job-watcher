@@ -1,11 +1,13 @@
 /* Service worker: online, always ask the network; offline, serve the last copy. */
-const CACHE = "jobwatcher-v2";
+const CACHE = "jobwatcher-v3";
 const SHELL = [
   "./",
   "index.html",
   "browse.html",
   "market.html",
   "map.html",
+  "resume.html",
+  "resume-calc.js",
   "style.css",
   "app.js",
   "charts.js",

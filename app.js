@@ -7,6 +7,7 @@
     ["index.html", "Today"],
     ["browse.html", "Browse"],
     ["map.html", "Map"],
+    ["resume.html", "Resume"],
     ["market.html", "Market"],
   ];
 

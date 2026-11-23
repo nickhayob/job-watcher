@@ -131,6 +131,7 @@ It looks only at the title and ignores case. So `Senior Financial Analyst`, `FP&
 | `data/geo.json` | Map coordinates for each location string (extra; not part of the history). `null` means the place could not be placed. |
 | `index.html` | Today page: last run, source status, the four counts, new and removed postings. |
 | `browse.html` | Browse page: filters, search, sort, apply links and a starred shortlist. |
+| `resume.html`, `resume-calc.js` | Resume page: paste or open a resume (.txt, .md, .docx) and see the best-matching open postings, topics the postings ask for that the resume lacks, and quality checks. Runs entirely in the browser; the resume is never uploaded. |
 | `map.html` | Map page: an interactive map (Leaflet and OpenStreetMap) of where the open postings are, with the same role and employer filters. |
 | `market.html` | Market page: six findings, each with a chart, computed in the browser from the history. |
 | `app.js` | Shared code: the navigation bar, data loading, CSV parsing, the shortlist. |
@@ -153,6 +154,7 @@ It looks only at the title and ignores case. So `Senior Financial Analyst`, `FP&
 
 - **Today** shows the last run time, the status of every source, the four counts (days with a successful run, open, new today, removed today) and the lists of new and removed postings.
 - **Browse** shows open postings with a switch between my role (the default) and all postings, filters for employer, location and days open, a title search, a sort by first-seen date, an apply link for every posting, and a star that saves a posting to a shortlist kept in the browser (it is still there after a reload).
+- **Resume** compares a pasted resume with the open postings. Postings are matched on their titles (the history has no job descriptions): topic overlap, whether the title is in my role, how the title's level fits the resume's level, and freshness. It also lists topics the postings ask for that the resume does not cover, and runs basic quality checks. Nothing is uploaded; the resume is only stored on the device if "Remember" is ticked.
 - **Map** shows the open postings as circles on an interactive map, sized by count, with the same my-role/all and employer filters. Clicking a circle lists employers and posting links and links to Browse filtered to that place.
 - **Market** has six sections, each with a heading that states the finding, a paragraph that explains it and a chart: new postings per day, removed postings per day, open postings per employer, days open (median), share removed within seven days, and top locations. Every number is computed in the browser from `data/history.csv`.
 - The site is **installable** (web app manifest and service worker). When online, pages load the data files from the network; when offline, the site opens and shows the last data it loaded.

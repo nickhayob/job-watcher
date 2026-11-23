@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume · Job Watcher</title>
+  <meta name="description" content="Match a resume to the open postings the job watcher is tracking.">
+  <meta name="theme-color" content="#0f6b5c">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    textarea { width: 100%; min-height: 220px; font: inherit; font-size: 0.92rem; color: var(--ink); background: var(--surface);
+      border: 1px solid var(--line); border-radius: 8px; padding: 10px; resize: vertical; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 0; padding: 0; list-style: none; }
+    .chips li { border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; font-size: 0.9rem; background: var(--surface); }
+    .chips.gap li { border-color: var(--accent-2); }
+    .score { display: inline-block; min-width: 2.6rem; text-align: center; font-weight: 800; border: 2px solid var(--accent); border-radius: 8px; padding: 2px 6px; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+    .primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    .check { padding: 4px 0; }
+    .check b { display: inline-block; min-width: 3.4rem; }
+    h3 { font-size: 1.05rem; margin: 18px 0 4px; }
+    .hint { color: var(--muted); font-size: 0.9rem; margin: 6px 0 0; }
+  </style>
+</head>
+<body>
+  <div id="nav"></div>
+  <main>
+    <h1>Resume</h1>
+    <p class="sub">Paste your resume to see which open postings fit it best, which topics your resume is missing, and a few quality checks.</p>
+    <div id="offline" class="banner" hidden>You are offline. This page works from the last data it loaded.</div>
+    <div id="error" class="banner" hidden></div>
+    <div class="banner" style="border-left-color: var(--accent)">
+      <strong>Private:</strong> the analysis runs in this browser. Your resume is not uploaded anywhere, and it is only kept on this device if you tick "Remember".
+    </div>
+
+    <section class="card" aria-labelledby="in-h">
+      <h2 id="in-h">Your resume</h2>
+      <label for="text" class="hint" style="display:block;margin:0 0 4px">Paste the text, or open a .txt, .md or .docx file (PDFs: copy and paste the text).</label>
+      <textarea id="text" spellcheck="false" placeholder="Education&#10;University of …&#10;&#10;Experience&#10;• Built a three-statement model that cut month-end close time by 20%&#10;&#10;Skills&#10;Excel, SQL, Python"></textarea>
+      <div class="controls" style="margin-top:12px">
+        <div><label for="file">Open a file</label><input type="file" id="file" accept=".txt,.md,.docx"></div>
+        <div><label for="level">Experience level</label><select id="level"><option value="">Detect from resume</option></select></div>
+        <div><label for="loc">Location contains</label><input type="text" id="loc" placeholder="for example Chicago (optional)"></div>
+        <div>
+          <label id="scope-l">Compare against</label>
+          <div class="seg" role="group" aria-labelledby="scope-l">
+            <button type="button" id="scope-role" aria-pressed="true">My role</button>
+            <button type="button" id="scope-all" aria-pressed="false">All postings</button>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" id="go" class="primary">Analyze</button>
+        <button type="button" id="clear">Clear</button>
+        <label style="font-weight:400"><input type="checkbox" id="remember"> Remember my resume on this device</label>
+      </div>
+      <p id="msg" class="hint" aria-live="polite"></p>
+    </section>
+
+    <div id="results" hidden>
+      <section class="card" aria-labelledby="sum-h">
+        <h2 id="sum-h">What the resume shows</h2>
+        <p id="level-line" class="empty"></p>
+        <h3>Topics covered</h3><ul class="chips" id="topics"></ul>
+        <h3>Tools found</h3><ul class="chips" id="tools"></ul>
+      </section>
+
+      <section class="card" aria-labelledby="match-h">
+        <h2 id="match-h">Best matching open postings</h2>
+        <p class="hint" id="match-note"></p>
+        <div id="matches"></div>
+      </section>
+
+      <section class="card" aria-labelledby="gap-h">
+        <h2 id="gap-h">What the postings ask for</h2>
+        <p class="hint">Topics named in the titles being compared, and whether your resume covers them.</p>
+        <h3>Not found in your resume</h3><ul class="chips gap" id="gaps"></ul>
+        <h3>Covered</h3><ul class="chips" id="strengths"></ul>
+      </section>
+
+      <section class="card" aria-labelledby="chk-h">
+        <h2 id="chk-h">Quality checks</h2>
+        <div id="checks"></div>
+      </section>
+    </div>
+
+    <p class="hint">How it works: the history has each posting's title, employer and location but not its job description, so a posting is matched on its title. The score (0 to 100) adds up topic overlap (45), whether the title is in my role (20), how well the title's level fits yours (25) and whether it was posted this past week (10). Treat it as a way to sort postings, not a verdict.</p>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="resume-calc.js"></script>
+  <script>
+    JW.renderNav("resume.html");
+    JW.watchConnection();
+    var $ = function (id) { return document.getElementById(id); };
+    var KEY = "jobwatcher.resume", scopeRole = true, data = null;
+
+    JWResume.LEVELS.forEach(function (l) {
+      $("level").insertAdjacentHTML("beforeend", '<option value="' + l + '">' + JWResume.LEVEL_LABEL[l] + "</option>");
+    });
+    function setScope(role) {
+      scopeRole = role;
+      $("scope-role").setAttribute("aria-pressed", role);
+      $("scope-all").setAttribute("aria-pressed", !role);
+    }
+    $("scope-role").onclick = function () { setScope(true); };
+    $("scope-all").onclick = function () { setScope(false); };
+
+    function chips(el, items, empty) {
+      el.innerHTML = items.length ? items.map(function (t) { return "<li>" + JW.esc(t) + "</li>"; }).join("") : '<li class="empty">' + empty + "</li>";
+    }
+
+    function run() {
+      var text = $("text").value.trim();
+      if (!data) { $("msg").textContent = "The postings are still loading."; return; }
+      if (text.split(/\s+/).length < 30) { $("msg").textContent = "Paste a fuller resume first (at least a few lines)."; return; }
+      $("msg").textContent = "";
+      try {
+        if ($("remember").checked) localStorage.setItem(KEY, text); else localStorage.removeItem(KEY);
+      } catch (e) { /* storage blocked */ }
+
+      var loc = $("loc").value.trim().toLowerCase();
+      var pool = data.open.filter(function (r) {
+        return (!scopeRole || r.in_role) && (!loc || r.location.toLowerCase().indexOf(loc) !== -1);
+      });
+      var result = JWResume.analyze(text, pool, { level: $("level").value || undefined, today: data.runDate, limit: 25 });
+
+      $("results").hidden = false;
+      $("level-line").textContent = "Treated as: " + JWResume.LEVEL_LABEL[result.profile.level] +
+        ($("level").value ? " (set by you)." : " (detected from the resume; change it above if that is wrong).");
+      chips($("topics"), result.topics.map(function (t) { return t.label; }), "No finance topics recognized. Check that the text pasted correctly.");
+      chips($("tools"), result.tools, "None of the common tools were found.");
+
+      $("match-note").textContent = "Compared with " + result.considered.toLocaleString() + " open postings" +
+        (scopeRole ? " in my role" : "") + (loc ? " with a location containing “" + $("loc").value.trim() + "”" : "") + ". Showing the top " + result.matches.length + ".";
+      var saved = JW.shortlist.ids();
+      $("matches").innerHTML = result.matches.length ? result.matches.map(function (m) {
+        var p = m.posting, on = saved.indexOf(p.posting_id) !== -1;
+        var matchedLabels = result.topics.filter(function (t) { return m.matched.indexOf(t.id) !== -1; }).map(function (t) { return t.label; });
+        var line = [matchedLabels.length ? "Matches: " + matchedLabels.join(", ") : "No topic match in the title",
+                    "level: " + m.level].join(" · ");
+        return '<div class="job"><button type="button" class="star" data-id="' + JW.esc(p.posting_id) + '" aria-pressed="' + on +
+          '" aria-label="' + (on ? "Remove from shortlist: " : "Add to shortlist: ") + JW.esc(p.title) + '">' + (on ? "★" : "☆") + "</button>" +
+          '<div><div class="title"><span class="score" aria-label="Match score">' + m.score + "</span> " + JW.esc(p.title) +
+          (p.in_role ? ' <span class="badge role">my role</span>' : "") + "</div>" +
+          '<div class="meta">' + JW.esc([p.employer, p.location].filter(Boolean).join(" · ")) + "</div>" +
+          '<div class="meta">' + JW.esc(line) + "</div></div>" +
+          '<a class="apply" href="' + JW.esc(p.url) + '" target="_blank" rel="noopener">Apply</a></div>';
+      }).join("") : '<p class="empty">No open postings match those filters.</p>';
+
+      chips($("gaps"), result.gaps.map(function (g) { return g.label + " (" + g.count + (g.count === 1 ? " title)" : " titles)"); }), "Nothing missing among the topics in these titles.");
+      chips($("strengths"), result.strengths.map(function (g) { return g.label + " (" + g.count + (g.count === 1 ? " title)" : " titles)"); }), "None of the topics in these titles appear in your resume.");
+      $("checks").innerHTML = result.checks.map(function (c) {
+        return '<div class="check"><b>' + (c.ok ? "Pass" : "Check") + "</b> " + JW.esc(c.text) + "</div>";
+      }).join("");
+    }
+
+    $("go").onclick = run;
+    $("clear").onclick = function () {
+      $("text").value = ""; $("results").hidden = true; $("msg").textContent = "";
+      try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
+      $("remember").checked = false;
+    };
+    $("matches").addEventListener("click", function (e) {
+      var b = e.target.closest(".star");
+      if (!b) return;
+      var on = JW.shortlist.toggle(b.getAttribute("data-id"));
+      b.setAttribute("aria-pressed", on); b.textContent = on ? "★" : "☆";
+    });
+    $("file").onchange = function () {
+      var f = this.files[0];
+      if (!f) return;
+      var done = function (text) { $("text").value = text; $("msg").textContent = "Loaded " + f.name + ". Press Analyze."; };
+      if (/\.docx$/i.test(f.name)) {
+        JWResume.readDocx(f).then(done).catch(function (e) { $("msg").textContent = e.message; });
+      } else {
+        f.text().then(done);
+      }
+    };
+
+    try {
+      var kept = localStorage.getItem(KEY);
+      if (kept) { $("text").value = kept; $("remember").checked = true; }
+    } catch (e) { /* storage blocked */ }
+
+    JW.loadData().then(function (d) {
+      d.open = d.rows.filter(function (r) { return r.status === "open"; });
+      data = d;
+      if ($("text").value.trim()) run();
+    }).catch(function (e) {
+      var box = $("error"); box.hidden = false; box.textContent = "Could not load the postings: " + e.message;
+    });
+  </script>
+</body>
+</html>
