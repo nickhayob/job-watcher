@@ -20,7 +20,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from . import fetch, store
-from .build import build_history, write_history
+from .build import build_all, write_details, write_history
 from .geocode import lookup_location, update_geo
 from .fetch import count_postings, fetch_source, new_session
 from .issues import GitHub, render_body
@@ -86,11 +86,14 @@ def run_pipeline(
     date = now.strftime("%Y-%m-%d")
     print(f"Run {now.isoformat(timespec='seconds')}: {len(sources)} sources")
     results = fetch_all(data_dir, date, sources, fetcher, retry_wait=retry_wait)
-    rows = build_history(data_dir, sources)
+    rows, details = build_all(data_dir, sources)
     write_history(rows, Path(data_dir) / "history.csv")
+    write_details(details, Path(data_dir) / "details.csv")
     if geo_lookup is not None:  # map coordinates are a best-effort extra, never a reason to fail
         try:
-            update_geo(rows, Path(data_dir) / "geo.json", geo_lookup)
+            # the map places postings by their exact place (from details.csv) when a board gives one
+            places = [{"location": d["place"] or r["location"], "status": r["status"]} for r, d in zip(rows, details)]
+            update_geo(places, Path(data_dir) / "geo.json", geo_lookup)
         except Exception as exc:
             print(f"map coordinates not updated: {exc}")
     status = build_status(

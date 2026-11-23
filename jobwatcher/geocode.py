@@ -46,6 +46,10 @@ def search_terms(location):
     return parts[0], (parts[1] if len(parts) > 1 else "")
 
 
+COUNTRIES = {"usa": "us", "united states": "us", "u.s.": "us", "uk": "gb", "united kingdom": "gb",
+             "england": "gb", "uae": "ae", "korea": "kr", "south korea": "kr"}
+
+
 def choose(results, hint):
     """Pick the search result that matches the hint (a state or a country)."""
     if not results:
@@ -53,6 +57,7 @@ def choose(results, hint):
     if not hint:
         return results[0]
     h = hint.strip().lower()
+    h = COUNTRIES.get(h, h)
     state = STATES.get(hint.strip().upper())
     for r in results:
         if state and r.get("country_code") == "US" and (r.get("admin1") or "").lower() == state.lower():
@@ -72,6 +77,9 @@ def lookup_location(location, session=None):
     if terms is None:
         return None
     name, hint = terms
+    if name.lower() == "new york city":
+        name = "New York"
+    hints = [p.strip() for p in (location or "").split(",")[1:] if p.strip()] or [""]
     session = session or requests
     response = session.get(
         SEARCH_URL,
@@ -80,7 +88,8 @@ def lookup_location(location, session=None):
         timeout=20,
     )
     response.raise_for_status()
-    best = choose(response.json().get("results") or [], hint)
+    results = response.json().get("results") or []
+    best = next((b for b in (choose(results, h) for h in hints) if b), None)
     return [round(best["latitude"], 3), round(best["longitude"], 3)] if best else None
 
 
@@ -113,6 +122,11 @@ def main():
     args = parser.parse_args()
     with open(args.history, newline="", encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle))
+    details = Path(args.history).with_name("details.csv")
+    if details.exists():  # use each posting's exact place when its board gave one
+        with open(details, newline="", encoding="utf-8") as handle:
+            place = {d["posting_id"]: d["place"] for d in csv.DictReader(handle)}
+        rows = [{**r, "location": place.get(r["posting_id"]) or r["location"]} for r in rows]
     geo = update_geo(rows, args.geo, limit=args.limit)
     placed = sum(1 for v in geo.values() if v)
     print(f"{placed} of {len(geo)} locations placed in {args.geo}")

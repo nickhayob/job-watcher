@@ -9,12 +9,15 @@ from urllib.parse import quote
 
 import requests
 
+from .skills import slim
+
 USER_AGENT = "job-watcher/1.0 (class project; reads public job boards once a day)"
 TIMEOUT = (10, 60)  # connect, read
 BACKOFF = [5, 15, 30, 60]  # seconds to wait before each retry
 DEADLINE = None  # time.time() after which no new request starts (set by the run)
 MAX_POSTINGS = 5000  # a board larger than this must be read with a search term
 SMARTRECRUITERS_PAGE = 100
+ORACLE_PAGE = 100
 
 
 class SourceError(Exception):
@@ -64,7 +67,7 @@ def _request_json(session, method, url, **kwargs):
 
 def fetch_greenhouse(source, session):
     token = source.params["token"]
-    data = _request_json(session, "GET", f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs")
+    data = _request_json(session, "GET", f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs?content=true&pay_transparency=true")
     if not isinstance(data, dict) or "jobs" not in data:
         raise SourceError("unexpected Greenhouse response")
     return data
@@ -80,7 +83,7 @@ def fetch_lever(source, session):
 
 def fetch_ashby(source, session):
     board = source.params["board"]
-    data = _request_json(session, "GET", f"https://api.ashbyhq.com/posting-api/job-board/{board}")
+    data = _request_json(session, "GET", f"https://api.ashbyhq.com/posting-api/job-board/{board}?includeCompensation=true")
     if not isinstance(data, dict) or "jobs" not in data:
         raise SourceError("unexpected Ashby response")
     return data
@@ -114,11 +117,38 @@ def fetch_smartrecruiters(source, session):
     return {"totalFound": total or 0, "content": content}
 
 
+def fetch_oracle(source, session):
+    """Oracle Recruiting Cloud boards (for example JPMorgan Chase).
+
+    These boards can hold thousands of postings, so they are read with a search
+    term (params['search']) and refused if even that returns more than 5,000.
+    """
+    p = source.params
+    base = f"https://{p['host']}/hcmRestApi/resources/latest/recruitingCEJobRequisitions"
+    search = quote(p.get("search", ""))
+    items, offset, total = [], 0, None
+    while total is None or offset < total:
+        finder = f"findReqs;siteNumber={p['site']},limit={ORACLE_PAGE},offset={offset},keyword={search},sortBy=POSTING_DATES_DESC"
+        page = _request_json(session, "GET", f"{base}?onlyData=true&expand=requisitionList.secondaryLocations&finder={finder}")
+        head = (page.get("items") or [{}])[0]
+        total = head.get("TotalJobsCount", 0)
+        if total > MAX_POSTINGS:
+            raise SourceError(f"{total} postings: more than {MAX_POSTINGS}, needs a search term")
+        batch = head.get("requisitionList", [])
+        if not batch:
+            break
+        items.extend(batch)
+        offset += ORACLE_PAGE
+    _check_complete("Oracle", len(items), total or 0)
+    return {"total": total or 0, "requisitions": items}
+
+
 FETCHERS = {
     "greenhouse": fetch_greenhouse,
     "lever": fetch_lever,
     "ashby": fetch_ashby,
     "smartrecruiters": fetch_smartrecruiters,
+    "oracle": fetch_oracle,
 }
 
 
@@ -128,6 +158,8 @@ def count_postings(source, raw):
         return len(raw)
     if source.ats == "greenhouse" or source.ats == "ashby":
         return len(raw.get("jobs", []))
+    if source.ats == "oracle":
+        return len(raw.get("requisitions", []))
     return len(raw.get("content", []))
 
 
@@ -142,4 +174,4 @@ def fetch_source(source, session=None):
     raw = FETCHERS[source.ats](source, session)
     if count_postings(source, raw) == 0:
         raise SourceError("board returned no postings")
-    return raw
+    return slim(source, raw)

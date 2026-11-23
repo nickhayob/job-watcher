@@ -1,6 +1,6 @@
 """Each source's raw JSON becomes the common columns."""
 
-from jobwatcher.convert import COMMON, convert
+from jobwatcher.convert import COMMON, EXTRA, annual, convert, skills_text, split_place
 from jobwatcher.sources import Source
 
 GREENHOUSE = Source("acme", "Acme", "greenhouse", {"token": "acme"})
@@ -23,8 +23,8 @@ def test_greenhouse():
         ]
     }
     rows = convert(GREENHOUSE, raw)
-    assert list(rows[0]) == COMMON
-    assert rows[0] == {
+    assert list(rows[0]) == COMMON + EXTRA
+    assert {k: rows[0][k] for k in COMMON} == {
         "source_id": "8379685",
         "title": "Senior Financial Analyst",
         "location": "Menlo Park, CA",
@@ -76,7 +76,7 @@ def test_ashby():
         ]
     }
     (row,) = convert(ASHBY, raw)
-    assert row == {
+    assert {k: row[k] for k in COMMON} == {
         "source_id": "34413f8d",
         "title": "Credit Analyst",
         "location": "New York, NY (HQ)",

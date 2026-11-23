@@ -74,7 +74,7 @@ def test_server_error_is_retried(monkeypatch):
     answers = [FakeResponse({}, 503), FakeResponse([{"id": "1", "text": "x"}])]
     lever = Source("l", "L", "lever", {"company": "l"})
     session = FakeSession(lambda m, u, k: answers.pop(0))
-    assert fetch_source(lever, session) == [{"id": "1", "text": "x"}]
+    assert [j["id"] for j in fetch_source(lever, session)] == ["1"]
     assert len(session.calls) == 2
 
 
@@ -87,7 +87,7 @@ def test_429_waits_for_retry_after_then_succeeds(monkeypatch):
 
     answers = [Throttled({}, 429), FakeResponse({}, 429), FakeResponse([{"id": "1", "text": "x"}])]
     lever = Source("l", "L", "lever", {"company": "l"})
-    assert fetch_source(lever, FakeSession(lambda m, u, k: answers.pop(0))) == [{"id": "1", "text": "x"}]
+    assert [j["id"] for j in fetch_source(lever, FakeSession(lambda m, u, k: answers.pop(0)))] == ["1"]
     assert waits == [7, 15]  # Retry-After first, then the growing backoff
 
 

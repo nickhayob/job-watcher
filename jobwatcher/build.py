@@ -5,6 +5,8 @@ Run it with:  uv run python -m jobwatcher.build
 The history depends only on the files in data/raw and on the rules in this
 package (the converters and the title rule), so building it again gives the
 same file, and a change to a rule applies to every day of the history.
+data/details.csv (pay, exact place, skills) is built the same way from the same
+raw files; it is kept apart so history.csv keeps exactly its required columns.
 """
 
 import argparse
@@ -12,7 +14,7 @@ import csv
 from pathlib import Path
 
 from . import store
-from .convert import convert
+from .convert import EXTRA, convert
 from .roles import in_role
 from .sources import BY_NAME
 
@@ -39,7 +41,10 @@ def _flag(value):
     return "true" if value else "false"
 
 
-def apply_day(history, by_source, source, date, converted, is_first_file):
+DETAIL_COLUMNS = ["posting_id"] + EXTRA
+
+
+def apply_day(history, by_source, source, date, converted, is_first_file, details=None):
     """Apply one source's listing for one day to the history (in place)."""
     listed = set()
     ids = by_source.setdefault(source.name, set())
@@ -67,6 +72,8 @@ def apply_day(history, by_source, source, date, converted, is_first_file):
         row["last_seen"] = date
         row["status"] = "open"  # a removed posting listed again opens again
         row["removed_date"] = ""
+        if details is not None:
+            details[posting_id] = {"posting_id": posting_id, **{k: item.get(k, "") for k in EXTRA}}
     for posting_id in ids - listed:
         row = history[posting_id]
         if row["status"] == "open":
@@ -74,19 +81,34 @@ def apply_day(history, by_source, source, date, converted, is_first_file):
             row["removed_date"] = date
 
 
-def build_history(data_dir=store.DATA_DIR, sources=None):
-    """Return the history rows (sorted by posting_id) built from the raw files."""
+def build_all(data_dir=store.DATA_DIR, sources=None):
+    """Return (history rows, detail rows), both sorted by posting_id, built from the raw files."""
     sources = BY_NAME if sources is None else {s.name: s for s in sources}
-    history, by_source, first_file_seen = {}, {}, set()
+    history, by_source, first_file_seen, details = {}, {}, set(), {}
     for date in store.raw_dates(data_dir):
         for name in store.raw_names(data_dir, date):
             source = sources.get(name)
             if source is None:
                 continue  # a raw file for a source that is no longer watched
             converted = convert(source, store.read_raw(data_dir, date, name))
-            apply_day(history, by_source, source, date, converted, name not in first_file_seen)
+            apply_day(history, by_source, source, date, converted, name not in first_file_seen, details)
             first_file_seen.add(name)
-    return [history[key] for key in sorted(history)]
+    keys = sorted(history)
+    return [history[k] for k in keys], [details[k] for k in keys]
+
+
+def build_history(data_dir=store.DATA_DIR, sources=None):
+    """Return the history rows (sorted by posting_id) built from the raw files."""
+    return build_all(data_dir, sources)[0]
+
+
+def write_details(rows, path):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=DETAIL_COLUMNS, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
 
 
 def write_history(rows, path):
@@ -107,9 +129,10 @@ def main():
     parser = argparse.ArgumentParser(description="Build data/history.csv from data/raw.")
     parser.add_argument("--data", default=str(store.DATA_DIR), help="data folder")
     args = parser.parse_args()
-    rows = build_history(args.data)
+    rows, details = build_all(args.data)
     write_history(rows, Path(args.data) / "history.csv")
-    print(f"wrote {len(rows)} postings to {Path(args.data) / 'history.csv'}")
+    write_details(details, Path(args.data) / "details.csv")
+    print(f"wrote {len(rows)} postings to {Path(args.data) / 'history.csv'} and details.csv")
 
 
 if __name__ == "__main__":

@@ -40,6 +40,7 @@ def test_in_role(title):
         "Compliance Analyst, Finance",
         "Cyber Security Analyst - Financial Services",
         "Financial Systems Analyst",
+        "Global Investment Banking Recruiter - Analyst/Associate",
         "Analyst",
         "",
         None,

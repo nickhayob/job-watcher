@@ -25,7 +25,7 @@ FINANCE = re.compile(
 
 EXCLUDE = re.compile(
     r"\bfraud\b|\bcrimes?\b|\baml\b|\bkyc\b|\bcompliance\b|\bsanctions?\b|\bcyber\b"
-    r"|\bsecurity\b|\bsoftware\b|\bsystems? analyst\b|\bclinical\b|\bnurse\b|\bintelligence\b",
+    r"|\bsecurity\b|\bsoftware\b|\bsystems? analyst\b|\bclinical\b|\bnurse\b|\bintelligence\b|\brecruit",
     re.IGNORECASE,
 )
 
