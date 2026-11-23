@@ -4,279 +4,349 @@
     "ok": true,
     "count": 779,
     "error": "",
-    "seconds": 0.1
+    "seconds": 32.7
   },
   {
     "name": "robinhood",
     "ok": true,
-    "count": 162,
+    "count": 161,
     "error": "",
-    "seconds": 0.1
+    "seconds": 10.1
   },
   {
     "name": "coinbase",
     "ok": true,
     "count": 250,
     "error": "",
-    "seconds": 1.1
+    "seconds": 11.8
   },
   {
     "name": "affirm",
     "ok": true,
     "count": 218,
     "error": "",
-    "seconds": 0.1
+    "seconds": 12.4
   },
   {
     "name": "sofi",
     "ok": true,
-    "count": 53,
+    "count": 54,
     "error": "",
-    "seconds": 0.1
+    "seconds": 0.9
   },
   {
     "name": "block",
     "ok": true,
     "count": 183,
     "error": "",
-    "seconds": 0.1
+    "seconds": 17.6
   },
   {
     "name": "brex",
     "ok": true,
     "count": 257,
     "error": "",
-    "seconds": 0.1
+    "seconds": 13.0
   },
   {
     "name": "chime",
     "ok": true,
     "count": 84,
     "error": "",
-    "seconds": 0.1
+    "seconds": 4.6
   },
   {
     "name": "carta",
     "ok": true,
     "count": 80,
     "error": "",
-    "seconds": 0.2
+    "seconds": 4.1
   },
   {
     "name": "adyen",
     "ok": true,
-    "count": 245,
+    "count": 246,
     "error": "",
-    "seconds": 0.1
+    "seconds": 15.9
   },
   {
     "name": "gusto",
     "ok": true,
     "count": 85,
     "error": "",
-    "seconds": 0.1
+    "seconds": 9.0
   },
   {
     "name": "toast",
     "ok": true,
-    "count": 323,
+    "count": 325,
     "error": "",
-    "seconds": 0.1
+    "seconds": 22.2
   },
   {
     "name": "airbnb",
     "ok": true,
     "count": 194,
     "error": "",
-    "seconds": 0.1
+    "seconds": 14.4
   },
   {
     "name": "lyft",
     "ok": true,
     "count": 144,
     "error": "",
-    "seconds": 0.7
+    "seconds": 8.1
   },
   {
     "name": "databricks",
     "ok": true,
-    "count": 884,
+    "count": 883,
     "error": "",
-    "seconds": 0.1
+    "seconds": 61.4
   },
   {
     "name": "datadog",
     "ok": true,
     "count": 385,
     "error": "",
-    "seconds": 1.4
+    "seconds": 22.7
   },
   {
     "name": "cloudflare",
     "ok": true,
     "count": 504,
     "error": "",
-    "seconds": 0.1
+    "seconds": 60.2
   },
   {
     "name": "okta",
     "ok": true,
     "count": 372,
     "error": "",
-    "seconds": 0.1
+    "seconds": 29.3
   },
   {
     "name": "mongodb",
     "ok": true,
     "count": 418,
     "error": "",
-    "seconds": 0.1
+    "seconds": 30.9
   },
   {
     "name": "anthropic",
     "ok": true,
-    "count": 633,
+    "count": 632,
     "error": "",
-    "seconds": 0.2
+    "seconds": 59.1
   },
   {
     "name": "point72",
     "ok": true,
-    "count": 202,
+    "count": 201,
     "error": "",
-    "seconds": 0.1
+    "seconds": 10.7
   },
   {
     "name": "ripple",
     "ok": true,
     "count": 110,
     "error": "",
-    "seconds": 0.1
+    "seconds": 10.3
   },
   {
     "name": "payoneer",
     "ok": true,
     "count": 100,
     "error": "",
-    "seconds": 0.1
+    "seconds": 11.4
   },
   {
     "name": "monzo",
     "ok": true,
     "count": 53,
     "error": "",
-    "seconds": 0.1
+    "seconds": 7.0
   },
   {
     "name": "betterment",
     "ok": true,
     "count": 25,
     "error": "",
-    "seconds": 0.1
+    "seconds": 3.6
   },
   {
     "name": "billcom",
     "ok": true,
     "count": 37,
     "error": "",
-    "seconds": 0.1
+    "seconds": 4.9
   },
   {
     "name": "lendingtree",
     "ok": true,
     "count": 20,
     "error": "",
-    "seconds": 0.1
+    "seconds": 3.4
+  },
+  {
+    "name": "aqr",
+    "ok": true,
+    "count": 41,
+    "error": "",
+    "seconds": 2.6
+  },
+  {
+    "name": "virtu",
+    "ok": true,
+    "count": 42,
+    "error": "",
+    "seconds": 2.2
+  },
+  {
+    "name": "dvtrading",
+    "ok": true,
+    "count": 69,
+    "error": "",
+    "seconds": 3.8
+  },
+  {
+    "name": "drweng",
+    "ok": true,
+    "count": 148,
+    "error": "",
+    "seconds": 9.0
+  },
+  {
+    "name": "akunacapital",
+    "ok": true,
+    "count": 33,
+    "error": "",
+    "seconds": 1.7
+  },
+  {
+    "name": "oportun",
+    "ok": true,
+    "count": 30,
+    "error": "",
+    "seconds": 4.0
+  },
+  {
+    "name": "upgrade",
+    "ok": true,
+    "count": 31,
+    "error": "",
+    "seconds": 3.7
+  },
+  {
+    "name": "clearwater",
+    "ok": true,
+    "count": 16,
+    "error": "",
+    "seconds": 2.1
   },
   {
     "name": "palantir",
     "ok": true,
     "count": 306,
     "error": "",
-    "seconds": 1.6
+    "seconds": 27.2
   },
   {
     "name": "spotify",
     "ok": true,
     "count": 90,
     "error": "",
-    "seconds": 1.2
+    "seconds": 19.2
   },
   {
     "name": "nium",
     "ok": true,
     "count": 31,
     "error": "",
-    "seconds": 0.8
+    "seconds": 3.5
   },
   {
     "name": "wealthfront",
     "ok": true,
     "count": 20,
     "error": "",
-    "seconds": 1.5
+    "seconds": 2.9
   },
   {
     "name": "crypto",
     "ok": true,
-    "count": 90,
+    "count": 91,
     "error": "",
-    "seconds": 1.1
+    "seconds": 5.0
   },
   {
     "name": "ramp",
     "ok": true,
     "count": 182,
     "error": "",
-    "seconds": 0.2
+    "seconds": 19.5
   },
   {
     "name": "plaid",
     "ok": true,
     "count": 147,
     "error": "",
-    "seconds": 0.2
+    "seconds": 14.7
   },
   {
     "name": "notion",
     "ok": true,
     "count": 171,
     "error": "",
-    "seconds": 0.2
+    "seconds": 18.6
   },
   {
     "name": "wealthsimple",
     "ok": true,
     "count": 38,
     "error": "",
-    "seconds": 0.1
+    "seconds": 5.1
   },
   {
     "name": "airwallex",
     "ok": true,
     "count": 497,
     "error": "",
-    "seconds": 0.5
+    "seconds": 16.2
+  },
+  {
+    "name": "rho",
+    "ok": true,
+    "count": 48,
+    "error": "",
+    "seconds": 4.0
   },
   {
     "name": "experian",
     "ok": true,
     "count": 405,
     "error": "",
-    "seconds": 2.1
+    "seconds": 5.0
   },
   {
     "name": "servicenow",
     "ok": true,
     "count": 1007,
     "error": "",
-    "seconds": 4.9
+    "seconds": 7.9
   },
   {
     "name": "equinox",
     "ok": true,
     "count": 772,
     "error": "",
-    "seconds": 3.3
+    "seconds": 5.8
+  },
+  {
+    "name": "jpmorgan",
+    "ok": true,
+    "count": 966,
+    "error": "",
+    "seconds": 14.6
   }
 ]

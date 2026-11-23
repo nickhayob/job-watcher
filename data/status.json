@@ -1,8 +1,8 @@
 {
-  "run_time": "2026-11-23T18:56:08Z",
+  "run_time": "2026-11-23T19:18:48Z",
   "first_run_date": "2026-11-23",
   "days_with_success": 1,
-  "open": 10556,
+  "open": 11981,
   "new_today": 0,
   "removed_today": 0,
   "sources": [
@@ -14,7 +14,7 @@
     {
       "name": "robinhood",
       "ok": true,
-      "count": 162
+      "count": 161
     },
     {
       "name": "coinbase",
@@ -29,7 +29,7 @@
     {
       "name": "sofi",
       "ok": true,
-      "count": 53
+      "count": 54
     },
     {
       "name": "block",
@@ -54,7 +54,7 @@
     {
       "name": "adyen",
       "ok": true,
-      "count": 245
+      "count": 246
     },
     {
       "name": "gusto",
@@ -64,7 +64,7 @@
     {
       "name": "toast",
       "ok": true,
-      "count": 323
+      "count": 325
     },
     {
       "name": "airbnb",
@@ -79,7 +79,7 @@
     {
       "name": "databricks",
       "ok": true,
-      "count": 884
+      "count": 883
     },
     {
       "name": "datadog",
@@ -104,12 +104,12 @@
     {
       "name": "anthropic",
       "ok": true,
-      "count": 633
+      "count": 632
     },
     {
       "name": "point72",
       "ok": true,
-      "count": 202
+      "count": 201
     },
     {
       "name": "ripple",
@@ -142,6 +142,46 @@
       "count": 20
     },
     {
+      "name": "aqr",
+      "ok": true,
+      "count": 41
+    },
+    {
+      "name": "virtu",
+      "ok": true,
+      "count": 42
+    },
+    {
+      "name": "dvtrading",
+      "ok": true,
+      "count": 69
+    },
+    {
+      "name": "drweng",
+      "ok": true,
+      "count": 148
+    },
+    {
+      "name": "akunacapital",
+      "ok": true,
+      "count": 33
+    },
+    {
+      "name": "oportun",
+      "ok": true,
+      "count": 30
+    },
+    {
+      "name": "upgrade",
+      "ok": true,
+      "count": 31
+    },
+    {
+      "name": "clearwater",
+      "ok": true,
+      "count": 16
+    },
+    {
       "name": "palantir",
       "ok": true,
       "count": 306
@@ -164,7 +204,7 @@
     {
       "name": "crypto",
       "ok": true,
-      "count": 90
+      "count": 91
     },
     {
       "name": "ramp",
@@ -192,6 +232,11 @@
       "count": 497
     },
     {
+      "name": "rho",
+      "ok": true,
+      "count": 48
+    },
+    {
       "name": "experian",
       "ok": true,
       "count": 405
@@ -205,6 +250,11 @@
       "name": "equinox",
       "ok": true,
       "count": 772
+    },
+    {
+      "name": "jpmorgan",
+      "ok": true,
+      "count": 966
     }
   ]
 }

@@ -109,6 +109,10 @@
 2.159
 ],
 "Bay Area, CA, United States of America": null,
+"Beijing": [
+39.907,
+116.397
+],
 "Belgrade, Serbia": [
 44.804,
 20.465
@@ -195,11 +199,19 @@
 -49.066
 ],
 "Bogotá, CO": null,
+"Boston": [
+42.358,
+-71.06
+],
 "Boston, MA": [
 42.358,
 -71.06
 ],
 "Boston, MA, US": [
+42.358,
+-71.06
+],
+"Boston, MA, United States": [
 42.358,
 -71.06
 ],
@@ -285,6 +297,10 @@
 35.227,
 -80.843
 ],
+"Charlotte, NC, United States; Denver, Colorado, United States; Seattle, Washington, United States": [
+35.227,
+-80.843
+],
 "Chennai": [
 13.088,
 80.278
@@ -356,6 +372,7 @@
 105.0
 ],
 "Ciudad Autónoma de Buenos Aires, Argentina": null,
+"Ciudad De Mexico, Mexico": null,
 "Columbus, OH, United States": [
 39.961,
 -82.999
@@ -451,6 +468,10 @@
 "Distributed": null,
 "Distributed; Hybrid": null,
 "District of Columbia, USA, Remote; Maryland, USA, Remote; Virginia, USA, Remote": null,
+"Dubai": [
+25.077,
+55.309
+],
 "Dublin": [
 53.333,
 -6.249
@@ -481,6 +502,10 @@
 "Frankfurt a. Main, Germany": null,
 "Frankfurt am Main, HESSEN, DE": null,
 "Frankfurt, DE": null,
+"GLASGOW, LANARKSHIRE, United Kingdom": [
+55.865,
+-4.258
+],
 "Geneve, GE, Switzerland": [
 46.202,
 6.146
@@ -587,6 +612,10 @@
 -8.0
 ],
 "Irvine, CA, US": [
+33.669,
+-117.823
+],
+"Irvine, CA, United States": [
 33.669,
 -117.823
 ],
@@ -711,6 +740,10 @@
 "Madrid, Spain": [
 40.416,
 -3.703
+],
+"Malaysia": [
+2.5,
+112.5
 ],
 "Malta": [
 35.917,
@@ -1038,6 +1071,10 @@
 "Plano, TX, United States": [
 33.02,
 -96.699
+],
+"Poland": [
+52.0,
+20.0
 ],
 "Pune (M.H)": null,
 "Pune (MH)": null,
