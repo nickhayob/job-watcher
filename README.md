@@ -3,7 +3,7 @@
 [![Tests](https://github.com/nickhayob/job-watcher/actions/workflows/tests.yml/badge.svg)](https://github.com/nickhayob/job-watcher/actions/workflows/tests.yml)
 [![Daily data](https://github.com/nickhayob/job-watcher/actions/workflows/daily.yml/badge.svg)](https://github.com/nickhayob/job-watcher/actions/workflows/daily.yml)
 
-A tool that watches the job market for me. Every day, on its own, it pulls the open positions at 40 employers, compares them with what it saw the day before, records what is new and what is gone, and publishes the result to a website.
+A tool that watches the job market for me. Every day, on its own, it pulls the open positions at 50 employers, compares them with what it saw the day before, records what is new and what is gone, and publishes the result to a website.
 
 - **My role:** finance analyst (financial analyst, FP&A, credit, treasury, investment and similar analyst titles).
 - **Site:** <https://nickhayob.github.io/job-watcher/>
@@ -42,7 +42,9 @@ This rewrites `data/history.csv` from everything in `data/raw/`. Running it agai
 
 ## Sources
 
-Every board returns JSON to a request with no login. The tool never reads a web page's HTML. No board comes close to 5,000 postings (the largest, ServiceNow, has about 1,000), so no search term is needed. The tool refuses a board over 5,000 postings unless a search term is set in `jobwatcher/sources.py` (a `search` value on a SmartRecruiters source).
+Every board returns JSON to a request with no login. The tool never reads a web page's HTML.
+
+**Search term.** JPMorgan Chase's board (Oracle Recruiting Cloud) has about 6,800 postings, which is over the 5,000 limit, so it is requested with the search term **`analyst`** (about 970 postings, including all the finance analyst roles). Every other board is under 5,000 postings (the next largest, ServiceNow, has about 1,000). The tool refuses a board over 5,000 postings unless a search term is set in `jobwatcher/sources.py`.
 
 Sixteen banks on Workday (Capital One, Wells Fargo, Mastercard and others) were tried first. Workday answered GitHub's servers with HTTP 429 and made one daily run take half an hour, so, as the project allows, those employers were replaced with the boards below, which answer in seconds.
 
@@ -75,6 +77,14 @@ Sixteen banks on Workday (Capital One, Wells Fargo, Mastercard and others) were 
 | `betterment` | Betterment | Greenhouse |
 | `billcom` | Bill | Greenhouse |
 | `lendingtree` | LendingTree | Greenhouse |
+| `aqr` | AQR Capital Management | Greenhouse |
+| `virtu` | Virtu Financial | Greenhouse |
+| `dvtrading` | DV Trading | Greenhouse |
+| `drweng` | DRW | Greenhouse |
+| `akunacapital` | Akuna Capital | Greenhouse |
+| `oportun` | Oportun | Greenhouse |
+| `upgrade` | Upgrade | Greenhouse |
+| `clearwater` | Clearwater Analytics | Greenhouse |
 | `palantir` | Palantir | Lever |
 | `spotify` | Spotify | Lever |
 | `nium` | Nium | Lever |
@@ -85,16 +95,21 @@ Sixteen banks on Workday (Capital One, Wells Fargo, Mastercard and others) were 
 | `notion` | Notion | Ashby |
 | `wealthsimple` | Wealthsimple | Ashby |
 | `airwallex` | Airwallex | Ashby |
+| `rho` | Rho | Ashby |
 | `experian` | Experian | SmartRecruiters |
 | `servicenow` | ServiceNow | SmartRecruiters |
 | `equinox` | Equinox | SmartRecruiters |
+| `jpmorgan` | JPMorgan Chase | Oracle Recruiting Cloud |
 
 Notes on the data:
 
 - A board that suddenly returns no postings, or whose paging stops early, is treated as a failure, not as "every posting was removed".
-- A run stops starting new requests after 25 minutes, so a throttled run still finishes and commits. (A normal run takes about 30 seconds.)
-- Greenhouse's list has no department, so `department` is empty for those sources (and for any other field a board does not provide). Greenhouse's `first_published` is used for `posted_date` when it is present.
-- Each raw file is exactly what the board returned, so files that include full job descriptions (Lever, Ashby) are the largest part of the repository.
+- A run stops starting new requests after 25 minutes, so a throttled run still finishes and commits. (A normal run takes about a minute.)
+- **Job descriptions are summarised, not stored.** Greenhouse, Lever and Ashby send each posting's full description. To keep the repository small, the pipeline reads each description once when it fetches it and saves only a small summary under `_jw` in the raw file: the skills it names (counted, using `skills.json`), the smallest "N years of experience" it asks for, and any dollar pay range written in the text. The long description text is then dropped. Every other field the board returned is kept as sent. (Greenhouse's `child_ids`/`parent_id` lists on departments and offices are also dropped.) Because the summary is in the raw file, `data/details.csv` is still rebuilt from the raw files alone.
+- **Pay.** `data/details.csv` has `salary_min`/`salary_max` (a yearly amount; hourly and monthly pay is converted), `salary_currency` and `salary_source`: `listing` when the board gives a structured pay range (Ashby, Greenhouse's pay transparency, Lever when present) and `text` when the range was found in the description. A maximum more than four times the minimum is treated as a typo and replaced by the minimum (one real Coinbase listing had a $179 million maximum).
+- **Exact places.** `place`, `city`, `region` and `country` come from a board's own address fields where it has them (Ashby, SmartRecruiters, Oracle, and Lever's country); Greenhouse boards only give free text, so their place is that text. The map places postings with these.
+- **Departments.** Greenhouse's department comes from its `departments` list; Oracle's from the job function.
+- SmartRecruiters' list endpoint has no description, so those postings have no skills.
 
 ## The title rule
 
@@ -102,7 +117,7 @@ A posting is **in my role** when its title:
 
 1. contains the word **analyst**, and
 2. contains a finance topic: *financial, finance, FP&A, investment(s), credit, treasury, valuation, equity research, corporate development, budget, forecasting*, and
-3. contains none of these words: *fraud, crime(s), AML, KYC, compliance, sanction(s), cyber, security, software, systems analyst, clinical, nurse, intelligence*.
+3. contains none of these words: *fraud, crime(s), AML, KYC, compliance, sanction(s), cyber, security, software, systems analyst, clinical, nurse, intelligence, recruit(er)*.
 
 It looks only at the title and ignores case. So `Senior Financial Analyst`, `FP&A Analyst`, `Credit Analyst - Commercial Banking` and `Treasury Analyst` match; `Data Analyst`, `Financial Advisor`, `FP&A Manager` and `Fraud Analyst` do not. The rule is in `jobwatcher/roles.py` and is re-applied to every row each time the history is built.
 
@@ -112,10 +127,12 @@ It looks only at the title and ignores case. So `Senior Financial Analyst`, `FP&
 |---|---|
 | `jobwatcher/sources.py` | The watch list: every employer, its applicant tracking system and board settings. |
 | `jobwatcher/fetch.py` | Calls each ATS's JSON API with retries, back-off on HTTP 429, paging, completeness checks and the run time limit. |
-| `jobwatcher/convert.py` | One converter per ATS that turns raw JSON into the common columns. |
+| `jobwatcher/convert.py` | One converter per ATS that turns raw JSON into the common columns and the detail columns (pay, place, skills). |
+| `jobwatcher/skills.py` | Reads skills, years of experience and pay out of a job description and slims the raw responses. |
+| `skills.json` | The skills list (id, label, pattern), used by `skills.py` and by the Resume page in the browser. |
 | `jobwatcher/roles.py` | The title rule (`in_role`). |
 | `jobwatcher/store.py` | Reads and writes the compressed raw files and each day's `run.json`. |
-| `jobwatcher/build.py` | Builds `data/history.csv` from the raw files (`uv run python -m jobwatcher.build`). |
+| `jobwatcher/build.py` | Builds `data/history.csv` and `data/details.csv` from the raw files (`uv run python -m jobwatcher.build`). |
 | `jobwatcher/status.py` | Builds `data/status.json`. |
 | `jobwatcher/issues.py` | Opens the day's GitHub Issue and closes the previous one. |
 | `jobwatcher/run.py` | The daily pipeline: fetch, build, status, issue, commit (`uv run python -m jobwatcher.run --commit`). |
@@ -128,6 +145,7 @@ It looks only at the title and ignores case. So `Senior Financial Analyst`, `FP&
 | `data/raw/<date>/run.json` | The result of every source that day, success or failure. |
 | `data/history.csv` | One row per posting (see columns below). |
 | `data/status.json` | The latest run: time, counts and the status of every source. |
+| `data/details.csv` | Extra columns for each posting, built from the same raw files: place, city, region, country, salary_min, salary_max, salary_currency, salary_source, min_years and skills. Kept apart so `history.csv` has exactly its required columns. |
 | `data/geo.json` | Map coordinates for each location string (extra; not part of the history). `null` means the place could not be placed. |
 | `index.html` | Today page: last run, source status, the four counts, new and removed postings. |
 | `browse.html` | Browse page: filters, search, sort, apply links and a starred shortlist. |
@@ -153,8 +171,8 @@ It looks only at the title and ignores case. So `Senior Financial Analyst`, `FP&
 ## The site
 
 - **Today** shows the last run time, the status of every source, the four counts (days with a successful run, open, new today, removed today) and the lists of new and removed postings.
-- **Browse** shows open postings with a switch between my role (the default) and all postings, filters for employer, location and days open, a title search, a sort by first-seen date, an apply link for every posting, and a star that saves a posting to a shortlist kept in the browser (it is still there after a reload).
-- **Resume** compares a pasted resume with the open postings. Postings are matched on their titles (the history has no job descriptions): topic overlap, whether the title is in my role, how the title's level fits the resume's level, and freshness. It also lists topics the postings ask for that the resume does not cover, and runs basic quality checks. Nothing is uploaded; the resume is only stored on the device if "Remember" is ticked.
+- **Browse** shows open postings (pay, years asked and skills when known) with a switch between my role (the default) and all postings, filters for employer, location and days open, a title search, a pay-listed filter, a minimum US-dollar pay, a skill filter, a sort by first-seen date or pay, an apply link for every posting, and a star that saves a posting to a shortlist kept in the browser (it is still there after a reload).
+- **Resume** compares a pasted resume with the open postings. Postings are scored on the skills their descriptions name that the resume has, topic overlap with the title, whether the title is in my role, how well the level fits (halved when a posting asks for more years than the resume shows) and freshness. It also lists skills and topics the postings ask for that the resume does not cover, and runs basic quality checks. Nothing is uploaded; the resume is only stored on the device if "Remember" is ticked.
 - **Map** shows the open postings as circles on an interactive map, sized by count, with the same my-role/all and employer filters. Clicking a circle lists employers and posting links and links to Browse filtered to that place.
 - **Market** has six sections, each with a heading that states the finding, a paragraph that explains it and a chart: new postings per day, removed postings per day, open postings per employer, days open (median), share removed within seven days, and top locations. Every number is computed in the browser from `data/history.csv`.
 - The site is **installable** (web app manifest and service worker). When online, pages load the data files from the network; when offline, the site opens and shows the last data it loaded.
