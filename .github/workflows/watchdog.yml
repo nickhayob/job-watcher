@@ -1,0 +1,38 @@
+name: Watchdog
+
+# The daily run is scheduled by GitHub, which can delay or skip a scheduled run.
+# Every afternoon this checks that the data really was updated in the last 28
+# hours and opens an issue (GitHub emails the owner) if it was not.
+on:
+  schedule:
+    - cron: "47 16 * * *" # about four hours after the daily run is due
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Was the data updated in the last 28 hours?
+        id: age
+        run: |
+          last=$(jq -r .run_time data/status.json)
+          age=$(( $(date -u +%s) - $(date -u -d "$last" +%s) ))
+          echo "last run $last, $((age / 3600)) hours ago"
+          echo "hours=$((age / 3600))" >> "$GITHUB_OUTPUT"
+          echo "last=$last" >> "$GITHUB_OUTPUT"
+          [ "$age" -le 100800 ]
+      - name: Open an issue if it was not
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'Daily data is stale in:title' --json number --jq '.[0].number')" ]; then
+            gh issue create --repo "$GITHUB_REPOSITORY" \
+              --title "Daily data is stale ($(date -u +%F))" \
+              --body "The last successful run was ${{ steps.age.outputs.last }} (${{ steps.age.outputs.hours }} hours ago). The daily workflow may have been skipped or failed: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/workflows/daily.yml"
+          fi

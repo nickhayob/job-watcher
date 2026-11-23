@@ -28,3 +28,11 @@ jobs:
         run: uv run python -m jobwatcher.run --commit
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Open an issue if the run failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Daily run FAILED $(date -u +%F)" \
+            --body "The Daily data workflow failed. Read the log: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
