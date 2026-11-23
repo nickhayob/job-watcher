@@ -1,198 +1,282 @@
 [
   {
-    "name": "capitalone",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "wellsfargo",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "mastercard",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "blackrock",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "paypal",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "truist",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "usbank",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "pnc",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "regions",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "fifththird",
-    "ok": true,
-    "count": 1000,
-    "error": "",
-    "seconds": 610.9
-  },
-  {
-    "name": "statestreet",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "northerntrust",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "vanguard",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "fidelity",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "visa",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
-    "name": "aig",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
-  },
-  {
     "name": "stripe",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 779,
+    "error": "",
+    "seconds": 0.1
   },
   {
     "name": "robinhood",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 162,
+    "error": "",
+    "seconds": 0.1
   },
   {
     "name": "coinbase",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 250,
+    "error": "",
+    "seconds": 1.1
   },
   {
     "name": "affirm",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 218,
+    "error": "",
+    "seconds": 0.1
   },
   {
     "name": "sofi",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 53,
+    "error": "",
+    "seconds": 0.1
   },
   {
     "name": "block",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 183,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "brex",
+    "ok": true,
+    "count": 257,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "chime",
+    "ok": true,
+    "count": 84,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "carta",
+    "ok": true,
+    "count": 80,
+    "error": "",
+    "seconds": 0.2
+  },
+  {
+    "name": "adyen",
+    "ok": true,
+    "count": 245,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "gusto",
+    "ok": true,
+    "count": 85,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "toast",
+    "ok": true,
+    "count": 323,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "airbnb",
+    "ok": true,
+    "count": 194,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "lyft",
+    "ok": true,
+    "count": 144,
+    "error": "",
+    "seconds": 0.7
+  },
+  {
+    "name": "databricks",
+    "ok": true,
+    "count": 884,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "datadog",
+    "ok": true,
+    "count": 385,
+    "error": "",
+    "seconds": 1.4
+  },
+  {
+    "name": "cloudflare",
+    "ok": true,
+    "count": 504,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "okta",
+    "ok": true,
+    "count": 372,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "mongodb",
+    "ok": true,
+    "count": 418,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "anthropic",
+    "ok": true,
+    "count": 633,
+    "error": "",
+    "seconds": 0.2
+  },
+  {
+    "name": "point72",
+    "ok": true,
+    "count": 202,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "ripple",
+    "ok": true,
+    "count": 110,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "payoneer",
+    "ok": true,
+    "count": 100,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "monzo",
+    "ok": true,
+    "count": 53,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "betterment",
+    "ok": true,
+    "count": 25,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "billcom",
+    "ok": true,
+    "count": 37,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "lendingtree",
+    "ok": true,
+    "count": 20,
+    "error": "",
+    "seconds": 0.1
   },
   {
     "name": "palantir",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 306,
+    "error": "",
+    "seconds": 1.6
   },
   {
     "name": "spotify",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 90,
+    "error": "",
+    "seconds": 1.2
+  },
+  {
+    "name": "nium",
+    "ok": true,
+    "count": 31,
+    "error": "",
+    "seconds": 0.8
+  },
+  {
+    "name": "wealthfront",
+    "ok": true,
+    "count": 20,
+    "error": "",
+    "seconds": 1.5
+  },
+  {
+    "name": "crypto",
+    "ok": true,
+    "count": 90,
+    "error": "",
+    "seconds": 1.1
   },
   {
     "name": "ramp",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 182,
+    "error": "",
+    "seconds": 0.2
   },
   {
     "name": "plaid",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 147,
+    "error": "",
+    "seconds": 0.2
+  },
+  {
+    "name": "notion",
+    "ok": true,
+    "count": 171,
+    "error": "",
+    "seconds": 0.2
+  },
+  {
+    "name": "wealthsimple",
+    "ok": true,
+    "count": 38,
+    "error": "",
+    "seconds": 0.1
+  },
+  {
+    "name": "airwallex",
+    "ok": true,
+    "count": 497,
+    "error": "",
+    "seconds": 0.5
   },
   {
     "name": "experian",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 405,
+    "error": "",
+    "seconds": 2.1
   },
   {
     "name": "servicenow",
-    "ok": false,
-    "count": 0,
-    "error": "run time limit reached before this source finished",
-    "seconds": 0.0
+    "ok": true,
+    "count": 1007,
+    "error": "",
+    "seconds": 4.9
+  },
+  {
+    "name": "equinox",
+    "ok": true,
+    "count": 772,
+    "error": "",
+    "seconds": 3.3
   }
 ]

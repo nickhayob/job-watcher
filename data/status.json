@@ -1,150 +1,210 @@
 {
-  "run_time": "2026-11-23T18:20:43Z",
+  "run_time": "2026-11-23T18:56:08Z",
   "first_run_date": "2026-11-23",
   "days_with_success": 1,
-  "open": 1000,
+  "open": 10556,
   "new_today": 0,
   "removed_today": 0,
   "sources": [
     {
-      "name": "capitalone",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "wellsfargo",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "mastercard",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "blackrock",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "paypal",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "truist",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "usbank",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "pnc",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "regions",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "fifththird",
-      "ok": true,
-      "count": 1000
-    },
-    {
-      "name": "statestreet",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "northerntrust",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "vanguard",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "fidelity",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "visa",
-      "ok": false,
-      "count": 0
-    },
-    {
-      "name": "aig",
-      "ok": false,
-      "count": 0
-    },
-    {
       "name": "stripe",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 779
     },
     {
       "name": "robinhood",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 162
     },
     {
       "name": "coinbase",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 250
     },
     {
       "name": "affirm",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 218
     },
     {
       "name": "sofi",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 53
     },
     {
       "name": "block",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 183
+    },
+    {
+      "name": "brex",
+      "ok": true,
+      "count": 257
+    },
+    {
+      "name": "chime",
+      "ok": true,
+      "count": 84
+    },
+    {
+      "name": "carta",
+      "ok": true,
+      "count": 80
+    },
+    {
+      "name": "adyen",
+      "ok": true,
+      "count": 245
+    },
+    {
+      "name": "gusto",
+      "ok": true,
+      "count": 85
+    },
+    {
+      "name": "toast",
+      "ok": true,
+      "count": 323
+    },
+    {
+      "name": "airbnb",
+      "ok": true,
+      "count": 194
+    },
+    {
+      "name": "lyft",
+      "ok": true,
+      "count": 144
+    },
+    {
+      "name": "databricks",
+      "ok": true,
+      "count": 884
+    },
+    {
+      "name": "datadog",
+      "ok": true,
+      "count": 385
+    },
+    {
+      "name": "cloudflare",
+      "ok": true,
+      "count": 504
+    },
+    {
+      "name": "okta",
+      "ok": true,
+      "count": 372
+    },
+    {
+      "name": "mongodb",
+      "ok": true,
+      "count": 418
+    },
+    {
+      "name": "anthropic",
+      "ok": true,
+      "count": 633
+    },
+    {
+      "name": "point72",
+      "ok": true,
+      "count": 202
+    },
+    {
+      "name": "ripple",
+      "ok": true,
+      "count": 110
+    },
+    {
+      "name": "payoneer",
+      "ok": true,
+      "count": 100
+    },
+    {
+      "name": "monzo",
+      "ok": true,
+      "count": 53
+    },
+    {
+      "name": "betterment",
+      "ok": true,
+      "count": 25
+    },
+    {
+      "name": "billcom",
+      "ok": true,
+      "count": 37
+    },
+    {
+      "name": "lendingtree",
+      "ok": true,
+      "count": 20
     },
     {
       "name": "palantir",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 306
     },
     {
       "name": "spotify",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 90
+    },
+    {
+      "name": "nium",
+      "ok": true,
+      "count": 31
+    },
+    {
+      "name": "wealthfront",
+      "ok": true,
+      "count": 20
+    },
+    {
+      "name": "crypto",
+      "ok": true,
+      "count": 90
     },
     {
       "name": "ramp",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 182
     },
     {
       "name": "plaid",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 147
+    },
+    {
+      "name": "notion",
+      "ok": true,
+      "count": 171
+    },
+    {
+      "name": "wealthsimple",
+      "ok": true,
+      "count": 38
+    },
+    {
+      "name": "airwallex",
+      "ok": true,
+      "count": 497
     },
     {
       "name": "experian",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 405
     },
     {
       "name": "servicenow",
-      "ok": false,
-      "count": 0
+      "ok": true,
+      "count": 1007
+    },
+    {
+      "name": "equinox",
+      "ok": true,
+      "count": 772
     }
   ]
 }
