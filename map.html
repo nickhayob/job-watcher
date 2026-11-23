@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Map · Job Watcher</title>
+  <meta name="description" content="An interactive map of where the open postings are.">
+  <meta name="theme-color" content="#0f6b5c">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+        integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #map { height: 560px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+    .leaflet-popup-content { font-family: var(--font); font-size: 14px; line-height: 1.4; }
+    .leaflet-popup-content a { color: #0f6b5c; }
+    .leaflet-popup-content ul { margin: 6px 0; padding-left: 18px; }
+    .mapnote { color: var(--muted); margin: 10px 0 0; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div id="nav"></div>
+  <main>
+    <h1>Map</h1>
+    <p class="sub">Where the open postings are. Bigger circles mean more postings; click a circle for the details.</p>
+    <div id="offline" class="banner" hidden>You are offline. The data is the last this page loaded, but the map itself needs a connection.</div>
+    <div id="error" class="banner" hidden></div>
+
+    <form class="card controls" onsubmit="return false" aria-label="Map filters">
+      <div>
+        <label id="scope-l">Show</label>
+        <div class="seg" role="group" aria-labelledby="scope-l">
+          <button type="button" id="scope-role" aria-pressed="true">My role</button>
+          <button type="button" id="scope-all" aria-pressed="false">All postings</button>
+        </div>
+      </div>
+      <div><label for="employer">Employer</label><select id="employer"><option value="">All employers</option></select></div>
+      <div><label>Placed on the map</label><div id="summary" class="empty">Loading…</div></div>
+    </form>
+
+    <div id="map" role="application" aria-label="Map of open postings by location"></div>
+    <p class="mapnote">Locations are placed by city name. Remote postings and locations that could not be placed are counted in the summary but not drawn. Map tiles © OpenStreetMap contributors.</p>
+    <section class="card" style="margin-top:16px" aria-labelledby="top-h">
+      <h2 id="top-h">Top places</h2>
+      <table><thead><tr><th>Location</th><th class="num">Postings</th><th class="num">In my role</th><th></th></tr></thead><tbody id="top"></tbody></table>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+          integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="app.js"></script>
+  <script>
+    JW.renderNav("map.html");
+    JW.watchConnection();
+    var $ = function (id) { return document.getElementById(id); };
+    var scopeRole = true, data = null, geo = {}, map = null, layer = null;
+
+    function setScope(role) {
+      scopeRole = role;
+      $("scope-role").setAttribute("aria-pressed", role);
+      $("scope-all").setAttribute("aria-pressed", !role);
+      draw();
+    }
+    function browseLink(loc, role) {
+      return "browse.html?location=" + encodeURIComponent(loc) + (role ? "" : "&scope=all");
+    }
+
+    function groups() {
+      var emp = $("employer").value, byLoc = {}, placed = 0, unplaced = 0, total = 0;
+      data.open.forEach(function (r) {
+        if (scopeRole && !r.in_role) return;
+        if (emp && r.employer !== emp) return;
+        total++;
+        var pos = geo[r.location];
+        if (!pos) { unplaced++; return; }
+        placed++;
+        var g = byLoc[r.location] || (byLoc[r.location] = { loc: r.location, pos: pos, rows: [], role: 0 });
+        g.rows.push(r);
+        if (r.in_role) g.role++;
+      });
+      return { list: Object.keys(byLoc).map(function (k) { return byLoc[k]; }), placed: placed, unplaced: unplaced, total: total };
+    }
+
+    function popup(g) {
+      var emps = {};
+      g.rows.forEach(function (r) { emps[r.employer] = (emps[r.employer] || 0) + 1; });
+      var topEmps = Object.keys(emps).sort(function (a, b) { return emps[b] - emps[a]; }).slice(0, 4)
+        .map(function (e) { return JW.esc(e) + " (" + emps[e] + ")"; }).join(", ");
+      var show = g.rows.filter(function (r) { return r.in_role; }).slice(0, 5);
+      if (!show.length) show = g.rows.slice(0, 5);
+      return "<strong>" + JW.esc(g.loc) + "</strong><br>" + g.rows.length + " open posting" + (g.rows.length === 1 ? "" : "s") +
+        ", " + g.role + " in my role<br><small>" + topEmps + "</small><ul>" +
+        show.map(function (r) {
+          return '<li><a href="' + JW.esc(r.url) + '" target="_blank" rel="noopener">' + JW.esc(r.title || "(untitled)") + "</a></li>";
+        }).join("") + '</ul><a href="' + browseLink(g.loc, scopeRole) + '">See all on Browse</a>';
+    }
+
+    function draw() {
+      var g = groups();
+      $("summary").textContent = g.placed.toLocaleString() + " of " + g.total.toLocaleString() + " postings in " +
+        g.list.length.toLocaleString() + " places (" + g.unplaced.toLocaleString() + " remote or not placed)";
+      var rows = g.list.slice().sort(function (a, b) { return b.rows.length - a.rows.length; });
+      $("top").innerHTML = rows.slice(0, 15).map(function (x) {
+        return "<tr><td>" + JW.esc(x.loc) + '</td><td class="num">' + x.rows.length + '</td><td class="num">' + x.role +
+          '</td><td><a href="' + browseLink(x.loc, scopeRole) + '">Browse</a></td></tr>';
+      }).join("");
+      if (!map) return;
+      layer.clearLayers();
+      var bounds = [];
+      g.list.forEach(function (x) {
+        var radius = Math.min(30, 4 + 2.2 * Math.sqrt(x.rows.length));
+        L.circleMarker(x.pos, { radius: radius, color: "#0f6b5c", weight: 1.5, fillColor: "#0f6b5c", fillOpacity: 0.45 })
+          .bindTooltip(JW.esc(x.loc) + ": " + x.rows.length).bindPopup(popup(x), { maxWidth: 320 }).addTo(layer);
+        bounds.push(x.pos);
+      });
+      if (bounds.length && !draw.fitted) { map.fitBounds(bounds, { padding: [30, 30], maxZoom: 6 }); draw.fitted = true; }
+    }
+
+    function startMap() {
+      if (typeof L === "undefined") {
+        $("map").innerHTML = '<p class="empty" style="padding:16px">The map library could not be loaded (are you offline?). The table below still works.</p>';
+        return;
+      }
+      map = L.map("map", { worldCopyJump: true }).setView([39, -96], 4);
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 18, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+      layer = L.layerGroup().addTo(map);
+    }
+
+    $("scope-role").onclick = function () { setScope(true); };
+    $("scope-all").onclick = function () { setScope(false); };
+    $("employer").addEventListener("input", function () { draw.fitted = false; draw(); });
+
+    startMap();
+    Promise.all([JW.loadData(), JW.getJSON("data/geo.json").catch(function () { return {}; })]).then(function (a) {
+      data = a[0]; geo = a[1];
+      data.open = data.rows.filter(function (r) { return r.status === "open"; });
+      var emps = {};
+      data.open.forEach(function (r) { emps[r.employer] = 1; });
+      $("employer").insertAdjacentHTML("beforeend", Object.keys(emps).sort().map(function (e) {
+        return '<option value="' + JW.esc(e) + '">' + JW.esc(e) + "</option>";
+      }).join(""));
+      draw();
+    }).catch(function (e) {
+      $("summary").textContent = "No data yet.";
+      var box = $("error"); box.hidden = false; box.textContent = "Could not load the data files: " + e.message;
+    });
+  </script>
+</body>
+</html>

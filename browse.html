@@ -132,6 +132,13 @@
       $("locations").innerHTML = Object.keys(locs).sort(function (a, b) { return locs[b] - locs[a]; }).slice(0, 60).map(function (l) {
         return '<option value="' + JW.esc(l) + '">';
       }).join("");
+      // links from the Map page arrive with ?location=...&scope=all
+      var qs = new URLSearchParams(window.location.search);
+      if (qs.get("location")) $("location").value = qs.get("location");
+      if (qs.get("employer")) $("employer").value = qs.get("employer");
+      if (qs.get("scope") === "all") scopeRole = false;
+      $("scope-role").setAttribute("aria-pressed", scopeRole);
+      $("scope-all").setAttribute("aria-pressed", !scopeRole);
       render();
     }).catch(function (e) {
       $("count").textContent = "No data yet.";

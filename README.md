@@ -105,6 +105,7 @@ It looks only at the title and ignores case. So `Senior Financial Analyst`, `FP&
 | `jobwatcher/status.py` | Builds `data/status.json`. |
 | `jobwatcher/issues.py` | Opens the day's GitHub Issue and closes the previous one. |
 | `jobwatcher/run.py` | The daily pipeline: fetch, build, status, issue, commit (`uv run python -m jobwatcher.run --commit`). |
+| `jobwatcher/geocode.py` | Looks up map coordinates for locations (Open-Meteo geocoding; only city names are sent) and keeps them in `data/geo.json`. |
 | `jobwatcher/market.py` | A Python version of the Market page's six calculations, used by the tests to check the page's definitions. |
 | `tests/` | The pytest suite: converters for every source, the title rule, first-seen/last-seen/removed logic, fetching, the pipeline and the Market numbers. |
 | `.github/workflows/daily.yml` | Runs the pipeline every day at 12:23 UTC (and on demand). |
@@ -113,8 +114,10 @@ It looks only at the title and ignores case. So `Senior Financial Analyst`, `FP&
 | `data/raw/<date>/run.json` | The result of every source that day, success or failure. |
 | `data/history.csv` | One row per posting (see columns below). |
 | `data/status.json` | The latest run: time, counts and the status of every source. |
+| `data/geo.json` | Map coordinates for each location string (extra; not part of the history). `null` means the place could not be placed. |
 | `index.html` | Today page: last run, source status, the four counts, new and removed postings. |
 | `browse.html` | Browse page: filters, search, sort, apply links and a starred shortlist. |
+| `map.html` | Map page: an interactive map (Leaflet and OpenStreetMap) of where the open postings are, with the same role and employer filters. |
 | `market.html` | Market page: six findings, each with a chart, computed in the browser from the history. |
 | `app.js` | Shared code: the navigation bar, data loading, CSV parsing, the shortlist. |
 | `charts.js` | Small SVG bar charts (no library, so charts work offline). |
@@ -136,6 +139,7 @@ It looks only at the title and ignores case. So `Senior Financial Analyst`, `FP&
 
 - **Today** shows the last run time, the status of every source, the four counts (days with a successful run, open, new today, removed today) and the lists of new and removed postings.
 - **Browse** shows open postings with a switch between my role (the default) and all postings, filters for employer, location and days open, a title search, a sort by first-seen date, an apply link for every posting, and a star that saves a posting to a shortlist kept in the browser (it is still there after a reload).
+- **Map** shows the open postings as circles on an interactive map, sized by count, with the same my-role/all and employer filters. Clicking a circle lists employers and posting links and links to Browse filtered to that place.
 - **Market** has six sections, each with a heading that states the finding, a paragraph that explains it and a chart: new postings per day, removed postings per day, open postings per employer, days open (median), share removed within seven days, and top locations. Every number is computed in the browser from `data/history.csv`.
 - The site is **installable** (web app manifest and service worker). When online, pages load the data files from the network; when offline, the site opens and shows the last data it loaded.
 

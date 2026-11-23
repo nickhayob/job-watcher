@@ -6,6 +6,7 @@
   JW.PAGES = [
     ["index.html", "Today"],
     ["browse.html", "Browse"],
+    ["map.html", "Map"],
     ["market.html", "Market"],
   ];
 

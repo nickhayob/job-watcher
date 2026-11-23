@@ -1,10 +1,11 @@
 /* Service worker: online, always ask the network; offline, serve the last copy. */
-const CACHE = "jobwatcher-v1";
+const CACHE = "jobwatcher-v2";
 const SHELL = [
   "./",
   "index.html",
   "browse.html",
   "market.html",
+  "map.html",
   "style.css",
   "app.js",
   "charts.js",
@@ -20,7 +21,12 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE)
-      .then((cache) => cache.addAll(SHELL))
+      .then((cache) =>
+        cache
+          .addAll(SHELL)
+          // map coordinates are an extra: a missing file must not stop the install
+          .then(() => cache.add("data/geo.json").catch(() => {}))
+      )
       .then(() => self.skipWaiting())
   );
 });
