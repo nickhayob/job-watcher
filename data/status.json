@@ -1,35 +1,35 @@
 {
-  "run_time": "2026-11-24T16:39:04Z",
+  "run_time": "2026-11-24T22:37:57Z",
   "first_run_date": "2026-11-23",
   "days_with_success": 2,
-  "open": 11967,
-  "new_today": 172,
-  "removed_today": 186,
+  "open": 11994,
+  "new_today": 278,
+  "removed_today": 265,
   "sources": [
     {
       "name": "stripe",
       "ok": true,
-      "count": 768
+      "count": 770
     },
     {
       "name": "robinhood",
       "ok": true,
-      "count": 159
+      "count": 156
     },
     {
       "name": "coinbase",
       "ok": true,
-      "count": 249
+      "count": 250
     },
     {
       "name": "affirm",
       "ok": true,
-      "count": 214
+      "count": 216
     },
     {
       "name": "sofi",
       "ok": true,
-      "count": 53
+      "count": 57
     },
     {
       "name": "block",
@@ -39,7 +39,7 @@
     {
       "name": "brex",
       "ok": true,
-      "count": 263
+      "count": 264
     },
     {
       "name": "chime",
@@ -54,22 +54,22 @@
     {
       "name": "adyen",
       "ok": true,
-      "count": 240
+      "count": 242
     },
     {
       "name": "gusto",
       "ok": true,
-      "count": 85
+      "count": 84
     },
     {
       "name": "toast",
       "ok": true,
-      "count": 308
+      "count": 305
     },
     {
       "name": "airbnb",
       "ok": true,
-      "count": 199
+      "count": 200
     },
     {
       "name": "lyft",
@@ -79,42 +79,42 @@
     {
       "name": "databricks",
       "ok": true,
-      "count": 888
+      "count": 890
     },
     {
       "name": "datadog",
       "ok": true,
-      "count": 385
+      "count": 386
     },
     {
       "name": "cloudflare",
       "ok": true,
-      "count": 506
+      "count": 512
     },
     {
       "name": "okta",
       "ok": true,
-      "count": 370
+      "count": 375
     },
     {
       "name": "mongodb",
       "ok": true,
-      "count": 419
+      "count": 418
     },
     {
       "name": "anthropic",
       "ok": true,
-      "count": 634
+      "count": 631
     },
     {
       "name": "point72",
       "ok": true,
-      "count": 201
+      "count": 202
     },
     {
       "name": "ripple",
       "ok": true,
-      "count": 110
+      "count": 109
     },
     {
       "name": "payoneer",
@@ -134,7 +134,7 @@
     {
       "name": "billcom",
       "ok": true,
-      "count": 37
+      "count": 38
     },
     {
       "name": "lendingtree",
@@ -144,7 +144,7 @@
     {
       "name": "aqr",
       "ok": true,
-      "count": 44
+      "count": 43
     },
     {
       "name": "virtu",
@@ -169,7 +169,7 @@
     {
       "name": "oportun",
       "ok": true,
-      "count": 37
+      "count": 38
     },
     {
       "name": "upgrade",
@@ -189,7 +189,7 @@
     {
       "name": "spotify",
       "ok": true,
-      "count": 89
+      "count": 92
     },
     {
       "name": "nium",
@@ -224,12 +224,12 @@
     {
       "name": "wealthsimple",
       "ok": true,
-      "count": 37
+      "count": 38
     },
     {
       "name": "airwallex",
       "ok": true,
-      "count": 502
+      "count": 501
     },
     {
       "name": "rho",
@@ -239,22 +239,22 @@
     {
       "name": "experian",
       "ok": true,
-      "count": 407
+      "count": 405
     },
     {
       "name": "servicenow",
       "ok": true,
-      "count": 994
+      "count": 992
     },
     {
       "name": "equinox",
       "ok": true,
-      "count": 780
+      "count": 788
     },
     {
       "name": "jpmorgan",
       "ok": true,
-      "count": 976
+      "count": 979
     }
   ]
 }

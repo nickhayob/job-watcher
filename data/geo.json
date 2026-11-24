@@ -126,11 +126,19 @@
 47.61,
 -122.201
 ],
+"Bellevue, WA, United States": [
+47.61,
+-122.201
+],
 "Bellevue, WA; Menlo Park, CA": null,
 "Bellevue, WA; Menlo Park, CA; New York, NY": null,
 "Bellevue, Washington": [
 47.61,
 -122.201
+],
+"Bellevue, Washington; Chicago, Illinois; New York, New York; San Francisco, California; Washington, DC": [
+38.826,
+-77.01
 ],
 "Bellevue, Washington; Chicago, Illinois; New York, New York; Washington, DC": [
 38.826,
@@ -367,6 +375,7 @@
 41.85,
 -87.65
 ],
+"Chicago, Illinois; San Francisco, California; Washington, DC": null,
 "Chicago, New York": null,
 "Chicago, New York City": null,
 "Chicago,IL": [
@@ -497,9 +506,14 @@
 "Dublin, Ireland; London, United Kingdom": null,
 "Dublin, London": null,
 "Düsseldorf, DE": null,
+"FL - Jacksonville; UT - Cottonwood Heights": null,
 "Fairfield, CT, US": [
 38.249,
 -122.04
+],
+"Fayetteville, NC": [
+35.053,
+-78.878
 ],
 "Finland": [
 64.0,
@@ -581,6 +595,7 @@
 22.278,
 114.175
 ],
+"Hong Kong, Hong Kong": null,
 "Hong Kong, Hong Kong, Hong Kong": null,
 "Honolulu, HI": [
 21.307,
@@ -739,6 +754,7 @@
 49.75,
 6.167
 ],
+"Luxembourg, Luxembourg (Bitstamp)": null,
 "Luxembourg, Luxembourg, Luxembourg": [
 49.75,
 6.167
@@ -835,6 +851,10 @@
 "Miami Beach, FL, US": [
 25.791,
 -80.13
+],
+"Miami, FL": [
+25.774,
+-80.194
 ],
 "Miami, FL, US": [
 25.774,
@@ -988,6 +1008,7 @@
 40.714,
 -74.006
 ],
+"New York, NY; Stamford, CT": null,
 "New York, New York": [
 40.714,
 -74.006
@@ -1107,6 +1128,10 @@
 ],
 "Pune (M.H)": null,
 "Pune (MH)": null,
+"Raleigh, North Carolina, United States": [
+35.772,
+-78.639
+],
 "Remote": null,
 "Remote (Canada)": null,
 "Remote (US)": null,
@@ -1132,6 +1157,7 @@
 "Remote UK": null,
 "Remote US": null,
 "Remote United States": null,
+"Remote, California, United States": null,
 "Remote, US": null,
 "Remote, USA": null,
 "Remote, United States": null,
@@ -1150,6 +1176,7 @@
 40.8,
 -73.651
 ],
+"SF, NYC": null,
 "Sacramento, CA": [
 38.582,
 -121.494
@@ -1483,6 +1510,10 @@
 "Tempe, AZ, United States": [
 33.415,
 -111.909
+],
+"Texas": [
+20.026,
+-99.196
 ],
 "Texas, USA, Remote": null,
 "Tokyo": [
