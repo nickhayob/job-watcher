@@ -76,6 +76,7 @@
 30.267,
 -97.743
 ],
+"Austin; New York City; United States": null,
 "Australia": [
 -25.0,
 135.0
@@ -96,6 +97,10 @@
 "Bangalore, India": null,
 "Bangalore, India, India": null,
 "Bangalore, Karnataka, IN": null,
+"Bangkok, Thailand": [
+13.754,
+100.501
+],
 "Barcelona": [
 41.389,
 2.159
@@ -121,6 +126,7 @@
 47.61,
 -122.201
 ],
+"Bellevue, WA; Menlo Park, CA": null,
 "Bellevue, WA; Menlo Park, CA; New York, NY": null,
 "Bellevue, Washington": [
 47.61,
@@ -499,6 +505,10 @@
 64.0,
 26.0
 ],
+"France": [
+46.0,
+2.0
+],
 "Frankfurt a. Main, Germany": null,
 "Frankfurt am Main, HESSEN, DE": null,
 "Frankfurt, DE": null,
@@ -622,6 +632,10 @@
 "Israel": [
 31.5,
 34.75
+],
+"Jakarta": [
+-6.215,
+106.845
 ],
 "Japan": [
 35.685,
@@ -753,6 +767,10 @@
 40.949,
 -73.733
 ],
+"Manchester, Manchester, United Kingdom": [
+53.481,
+-2.237
+],
 "Manila, Philippines": [
 14.604,
 120.982
@@ -762,11 +780,20 @@
 -118.454
 ],
 "Maryland; Virginia; Washington, D.C.": null,
+"Maryland; Washington, DC": null,
 "McLean, Virginia": [
 38.934,
 -77.177
 ],
+"Melbourne": [
+-37.814,
+144.963
+],
 "Melbourne, Australia": [
+-37.814,
+144.963
+],
+"Melbourne, Australia; Sydney, Australia": [
 -37.814,
 144.963
 ],
@@ -929,6 +956,8 @@
 40.714,
 -74.006
 ],
+"New York City, New York; San Francisco, California": null,
+"New York City; United States": null,
 "New York, NEW YORK, US": [
 40.714,
 -74.006
