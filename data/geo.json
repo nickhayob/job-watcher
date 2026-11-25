@@ -7,6 +7,10 @@
 32.962,
 -96.829
 ],
+"Albany, NEW YORK, US": [
+42.653,
+-73.756
+],
 "Amsterdam": [
 52.374,
 4.89
@@ -130,6 +134,10 @@
 47.61,
 -122.201
 ],
+"Bellevue, WA, United States; Chicago, Illinois, United States; San Francisco, CA, United States; Toronto, ON, Canada": [
+47.61,
+-122.201
+],
 "Bellevue, WA; Menlo Park, CA": null,
 "Bellevue, WA; Menlo Park, CA; New York, NY": null,
 "Bellevue, Washington": [
@@ -179,6 +187,7 @@
 52.524,
 13.411
 ],
+"Berlin, DE": null,
 "Berlin, Germany": [
 52.524,
 13.411
@@ -230,6 +239,7 @@
 -71.06
 ],
 "Boston, MA; Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY; Washington, DC": null,
+"Boston, MA; San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC": null,
 "Boston, Massachusetts": [
 42.358,
 -71.06
@@ -526,6 +536,10 @@
 "Frankfurt a. Main, Germany": null,
 "Frankfurt am Main, HESSEN, DE": null,
 "Frankfurt, DE": null,
+"Frisco, TX": [
+33.151,
+-96.824
+],
 "GLASGOW, LANARKSHIRE, United Kingdom": [
 55.865,
 -4.258
@@ -537,6 +551,10 @@
 "Germany": [
 51.5,
 10.5
+],
+"Glattbrugg, CH": [
+47.431,
+8.563
 ],
 "Glendale, CA, US": [
 34.143,
@@ -933,6 +951,10 @@
 ],
 "N/A": null,
 "NY, United States": null,
+"NYC": [
+40.714,
+-74.006
+],
 "NYC-Privy": null,
 "Nashville, TN": [
 36.166,
@@ -1060,6 +1082,10 @@
 28.538,
 -81.379
 ],
+"Oslo, NO": [
+59.913,
+10.746
+],
 "Palm Beach, FL, US": [
 26.706,
 -80.036
@@ -1128,6 +1154,10 @@
 ],
 "Pune (M.H)": null,
 "Pune (MH)": null,
+"Raleigh, North Carolina, US": [
+35.772,
+-78.639
+],
 "Raleigh, North Carolina, United States": [
 35.772,
 -78.639
@@ -1416,6 +1446,10 @@
 59.329,
 18.069
 ],
+"Stockholm, Stockholm County, SE": [
+59.329,
+18.069
+],
 "Stockholm, Sweden": [
 59.329,
 18.069
@@ -1612,6 +1646,7 @@
 36.853,
 -75.978
 ],
+"WA - Seattle; CA - San Francisco": null,
 "Waltham, Massachusetts, US": [
 42.376,
 -71.236
