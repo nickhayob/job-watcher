@@ -30,6 +30,10 @@
 41.126,
 -73.714
 ],
+"Atlanta": [
+33.749,
+-84.388
+],
 "Atlanta, GA - Hybrid; Denver, CO - Hybrid": null,
 "Atlanta, GA - Hybrid; Denver, CO - Hybrid; New York, NY - Hybrid; San Francisco, CA - Hybrid; Scottsdale, AZ - Hybrid": null,
 "Atlanta, GEORGIA, US": [
@@ -365,6 +369,7 @@
 ],
 "Chicago, IL; Denver, CO; Westlake, TX": null,
 "Chicago, IL; Menlo Park, CA; New York, NY": null,
+"Chicago, IL; New York, NY; San Francisco, CA": null,
 "Chicago, ILLINOIS, US": [
 41.85,
 -87.65
@@ -515,6 +520,7 @@
 ],
 "Dublin, Ireland; London, United Kingdom": null,
 "Dublin, London": null,
+"Dublin/London": null,
 "Düsseldorf, DE": null,
 "FL - Jacksonville; UT - Cottonwood Heights": null,
 "Fairfield, CT, US": [
@@ -707,6 +713,7 @@
 51.509,
 -0.126
 ],
+"London OR Dublin": null,
 "London, ENGLAND, GB": [
 51.509,
 -0.126
@@ -955,6 +962,7 @@
 40.714,
 -74.006
 ],
+"NYC, SF": null,
 "NYC-Privy": null,
 "Nashville, TN": [
 36.166,
@@ -1152,6 +1160,7 @@
 52.0,
 20.0
 ],
+"Poland OR Romania": null,
 "Pune (M.H)": null,
 "Pune (MH)": null,
 "Raleigh, North Carolina, US": [
@@ -1187,6 +1196,7 @@
 "Remote UK": null,
 "Remote US": null,
 "Remote United States": null,
+"Remote in the US": null,
 "Remote, California, United States": null,
 "Remote, US": null,
 "Remote, USA": null,
@@ -1206,6 +1216,7 @@
 40.8,
 -73.651
 ],
+"SEA, SF, NYC, CHI": null,
 "SF, NYC": null,
 "Sacramento, CA": [
 38.582,
@@ -1271,8 +1282,11 @@
 ],
 "San Francisco, California; Seattle, Washington": null,
 "San Francisco, California; United States": null,
+"San Francisco, New York City, Seattle": null,
 "San Francisco, New York, Seattle, Chicago, Atlanta, Remote in the US": null,
+"San Francisco, Seattle": null,
 "San Francisco, Seattle, New York": null,
+"San Francisco, Seattle, New York City": null,
 "San Francisco, United States": [
 37.775,
 -122.419
@@ -1329,6 +1343,7 @@
 47.606,
 -122.332
 ],
+"Seattle, San Francisco, New York": null,
 "Seattle, WA": [
 47.606,
 -122.332
@@ -1725,5 +1740,9 @@
 "Zürich, Switzerland": [
 47.367,
 8.55
+],
+"na": [
+0.821,
+11.658
 ]
 }
