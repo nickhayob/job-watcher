@@ -3,6 +3,10 @@
 56.157,
 10.211
 ],
+"Abu Dhabi, Abu Dhabi, United Arab Emirates": [
+24.451,
+54.397
+],
 "Addison, Texas, US": [
 32.962,
 -96.829
@@ -179,6 +183,7 @@
 77.594
 ],
 "Bengaluru; Gurugram": null,
+"Bengaluru; Gurugram; Mumbai": null,
 "Berkeley, CA, US": [
 37.872,
 -122.273
@@ -200,6 +205,7 @@
 52.524,
 13.411
 ],
+"Berlin; Munich": null,
 "Bethesda, MD, US": [
 38.981,
 -77.1
@@ -276,9 +282,14 @@
 -27.468,
 153.028
 ],
+"British Columbia, Alberta": null,
 "Brooklyn, NY, United States": [
 40.65,
 -73.95
+],
+"Brussels": [
+50.85,
+4.349
 ],
 "Brussels, BE": [
 50.85,
@@ -397,6 +408,7 @@
 41.85,
 -87.65
 ],
+"Chicago; San Francisco": null,
 "China": [
 35.0,
 105.0
@@ -747,6 +759,7 @@
 -0.126
 ],
 "London, UK; Ontario, CAN; Remote-Friendly, United States; San Francisco, CA": null,
+"London, UK; Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY": null,
 "London, United Kingdom": [
 51.509,
 -0.126
@@ -889,6 +902,10 @@
 25.774,
 -80.194
 ],
+"Milan": [
+45.464,
+9.19
+],
 "Milan, IT": [
 45.464,
 9.19
@@ -909,7 +926,15 @@
 45.509,
 -73.588
 ],
+"Montreal, Canada, Toronto, Canada, Vancouver, Canada": [
+45.509,
+-73.588
+],
 "Montreal, QUEBEC, CA": [
+45.509,
+-73.588
+],
+"Montréal, Canada / Toronto, Canada / Vancouver, Canada": [
 45.509,
 -73.588
 ],
@@ -1094,6 +1119,10 @@
 59.913,
 10.746
 ],
+"Ottawa, Ontario, Canada": [
+45.411,
+-75.698
+],
 "Palm Beach, FL, US": [
 26.706,
 -80.036
@@ -1188,6 +1217,7 @@
 "Remote - UK": null,
 "Remote - US": null,
 "Remote - USA": null,
+"Remote - United States": null,
 "Remote - Virginia; Remote - Washington D.C.": null,
 "Remote - Washington D.C.": null,
 "Remote Canada": null,
@@ -1201,6 +1231,7 @@
 "Remote, US": null,
 "Remote, USA": null,
 "Remote, United States": null,
+"Remote-Friendly (Travel Required) | Canada": null,
 "Remote-Friendly (Travel Required) | San Francisco, CA": null,
 "Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY": null,
 "Remote-Friendly, United States": null,
@@ -1225,6 +1256,10 @@
 "Salt Lake City, Utah, United States": [
 40.761,
 -111.891
+],
+"San Diego, CA": [
+32.716,
+-117.165
 ],
 "San Diego, CA, US": [
 32.716,
@@ -1462,6 +1497,10 @@
 18.069
 ],
 "Stockholm, Stockholm County, SE": [
+59.329,
+18.069
+],
+"Stockholm, Stockholm, Sweden": [
 59.329,
 18.069
 ],
