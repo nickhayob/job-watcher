@@ -23,6 +23,7 @@ adyen:7255277,San Francisco,San Francisco,,,250000,293000,USD,text,3,leadership:
 adyen:7340032,Berlin,Berlin,,,,,,,3,stakeholders:1
 adyen:7340050,London,London,,,,,,,6,pricing:1;stakeholders:1
 adyen:7342856,Berlin,Berlin,,,,,,,6,stakeholders:2
+adyen:7342860,London,London,,,,,,,5,stakeholders:3
 adyen:7342887,Amsterdam,Amsterdam,,,,,,,6,pricing:3;accounting:2;reconciliation:2;sql:2;automation:1;stakeholders:1
 adyen:7342892,Amsterdam,Amsterdam,,,,,,,6,stakeholders:2;ml:1;sql:1
 adyen:7342905,Amsterdam,Amsterdam,,,,,,,7,accounting:2;sql:2;audit:1;stakeholders:1
@@ -459,6 +460,8 @@ affirm:8197336003,Remote Canada,Remote Canada,,,153000,213000,USD,text,4,stakeho
 affirm:8197543003,Remote UK,Remote UK,,,,,,,,stakeholders:2;python:1
 affirm:8197742003,Remote US,Remote US,,,230000,290000,USD,text,2,automation:4;python:4;leadership:1
 affirm:8197744003,Remote Canada,Remote Canada,,,,,,,2,automation:4;python:4;leadership:1
+affirm:8199161003,Remote US,Remote US,,,195000,255000,USD,text,4,stakeholders:2;automation:1;crypto:1;python:1;sql:1
+affirm:8199163003,Remote Canada,Remote Canada,,,153000,213000,USD,text,4,stakeholders:2;automation:1;crypto:1;python:1;sql:1
 affirm:8199288003,Remote UK,Remote UK,,,,,,,4,leadership:1;stakeholders:1
 affirm:8199419003,Remote US,Remote US,,,195000,225000,USD,text,4,ml:8;stakeholders:2;python:1;sql:1
 affirm:8199421003,Remote Canada,Remote Canada,,,153000,213000,USD,text,4,ml:8;stakeholders:2;python:1;sql:1
@@ -527,8 +530,8 @@ airbnb:8080766,Canada,Canada,,,58000,64000,CAD,listing,3,stakeholders:7;automati
 airbnb:8080767,Canada,Canada,,,58000,64000,CAD,listing,,automation:1
 airbnb:8081180,"Gurugram, India",Gurugram,India,,1960000,2800000,INR,listing,5,automation:5;stakeholders:4;valuation:2;python:1;sql:1;tableau:1
 airbnb:8095365,"Remote, USA",Remote,USA,,248000,310000,USD,listing,15,stakeholders:5;leadership:1
-airbnb:8107160,"British Columbia, Alberta",British Columbia,Alberta,,83000,88000,CAD,listing,6,stakeholders:7;automation:1
-airbnb:8107161,"British Columbia, Alberta",British Columbia,Alberta,,83000,88000,CAD,listing,,automation:1;quant:1;valuation:1
+airbnb:8107160,British Columbia,British Columbia,,,83000,88000,CAD,listing,6,stakeholders:7;automation:1
+airbnb:8107161,British Columbia,British Columbia,,,83000,88000,CAD,listing,,automation:1;quant:1;valuation:1
 airbnb:8121074,Singapore,Singapore,,,,,,,10,leadership:2;stakeholders:2;presenting:1
 airbnb:8129371,United States,United States,,,212000,265000,USD,listing,9,ml:6;stakeholders:4;valuation:4;automation:3;statistics:3;quant:2;budgeting:1;leadership:1;sql:1
 airbnb:8130355,"San Francisco, CA",San Francisco,CA,,200000,227000,USD,listing,2,ml:13;valuation:6;automation:2;python:1
@@ -582,6 +585,7 @@ airbnb:8275755,"Gurugram, India",Gurugram,India,,4900000,7000000,INR,listing,13,
 airbnb:8278729,"Paris, France",Paris,France,,64000,75000,EUR,listing,3,stakeholders:8;modeling:3;accounting:2;budgeting:2;quant:2;excel:1;fpa:1;mba:1;presenting:1;sql:1;statistics:1;variance:1
 airbnb:8281533,"London, United Kingdom",London,United Kingdom,,120000,150000,GBP,listing,9,stakeholders:1
 airbnb:8282322,"San Francisco, CA",San Francisco,CA,,200000,240000,USD,listing,,stakeholders:2
+airbnb:8283730,United States,United States,,,92000,108000,USD,listing,2,leadership:4;stakeholders:1
 airbnb:8286207,United States,United States,,,200000,250000,USD,listing,8,stakeholders:6
 airbnb:8287849,"São Paulo, Brazil",São Paulo,Brazil,,22000,27500,BRL,listing,8,stakeholders:5;budgeting:1;presenting:1;tax:1
 airbnb:8290025,"California, United States",California,United States,,196000,245000,USD,listing,12,stakeholders:3;ml:1
@@ -706,6 +710,7 @@ airwallex:00a99ed3-90f1-4bdf-861e-0cbca8940208,"San Francisco, California, Unite
 airwallex:00e0dc1c-53ea-4e5b-8a8d-0df92fae862a,"New York, New York, United States",New York,New York,United States,100000,170000,USD,listing,4,stakeholders:2;automation:1;mna:1
 airwallex:0176529c-bc86-478f-8af1-88c5ad2baa88,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,4,automation:2;forecasting:1;leadership:1;mna:1
 airwallex:02234e0a-e1fc-4b23-b3e6-513200e4ff80,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,2,valuation:6;audit:3;leadership:2;stakeholders:1;statistics:1
+airwallex:024757a7-7c4f-49e7-a981-2dafa0b6ae0d,"Toronto, Ontario, Canada",Toronto,Ontario,Canada,170000,200000,CAD,listing,5,stakeholders:1
 airwallex:0248185e-80e7-49e5-bef2-269323b4c0c4,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,203000,263000,SGD,listing,5,automation:1;stakeholders:1
 airwallex:02512fda-b0dc-4f79-b097-7428e00d977c,"Bangalore, India, India",Bangalore,India,India,,,,,,
 airwallex:0263b822-5186-477b-b178-0f47cc730171,"Seoul, Korea, South Korea",Seoul,Korea,South Korea,,,,,4,automation:2;python:1
@@ -739,6 +744,7 @@ airwallex:10555803-1fe1-42bd-ba82-87bc867f8427,"San Francisco, California, Unite
 airwallex:10594f1b-440d-446b-a766-79da3e1300cd,"Shanghai, Shanghai, China",Shanghai,Shanghai,China,,,,,5,automation:1;python:1
 airwallex:1137fce0-ebd4-4979-8900-315f82f197b9,"San Francisco, California, United States",San Francisco,California,United States,150000,220000,USD,listing,,accounting:9;automation:1;reconciliation:1;stakeholders:1
 airwallex:1139d8f0-093c-4537-91c8-6796158e53ab,"Hong Kong, Hong Kong, Hong Kong",Hong Kong,Hong Kong,Hong Kong,,,,,2,stakeholders:3;treasury:1
+airwallex:11e20f3c-7744-4e6f-b6d1-0803b8b45636,"Toronto, Ontario, Canada",Toronto,Ontario,Canada,200000,300000,USD,listing,10,stakeholders:5;presenting:1
 airwallex:126f8f83-9afc-4f4d-90ed-dc8a618d636a,"Tel Aviv, Gush Dan, Israel",Tel Aviv,Gush Dan,Israel,,,,,3,stakeholders:2;forecasting:1;mna:1;presenting:1
 airwallex:1282ed12-37d7-415d-927a-2c4d33a3067a,"San Francisco, California, United States",San Francisco,California,United States,210000,300000,USD,listing,8,stakeholders:4;automation:2;leadership:1;ml:1;mna:1
 airwallex:12daeee8-f3f2-4ba2-bce2-2ef0c146739e,"Barcelona, Catalonia, Spain",Barcelona,Catalonia,Spain,,,,,,forecasting:2;stakeholders:1
@@ -802,7 +808,7 @@ airwallex:28bf838f-6ffc-454c-824c-7af983a614e9,"Barcelona, Catalonia, Spain",Bar
 airwallex:28f09265-db9a-454e-9659-c0a6f5a25adf,"Toronto, Ontario, Canada",Toronto,Ontario,Canada,120000,130000,CAD,listing,1,
 airwallex:293d51a7-e83c-46ea-a4bc-e1ad6bba6d73,"London, London, United Kingdom",London,London,United Kingdom,,,,,10,budgeting:2;leadership:2;ml:2;python:1;sql:1;stakeholders:1
 airwallex:295b46b0-9377-4e09-8f2e-8bd69894f1ef,"New York, New York, United States",New York,New York,United States,180000,270000,USD,listing,12,leadership:2;looker:1;presenting:1;pricing:1;tableau:1
-airwallex:2a471f31-9cc8-4ab5-9f6c-921fc1f137d6,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,10,automation:5;reconciliation:5;ml:2;leadership:1;pricing:1;stakeholders:1
+airwallex:2a471f31-9cc8-4ab5-9f6c-921fc1f137d6,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,10,reconciliation:5;automation:2;pricing:2;audit:1;leadership:1;ml:1;stakeholders:1
 airwallex:2a7c1c15-eb0e-4d01-816e-dee44d57b34d,"San Francisco, California, United States",San Francisco,California,United States,120000,171000,USD,listing,5,stakeholders:3;tax:2;presenting:1
 airwallex:2afd32cc-953e-401d-9bc5-d19847e9f212,"New York, New York, United States",New York,New York,United States,150000,220000,USD,listing,5,stakeholders:4;risk:2;leadership:1
 airwallex:2c18484b-6cfd-4726-8055-2d90016028a6,"London, London, United Kingdom",London,London,United Kingdom,,,,,,stakeholders:2;looker:1;pricing:1;sql:1
@@ -991,7 +997,7 @@ airwallex:85153dd1-27d1-43c8-a06e-41b3ff33b02f,"Seoul, Korea, South Korea",Seoul
 airwallex:859e5457-e5ec-4d78-9a83-e6a0eec270bc,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,175000,270000,USD,listing,3,stakeholders:3;ml:1;treasury:1
 airwallex:86a491ef-8246-4547-ae8d-ee3314d7b357,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,5,treasury:5;automation:3;stakeholders:3
 airwallex:86aab812-c169-4ddc-9193-828ed4441deb,"Melbourne, Victoria, Australia",Melbourne,Victoria,Australia,,,,,7,automation:2;leadership:1;python:1;stakeholders:1
-airwallex:879ff772-adc3-4873-a011-09bc1f747b8d,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,6,treasury:9;automation:2;risk:2;stakeholders:2;forecasting:1
+airwallex:879ff772-adc3-4873-a011-09bc1f747b8d,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,,treasury:6;risk:2;stakeholders:2;automation:1;forecasting:1
 airwallex:8858b315-3daf-4d13-b88b-e6a3ce4ec6bb,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,2,automation:1;python:1
 airwallex:897b575e-99cc-4e43-8c03-990f30405641,"London, London, United Kingdom",London,London,United Kingdom,,,,,2,forecasting:5;stakeholders:4;leadership:1
 airwallex:897ccd48-9d13-4333-a91f-fd657d59daf5,"Paris, Paris, France",Paris,Paris,France,,,,,6,presenting:2;looker:1
@@ -1054,7 +1060,7 @@ airwallex:a4c847b0-1867-4154-ab61-4dfe9a1ddaec,"Sydney, New South Wales, Austral
 airwallex:a532b09a-bfdc-4537-8bb7-d1c35f5dc0bc,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,4,ml:2;leadership:1;risk:1
 airwallex:a6a783c7-b4f3-4865-99de-be4238ff8450,"Vilnius, Vilnius, Lithuania",Vilnius,Vilnius,Lithuania,52973,86543,EUR,listing,7,audit:2;automation:2;stakeholders:1
 airwallex:a6ccf83b-839b-4460-abc8-8fa359c9501f,US - California,US - California,California,United States,,,,,,stakeholders:3;automation:2
-airwallex:a7108bf6-2e75-4688-85fc-f034d339d949,"London, London, United Kingdom",London,London,United Kingdom,,,,,10,automation:2;reconciliation:1;stakeholders:1;treasury:1
+airwallex:a7108bf6-2e75-4688-85fc-f034d339d949,"London, London, United Kingdom",London,London,United Kingdom,,,,,10,treasury:3;reconciliation:2;automation:1;stakeholders:1
 airwallex:a71a91be-2847-4d47-ab2c-5927ffa2a0ab,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,,stakeholders:3;automation:2
 airwallex:a87cd83a-68cb-4421-810b-ec872110b317,"Bangalore, India, India",Bangalore,India,India,,,,,3,python:1;reconciliation:1;sql:1;stakeholders:1
 airwallex:a8f40686-a5c9-4012-bb8f-0349db0418c4,"Shanghai, Shanghai, China",Shanghai,Shanghai,China,,,,,8,stakeholders:2;looker:1;sql:1
@@ -1103,7 +1109,7 @@ airwallex:bcce863a-c93c-4ef9-b282-ff0d04d362ca,"San Francisco, California, Unite
 airwallex:bcf0307f-f4d3-4dca-be57-727130f55dce,"Singapore, Singapore, Singapore",Singapore,Singapore,Singapore,,,,,5,treasury:1
 airwallex:bd10365f-9143-4893-82fe-ee5c98bc88af,"San Francisco, California, United States",San Francisco,California,United States,250000,299000,USD,listing,7,forecasting:4;statistics:2;excel:1;leadership:1;oracle:1;python:1;quant:1;sql:1;stakeholders:1;warehouse:1
 airwallex:bd91b283-8de0-41bd-aba4-8cae281808a7,"San Francisco, California, United States",San Francisco,California,United States,200000,250000,USD,listing,3,automation:3;leadership:1;python:1;stakeholders:1
-airwallex:bda4f3ce-d8a1-457c-9731-3855063a1ac2,"London, London, United Kingdom",London,London,United Kingdom,,,,,10,forecasting:8;fpa:6;accounting:3;automation:3;budgeting:3;stakeholders:3;modeling:2;anaplan:1;audit:1;excel:1;looker:1;quant:1;sql:1;tableau:1;tax:1
+airwallex:bda4f3ce-d8a1-457c-9731-3855063a1ac2,"London, London, United Kingdom",London,London,United Kingdom,,,,,7,forecasting:8;fpa:6;accounting:3;automation:3;budgeting:3;stakeholders:3;modeling:2;anaplan:1;audit:1;excel:1;looker:1;quant:1;sql:1;tableau:1;tax:1
 airwallex:be0a9923-b6fe-4b83-babd-10698d65de99,"San Francisco, California, United States",San Francisco,California,United States,135000,180000,USD,listing,,accounting:3;automation:2;mna:2;budgeting:1;reconciliation:1
 airwallex:be298e1a-9eed-4845-bc5c-57bf1aaa5589,"San Francisco, California, United States",San Francisco,California,United States,130000,200000,USD,listing,3,python:1
 airwallex:bfe9424c-005f-49fd-a306-94cc794ac38e,"Beijing, Beijing, China",Beijing,Beijing,China,,,,,,presenting:2;stakeholders:2;mna:1;treasury:1
@@ -2564,6 +2570,7 @@ carta:8053942003,"San Francisco, CA; New York, NY",San Francisco,CA; New York,NY
 carta:8080421003,London,London,,,,,,,5,stakeholders:4
 carta:8080438003,New York / New Jersey,New York / New Jersey,,,129000,144000,USD,text,3,portfolio:1;risk:1;stakeholders:1
 carta:8154341003,Singapore,Singapore,,,,,,,,presenting:1
+carta:8155611003,New York City,New York City,,,232000,290000,USD,text,,stakeholders:3;accounting:1;mna:1
 carta:8173116003,Luxembourg,Luxembourg,,,,,,,7,mna:3;stakeholders:3;audit:1;risk:1
 carta:8203811003,"San Francisco, CA; New York, NY",San Francisco,CA; New York,NY,182750,260000,USD,text,,stakeholders:3;mna:1
 carta:8203818003,"London, England",London,England,,,,,,3,stakeholders:1
@@ -3188,6 +3195,7 @@ cloudflare:8404184,Hybrid,Hybrid,,,,,,,,stakeholders:5;automation:4;oracle:2;acc
 cloudflare:8404438,Distributed,Distributed,,,,,,,,stakeholders:6;forecasting:2;presenting:1;tableau:1
 cloudflare:8404716,Hybrid,Hybrid,,,,,,,5,audit:1;excel:1;stakeholders:1
 cloudflare:8404717,Hybrid,Hybrid,,,,,,,5,audit:1;excel:1;stakeholders:1
+cloudflare:8405066,Hybrid,Hybrid,,,,,,,,forecasting:3;automation:1;tableau:1
 cloudflare:8405075,Hybrid,Hybrid,,,,,,,,stakeholders:7;forecasting:2;tableau:1
 cloudflare:8405408,Hybrid,Hybrid,,,,,,,8,mna:2;forecasting:1;stakeholders:1
 cloudflare:8405433,Hybrid,Hybrid,,,,,,,5,forecasting:6;automation:3;mna:2;stakeholders:2
@@ -3203,10 +3211,14 @@ cloudflare:8410750,Distributed,Distributed,,,,,,,8,stakeholders:4;quant:2;tablea
 cloudflare:8411146,Hybrid,Hybrid,,,,,,,5,forecasting:2;presenting:1;stakeholders:1
 cloudflare:8411224,Hybrid,Hybrid,,,,,,,8,stakeholders:6;forecasting:2;mna:2;presenting:1;tableau:1
 cloudflare:8412125,Hybrid,Hybrid,,,216000,297000,USD,text,,mna:2;crypto:1;presenting:1
+cloudflare:8413294,Hybrid,Hybrid,,,269000,370000,USD,text,3,
+cloudflare:8414193,Hybrid,Hybrid,,,,,,,6,
+cloudflare:8414208,Hybrid,Hybrid,,,,,,,6,
 cloudflare:8414218,Hybrid,Hybrid,,,,,,,10,stakeholders:6;forecasting:2;presenting:1;tableau:1
 cloudflare:8415399,Distributed,Distributed,,,,,,,5,automation:1;valuation:1
 cloudflare:8416549,In-Office,In-Office,,,,,,,8,stakeholders:6;presenting:1
 cloudflare:8416739,In-Office,In-Office,,,,,,,6,stakeholders:2;automation:1
+cloudflare:8417031,Hybrid,Hybrid,,,,,,,1,stakeholders:2
 cloudflare:8417964,Distributed,Distributed,,,350000,380000,USD,text,8,forecasting:1;stakeholders:1;tableau:1
 cloudflare:8417967,Hybrid,Hybrid,,,350000,360000,USD,text,8,forecasting:1;stakeholders:1;tableau:1
 cloudflare:8417970,Distributed,Distributed,,,350000,380000,USD,text,8,forecasting:1;stakeholders:1;tableau:1
@@ -3529,6 +3541,7 @@ crypto:558520f3-d3ef-41b6-964b-2f51da8bbcde,Taipei,Taipei,,TW,,,,,2,stakeholders
 crypto:56065276-69e8-490f-8d66-115a943fa652,London,London,,GB,,,,,3,ml:5;automation:4;risk:4;python:2;quant:1;reconciliation:1;sql:1;variance:1
 crypto:5957a4b8-235b-490c-b4ad-86384baee628,San Francisco,San Francisco,,US,170000,190000,USD,listing,,crypto:13;python:3;sql:3;audit:1;mna:1;stakeholders:1
 crypto:5e8ddb0f-c326-41d3-be2e-382be2b5a3e0,United States,United States,,US,100000,150000,USD,listing,,crypto:12;pricing:4;quant:3;ml:1;mna:1;python:1;stakeholders:1;statistics:1
+crypto:5f0a7b23-4589-45df-800f-4093fadd5e6d,Dubai,Dubai,,AE,,,,,,crypto:5;stakeholders:3;audit:1;risk:1
 crypto:5f9f98a9-5887-4d84-a7a6-20854eeee2ca,London,London,,GB,,,,,3,quant:3;crypto:2;reconciliation:2;automation:1;markets:1;python:1;risk:1;sql:1
 crypto:629ce48a-c8ed-4b22-bf29-5b516241e3f9,California,California,,US,120000,180000,USD,listing,3,crypto:14;stakeholders:5;markets:1;mna:1
 crypto:6318d11e-8e7d-4d6f-9399-286db50927c3,Hong Kong,Hong Kong,,HK,,,,,4,quant:6;crypto:3;markets:2;automation:1;python:1;risk:1;sql:1;statistics:1
@@ -3574,6 +3587,7 @@ crypto:ed7f015a-45b0-4072-9bfc-27345a4e8db8,California,California,,US,60000,1300
 crypto:f2917425-63c4-435e-a0bd-70f78e6de0cc,Hong Kong,Hong Kong,,HK,,,,,4,automation:2;crypto:2;stakeholders:2;presenting:1;pricing:1
 crypto:f66cc817-371b-469c-8bc8-52a3f914b6ef,California,California,,US,170000,300000,USD,listing,,crypto:17;mna:5;stakeholders:1
 crypto:f6a19e4d-1150-476a-8566-ea0e7f2fd96a,California,California,,US,170000,230000,USD,listing,,crypto:14;markets:4;stakeholders:2;mba:1;mna:1
+crypto:fa048fdc-8daa-4065-aee5-403d784480f8,Sofia,Sofia,,BG,,,,,2,crypto:18;sox:6;stakeholders:5;audit:3;risk:2;cpa:1;mna:1;presenting:1
 crypto:fc65899a-cd22-43d6-85c3-2d33050eaa9d,Hong Kong,Hong Kong,,HK,,,,,3,crypto:14;treasury:4;tax:2;accounting:1;audit:1;automation:1;excel:1;mna:1;reconciliation:1;risk:1;sql:1;stakeholders:1;tableau:1
 crypto:fd1b5ab4-60f7-4aa4-9db1-d7deda6b8143,California,California,,US,170000,230000,USD,listing,,crypto:14;stakeholders:2;markets:1;mba:1;mna:1;quant:1
 crypto:fefd423f-f72e-47ff-907e-a28228e3f38e,London,London,,GB,50000,80000,GBP,listing,7,crypto:17;risk:5;audit:2;mna:2;stakeholders:2
@@ -3636,6 +3650,7 @@ databricks:7477633002,"Amsterdam, Netherlands",Amsterdam,Netherlands,,,,,,8,exce
 databricks:7495457002,"Bengaluru, India",Bengaluru,India,,,,,,4,ml:2;excel:1;stakeholders:1
 databricks:7601565002,"Bengaluru, India",Bengaluru,India,,,,,,8,automation:3;sql:2;audit:1;excel:1
 databricks:7601572002,"Bengaluru, India",Bengaluru,India,,,,,,8,excel:1;leadership:1;stakeholders:1
+databricks:7606848002,"Melbourne, Australia; Sydney, Australia",Melbourne,Australia; Sydney,Australia,,,,,,excel:1;python:1
 databricks:7619810002,"Bengaluru, India",Bengaluru,India,,,,,,3,excel:1;python:1;stakeholders:1
 databricks:7630152002,"Bengaluru, India",Bengaluru,India,,,,,,10,excel:1;leadership:1
 databricks:7640764002,"Belgrade, Serbia",Belgrade,Serbia,,,,,,,excel:1;leadership:1;python:1
@@ -4043,6 +4058,7 @@ databricks:8657065002,"Austin, Texas",Austin,Texas,,182000,250208,USD,listing,6,
 databricks:8657478002,"Washington, D.C.",Washington,D.C.,,182000,250208,USD,listing,6,ml:4;stakeholders:3;excel:1;python:1;valuation:1
 databricks:8657488002,"Alabama; Chicago, Illinois; Columbus, Ohio; Connecticut; Florida; Indiana; Maryland; New Jersey; Remote - Arizona; Remote - California; Remote - Colorado; Remote - Georgia; Remote - Illinois; Remote - Massachusetts; Remote - Missouri; Remote - New York; Remote - North Carolina; Remote - Ohio; Remote - Pennsylvania; Remote - Texas; Remote - Virginia; Remote - Washington D.C.; San Diego, California; South Carolina",Alabama; Chicago,Illinois; Columbus,California; South Carolina,182000,250208,USD,listing,6,ml:5;stakeholders:3;excel:1;python:1;valuation:1
 databricks:8657549002,"Bengaluru, India; Delhi, India; India; Mumbai, India",Bengaluru,India; Delhi,India,,,,,,stakeholders:2;excel:1;ml:1;presenting:1;python:1;sql:1;warehouse:1
+databricks:8657553002,"London, United Kingdom",London,United Kingdom,,,,,,,stakeholders:4;audit:2;automation:2;ml:2;warehouse:2;excel:1;quant:1
 databricks:8661520002,"Seoul, South Korea",Seoul,South Korea,,,,,,3,stakeholders:2;excel:1;python:1
 databricks:8661524002,"Sydney, Australia",Sydney,Australia,,,,,,5,ml:4;warehouse:3;sql:2;stakeholders:2;excel:1;presenting:1;python:1
 databricks:8661758002,Remote - Illinois; Remote - Michigan; Remote - New York,Remote - Illinois; Remote - Michigan; Remote - New York,,,180000,247500,USD,listing,,ml:3;excel:1;leadership:1;python:1;stakeholders:1
@@ -4360,6 +4376,7 @@ databricks:8910838002,"Seoul, South Korea",Seoul,South Korea,,,,,,7,stakeholders
 databricks:8910840002,"Sydney, Australia",Sydney,Australia,,,,,,,excel:1;ml:1;stakeholders:1
 databricks:8910842002,Singapore,Singapore,,,,,,,5,excel:1;ml:1
 databricks:8910846002,"Mountain View, California",Mountain View,California,,,,,,2,excel:1;ml:1;python:1
+databricks:8910850002,"London, United Kingdom",London,United Kingdom,,,,,,2,leadership:2;automation:1;excel:1
 databricks:8910854002,Singapore,Singapore,,,,,,,5,excel:1;ml:1
 databricks:8910858002,"Maryland; Virginia; Washington, D.C.",Maryland; Virginia; Washington,D.C.,,219100,301300,USD,listing,,ml:2;stakeholders:2;excel:1;leadership:1;presenting:1;python:1;quant:1;sql:1;valuation:1;warehouse:1
 databricks:8910860002,"British Columbia, Canada",British Columbia,Canada,,175800,241800,CAD,listing,,ml:2;excel:1;leadership:1;python:1
@@ -4369,6 +4386,7 @@ databricks:8912711002,"Toronto, Canada",Toronto,Canada,,,,,,7,excel:1;forecastin
 databricks:8913000002,"New York City, New York; San Francisco, California",New York City,New York; San Francisco,California,162900,223950,USD,listing,7,automation:2;forecasting:2;excel:1;mba:1;sql:1;stakeholders:1
 databricks:8916466002,Singapore,Singapore,,,,,,,7,excel:1;valuation:1
 databricks:8916552002,"London, United Kingdom",London,United Kingdom,,,,,,,ml:3;stakeholders:3;excel:1;python:1;valuation:1
+databricks:8917482002,"London, United Kingdom",London,United Kingdom,,,,,,,excel:1
 databricks:8917711002,"Berlin, Germany; Munich, Germany",Berlin,Germany; Munich,Germany,,,,,7,excel:1;python:1;sql:1;valuation:1
 databricks:8918565002,"Chicago, Illinois; Remote - California; Remote - New York; United States",Chicago,Illinois; Remote - California; Remote - New York; United States,,,,,,,ml:2;sql:2;excel:1;presenting:1;python:1;quant:1
 databricks:8919008002,"Germany; Munich, Germany",Germany; Munich,Germany,,,,,,,ml:2;stakeholders:2;excel:1;presenting:1;python:1;quant:1;sql:1
@@ -4479,9 +4497,16 @@ databricks:8959562002,"Melbourne, Australia",Melbourne,Australia,,,,,,,ml:2;stak
 databricks:8959902002,"London, United Kingdom",London,United Kingdom,,,,,,,stakeholders:6;excel:1
 databricks:8960956002,"London, United Kingdom",London,United Kingdom,,,,,,7,ml:2;stakeholders:2;excel:1;python:1;sql:1
 databricks:8960958002,"London, United Kingdom",London,United Kingdom,,,,,,7,ml:2;stakeholders:2;excel:1;python:1;sql:1
+databricks:8960960002,"Amsterdam, Netherlands",Amsterdam,Netherlands,,,,,,7,ml:2;stakeholders:2;excel:1;python:1;sql:1
+databricks:8960967002,"Paris, France",Paris,France,,,,,,7,ml:2;stakeholders:2;excel:1;python:1;sql:1
 databricks:8960976002,"Munich, Germany",Munich,Germany,,,,,,7,ml:2;stakeholders:2;excel:1;python:1;sql:1
 databricks:8961261002,"Mountain View, California",Mountain View,California,,228600,342800,USD,listing,4,leadership:3;excel:1;mna:1;quant:1;stakeholders:1;statistics:1
 databricks:8963204002,Singapore,Singapore,,,,,,,5,stakeholders:4;forecasting:2;excel:1;leadership:1;ml:1
+databricks:8963388002,"London, United Kingdom",London,United Kingdom,,,,,,,automation:1;excel:1;leadership:1;stakeholders:1
+databricks:8963506002,"Munich, Germany",Munich,Germany,,,,,,7,leadership:3;forecasting:2;excel:1;stakeholders:1
+databricks:8964086002,"Paris, France",Paris,France,,,,,,,automation:1;excel:1;leadership:1;stakeholders:1
+databricks:8964093002,"Amsterdam, Netherlands",Amsterdam,Netherlands,,,,,,,automation:1;excel:1;leadership:1;stakeholders:1
+databricks:8964095002,"Munich, Germany",Munich,Germany,,,,,,,automation:1;excel:1;leadership:1;stakeholders:1
 datadog:1497543,"Boston, Massachusetts, USA",Boston,Massachusetts,USA,65000,70000,USD,listing,,leadership:1;mna:1;stakeholders:1
 datadog:1694375,"Denver, Colorado, USA",Denver,Colorado,USA,65000,70000,USD,listing,,leadership:1;mna:1;stakeholders:1
 datadog:3851927,"Boston, Massachusetts, USA; New York, New York, USA",Boston,Massachusetts,USA,192000,240000,USD,listing,6,leadership:1
@@ -4563,6 +4588,7 @@ datadog:7439149,"Tokyo, Japan",Tokyo,Japan,,,,,,5,forecasting:1;leadership:1;pri
 datadog:7439152,"Tokyo, Japan",Tokyo,Japan,,,,,,3,forecasting:1;leadership:1;pricing:1
 datadog:7439569,"Tokyo, Japan",Tokyo,Japan,,,,,,,
 datadog:7439573,"Tokyo, Japan",Tokyo,Japan,,,,,,,
+datadog:7442122,"Singapore, Singapore",Singapore,Singapore,,,,,,5,forecasting:1;leadership:1;pricing:1
 datadog:7452669,"Boston, Massachusetts, USA",Boston,Massachusetts,USA,80000,106000,USD,listing,,presenting:3;leadership:1;valuation:1
 datadog:7453034,"Texas, USA, Remote",Texas,USA,Remote,113000,150000,USD,listing,3,forecasting:1;leadership:1;pricing:1
 datadog:7453039,"Illinois, USA, Remote; Michigan, USA, Remote; Texas, USA, Remote",Illinois,USA,Remote,110000,120000,USD,listing,3,forecasting:1;leadership:1;pricing:1
@@ -4870,6 +4896,7 @@ datadog:8398414,"Singapore, Singapore",Singapore,Singapore,,,,,,3,stakeholders:2
 datadog:8398963,"Amsterdam, The Netherlands; Dublin, Ireland",Amsterdam,The Netherlands; Dublin,Ireland,,,,,,presenting:3;leadership:1;valuation:1
 datadog:8400585,"New York, New York, USA",New York,New York,USA,119000,159000,USD,listing,10,leadership:4;stakeholders:2
 datadog:8400860,"New York, New York, USA",New York,New York,USA,124000,165000,USD,listing,3,stakeholders:3
+datadog:8401334,"Tokyo, Japan",Tokyo,Japan,,,,,,,
 datadog:8402937,"Texas, USA, Remote",Texas,USA,Remote,113000,150000,USD,listing,7,stakeholders:2;leadership:1;pricing:1
 datadog:8403219,"Boston, Massachusetts, USA",Boston,Massachusetts,USA,131000,174000,USD,listing,3,leadership:6;valuation:2;presenting:1
 datadog:8404061,"New York, New York, USA",New York,New York,USA,150000,191000,USD,listing,,automation:5;stakeholders:4;netsuite:2;leadership:1;python:1;sox:1;sql:1
@@ -5029,6 +5056,7 @@ drweng:8392316,London,London,,,,,,,,quant:2;statistics:2;treasury:2;crypto:1;lea
 drweng:8394092,Chicago,Chicago,,,70000,90000,USD,text,,mna:3;crypto:1;markets:1;realestate:1
 drweng:8396110,Chicago,Chicago,,,125000,160000,USD,text,,budgeting:3;realestate:2;crypto:1;excel:1;forecasting:1;markets:1;powerpoint:1;variance:1
 drweng:8401702,Singapore,Singapore,,,,,,,2,automation:2;stakeholders:2;crypto:1;markets:1;python:1;realestate:1
+drweng:8401732,London,London,,,,,,,3,stakeholders:5;audit:1;budgeting:1;crypto:1;markets:1;realestate:1;reconciliation:1
 drweng:8414528,Chicago,Chicago,,,175000,225000,USD,text,2,quant:3;crypto:1;markets:1;python:1;realestate:1;stakeholders:1
 drweng:8417238,Chicago,Chicago,,,175000,250000,USD,text,,automation:2;crypto:1;markets:1;realestate:1;reconciliation:1;sql:1
 drweng:981628,London,London,,,,,,,7,crypto:7;mna:1;realestate:1;treasury:1
@@ -5914,6 +5942,16 @@ equinox:744000163750029,"Paramus, NJ, US",Paramus,NJ,US,,,,,,
 equinox:744000163755759,"Miami, FL, US",Miami,FL,US,,,,,,
 equinox:744000163802209,"Los Angeles, CA, US",Los Angeles,CA,US,,,,,,
 equinox:744000163802279,"Palo Alto, CA, US",Palo Alto,CA,US,,,,,,
+equinox:744000164067759,"Austin, TX, US",Austin,TX,US,,,,,,
+equinox:744000164068434,"London, ENGLAND, GB",London,ENGLAND,GB,,,,,,
+equinox:744000164068789,"London, ENGLAND, GB",London,ENGLAND,GB,,,,,,
+equinox:744000164068900,"London, ENGLAND, GB",London,ENGLAND,GB,,,,,,
+equinox:744000164070649,"New York, NY, US",New York,NY,US,,,,,,
+equinox:744000164073210,"New York, NY, US",New York,NY,US,,,,,,
+equinox:744000164080199,"New York, NY, US",New York,NY,US,,,,,,
+equinox:744000164083869,"New York, NY, US",New York,NY,US,,,,,,
+equinox:744000164088199,"Bethesda, MD, US",Bethesda,MD,US,,,,,,
+equinox:744000164088229,"Bethesda, MD, US",Bethesda,MD,US,,,,,,
 experian:744000014964005,"São Paulo, SÃO PAULO, BR",São Paulo,SÃO PAULO,BR,,,,,,
 experian:744000039634496,"São Paulo, SP, BR",São Paulo,SP,BR,,,,,,
 experian:744000047653877,"Recife, BR",Recife,,BR,,,,,,
@@ -6363,6 +6401,10 @@ experian:744000163870199,"São Paulo, BR",São Paulo,,BR,,,,,,
 experian:744000163886839,"Bogotá, CO",Bogotá,,CO,,,,,,
 experian:744000163923899,"London, GB",London,,GB,,,,,,
 experian:744000163925829,"Bogotá, CO",Bogotá,,CO,,,,,,
+experian:744000164030109,"Nottingham, GB",Nottingham,,GB,,,,,,
+experian:744000164084789,"São Paulo, BR",São Paulo,,BR,,,,,,
+experian:744000164084834,"São Paulo, BR",São Paulo,,BR,,,,,,
+experian:744000164086849,"United States, UNITED STATES, US",United States,UNITED STATES,US,,,,,,
 gusto:6625049,"Denver, CO - Hybrid; New York, NY - Hybrid; San Francisco, CA - Hybrid",Denver,CO - Hybrid; New York,CA - Hybrid,,,,,10,stakeholders:3;leadership:2;automation:1
 gusto:7168696,"San Francisco, CA - Hybrid",San Francisco,CA - Hybrid,,227000,284000,USD,text,5,ml:5;statistics:5;stakeholders:4;quant:2;credit:1;python:1;risk:1
 gusto:7254336,"Denver, CO - Hybrid; New York, NY - Hybrid; San Francisco, CA - Hybrid; Toronto, Ontario - Remote",Denver,CO - Hybrid; New York,Ontario - Remote,,,,,3,automation:4;leadership:4;stakeholders:4;markets:1
@@ -6699,6 +6741,7 @@ jpmorgan:210778764,"Chicago, IL, United States",Chicago,IL,United States,,,,,,st
 jpmorgan:210778877,"New York, NY, United States",New York,NY,United States,,,,,,
 jpmorgan:210778882,"New York, NY, United States",New York,NY,United States,,,,,,
 jpmorgan:210778995,"Mumbai, Maharashtra, India",Mumbai,Maharashtra,India,,,,,,credit:1
+jpmorgan:210778996,"Bengaluru, Karnataka, India",Bengaluru,Karnataka,India,,,,,,
 jpmorgan:210779093,"LONDON, United Kingdom",LONDON,United Kingdom,,,,,,,audit:1
 jpmorgan:210779188,"Wilmington, DE, United States",Wilmington,DE,United States,,,,,,mna:1
 jpmorgan:210779207,"Columbus, OH, United States",Columbus,OH,United States,,,,,,credit:1;portfolio:1
@@ -6965,6 +7008,7 @@ jpmorgan:210796162,"New York, NY, United States",New York,NY,United States,,,,,,
 jpmorgan:210796174,"Singapore, Singapore",Singapore,Singapore,,,,,,,audit:1
 jpmorgan:210796189,"Singapore, Singapore",Singapore,Singapore,,,,,,,audit:1
 jpmorgan:210796191,"Taipei, Taiwan",Taipei,Taiwan,,,,,,,
+jpmorgan:210796216,"Tampa, FL, United States",Tampa,FL,United States,,,,,,
 jpmorgan:210796238,"Mumbai, Maharashtra, India",Mumbai,Maharashtra,India,,,,,,modeling:1;stakeholders:1
 jpmorgan:210796294,"LONDON, LONDON, United Kingdom",LONDON,LONDON,United Kingdom,,,,,,
 jpmorgan:210796423,"Singapore, Singapore",Singapore,Singapore,,,,,,,
@@ -7054,6 +7098,7 @@ jpmorgan:210799681,"New York, NY, United States",New York,NY,United States,,,,,,
 jpmorgan:210799714,"Houston, TX, United States",Houston,TX,United States,,,,,,risk:1
 jpmorgan:210799748,"Dublin, Ireland",Dublin,Ireland,,,,,,,
 jpmorgan:210799769,"LONDON, United Kingdom",LONDON,United Kingdom,,,,,,,credit:1
+jpmorgan:210799780,"New York, NY, United States",New York,NY,United States,,,,,,
 jpmorgan:210799821,"New York, NY, United States",New York,NY,United States,,,,,,
 jpmorgan:210799830,"Dublin, Ireland",Dublin,Ireland,,,,,,,
 jpmorgan:210799982,"Wilmington, DE, United States",Wilmington,DE,United States,,,,,,mna:1
@@ -7098,6 +7143,7 @@ jpmorgan:210801850,"Sao Paulo, SP, Brazil",Sao Paulo,SP,Brazil,,,,,,
 jpmorgan:210801853,"New York, NY, United States",New York,NY,United States,,,,,,crypto:1
 jpmorgan:210801873,"Newark, DE, United States",Newark,DE,United States,,,,,,
 jpmorgan:210801881,"SP, Brazil",SP,Brazil,,,,,,,
+jpmorgan:210801925,"Newark, DE, United States",Newark,DE,United States,,,,,,stakeholders:1
 jpmorgan:210801952,"Tempe, AZ, United States",Tempe,AZ,United States,,,,,,
 jpmorgan:210801970,Hong Kong,Hong Kong,,,,,,,,markets:1
 jpmorgan:210801980,"Kwun Tong, Kowloon, Hong Kong",Kwun Tong,Kowloon,Hong Kong,,,,,,
@@ -7220,6 +7266,7 @@ jpmorgan:210805154,"Plano, TX, United States",Plano,TX,United States,,,,,,
 jpmorgan:210805266,"Ciudad Autónoma de Buenos Aires, Argentina",Ciudad Autónoma de Buenos Aires,Argentina,,,,,,,credit:1
 jpmorgan:210805273,"Chicago, IL, United States",Chicago,IL,United States,,,,,,
 jpmorgan:210805331,"New York, NY, United States",New York,NY,United States,,,,,,portfolio:1
+jpmorgan:210805432,"Mumbai, Maharashtra, India",Mumbai,Maharashtra,India,,,,,,
 jpmorgan:210805463,"Mumbai, Maharashtra, India",Mumbai,Maharashtra,India,,,,,,quant:2
 jpmorgan:210805482,"BOURNEMOUTH, DORSET, United Kingdom",BOURNEMOUTH,DORSET,United Kingdom,,,,,,tax:1
 jpmorgan:210805538,"Tampa, FL, United States",Tampa,FL,United States,,,,,,credit:1;underwriting:1
@@ -7367,6 +7414,7 @@ jpmorgan:210809152,"Plano, TX, United States",Plano,TX,United States,,,,,,
 jpmorgan:210809159,"Sydney, NSW, Australia",Sydney,NSW,Australia,,,,,,
 jpmorgan:210809166,"Kwun Tong, Kowloon, Hong Kong",Kwun Tong,Kowloon,Hong Kong,,,,,,
 jpmorgan:210809180,India,India,,,,,,,,
+jpmorgan:210809190,"LONDON, United Kingdom",LONDON,United Kingdom,,,,,,,
 jpmorgan:210809209,"Ciudad Autónoma de Buenos Aires, Argentina",Ciudad Autónoma de Buenos Aires,Argentina,,,,,,,stakeholders:2
 jpmorgan:210809218,"Dublin, Ireland",Dublin,Ireland,,,,,,,
 jpmorgan:210809220,"Columbus, OH, United States",Columbus,OH,United States,,,,,,treasury:1
@@ -7439,6 +7487,7 @@ jpmorgan:210810499,"New York, NY, United States",New York,NY,United States,,,,,,
 jpmorgan:210810523,"NY, United States",NY,United States,,,,,,,
 jpmorgan:210810615,"Fort Lauderdale, FL, United States",Fort Lauderdale,FL,United States,,,,,,
 jpmorgan:210810641,"Jersey City, NJ, United States",Jersey City,NJ,United States,,,,,,audit:1
+jpmorgan:210810653,"Houston, TX, United States",Houston,TX,United States,,,,,,
 jpmorgan:210810725,Singapore,Singapore,,,,,,,,markets:1
 jpmorgan:210810727,"Singapore, Singapore",Singapore,Singapore,,,,,,,
 jpmorgan:210810735,"Mumbai, Maharashtra, India",Mumbai,Maharashtra,India,,,,,,
@@ -7470,6 +7519,7 @@ jpmorgan:210811515,"Chicago, IL, United States",Chicago,IL,United States,,,,,,fo
 jpmorgan:210811522,"Bengaluru, Karnataka, India",Bengaluru,Karnataka,India,,,,,,
 jpmorgan:210811527,"Bengaluru, Karnataka, India",Bengaluru,Karnataka,India,,,,,,automation:1
 jpmorgan:210811535,"Mumbai, Maharashtra, India",Mumbai,Maharashtra,India,,,,,,
+jpmorgan:210811551,"Metro Manila, National Capital Region, Philippines",Metro Manila,National Capital Region,Philippines,,,,,,accounting:1;reconciliation:1
 jpmorgan:210811555,"Plano, TX, United States",Plano,TX,United States,,,,,,credit:1
 jpmorgan:210811561,"Mumbai, Maharashtra, India",Mumbai,Maharashtra,India,,,,,,
 jpmorgan:210811583,"New York, NY, United States",New York,NY,United States,,,,,,credit:1
@@ -7480,6 +7530,7 @@ jpmorgan:210811687,"New York, NY, United States",New York,NY,United States,,,,,,
 jpmorgan:210811696,"Bengaluru, Karnataka, India",Bengaluru,Karnataka,India,,,,,,
 jpmorgan:210811760,"Jersey City, NJ, United States",Jersey City,NJ,United States,,,,,,credit:1
 jpmorgan:210811766,"NY, United States",NY,United States,,,,,,,
+jpmorgan:210811785,"Plano, TX, United States",Plano,TX,United States,,,,,,risk:1;stakeholders:1
 jpmorgan:210811827,"New York, NY, United States",New York,NY,United States,,,,,,
 jpmorgan:210811859,"New York, NY, United States",New York,NY,United States,,,,,,
 jpmorgan:210811882,"Singapore, Singapore",Singapore,Singapore,,,,,,,
@@ -7488,17 +7539,25 @@ jpmorgan:210811901,"Mumbai, Maharashtra, India",Mumbai,Maharashtra,India,,,,,,po
 jpmorgan:210811915,"LONDON, LONDON, United Kingdom",LONDON,LONDON,United Kingdom,,,,,,
 jpmorgan:210811920,"LONDON, LONDON, United Kingdom",LONDON,LONDON,United Kingdom,,,,,,
 jpmorgan:210811922,"LONDON, LONDON, United Kingdom",LONDON,LONDON,United Kingdom,,,,,,
+jpmorgan:210811963,"Ciudad Autónoma de Buenos Aires, Argentina",Ciudad Autónoma de Buenos Aires,Argentina,,,,,,,reconciliation:2;automation:1;risk:1
 jpmorgan:210812036,"Rossford, OH, United States",Rossford,OH,United States,,,,,,risk:1
 jpmorgan:210812201,"Singapore, Singapore",Singapore,Singapore,,,,,,,
 jpmorgan:210812235,"Shanghai, China",Shanghai,China,,,,,,,
 jpmorgan:210812238,"LONDON, LONDON, United Kingdom",LONDON,LONDON,United Kingdom,,,,,,
+jpmorgan:210812242,"Central and Western, Hong Kong Island, Hong Kong",Central and Western,Hong Kong Island,Hong Kong,,,,,,markets:1
+jpmorgan:210812243,"Central and Western, Hong Kong Island, Hong Kong",Central and Western,Hong Kong Island,Hong Kong,,,,,,
 jpmorgan:210812258,"Mumbai, Maharashtra, India",Mumbai,Maharashtra,India,,,,,,
+jpmorgan:210812263,"Mumbai, Maharashtra, India",Mumbai,Maharashtra,India,,,,,,automation:1;stakeholders:1
 jpmorgan:210812286,"Sao Paulo, SP, Brazil",Sao Paulo,SP,Brazil,,,,,,
 jpmorgan:210812292,"Luxembourg, Luxembourg, Luxembourg",Luxembourg,Luxembourg,Luxembourg,,,,,,
 jpmorgan:210812293,"Ciudad Autónoma de Buenos Aires, Argentina",Ciudad Autónoma de Buenos Aires,Argentina,,,,,,,
+jpmorgan:210812300,"Bengaluru, Karnataka, India",Bengaluru,Karnataka,India,,,,,,
 jpmorgan:210812327,"Tampa, FL, United States",Tampa,FL,United States,,,,,,
 jpmorgan:210812375,"Dublin, Ireland",Dublin,Ireland,,,,,,,
 jpmorgan:210812493,"Seoul, Korea, Republic of",Seoul,Korea,Republic of,,,,,,
+jpmorgan:210812509,"Tel Aviv - Jaffa, Israel",Tel Aviv - Jaffa,Israel,,,,,,,
+jpmorgan:210812553,"Central and Western, Hong Kong Island, Hong Kong",Central and Western,Hong Kong Island,Hong Kong,,,,,,
+jpmorgan:210812572,"Cork, Ireland",Cork,Ireland,,,,,,,
 lendingtree:6619473,Remote,Remote,,,,,,,,credit:2
 lendingtree:6701519,"Charlotte, NC, United States",Charlotte,NC,United States,,,,,2,credit:5
 lendingtree:7838801,"Charlotte, NC, United States; Denver, Colorado, United States; Seattle, Washington, United States",Charlotte,NC,United States,240000,280000,USD,text,,budgeting:2;mna:2
@@ -8090,6 +8149,8 @@ mongodb:8403315,"Dublin, Ireland",Dublin,Ireland,,,,,,3,audit:2;stakeholders:2;a
 mongodb:8403318,Dublin,Dublin,,,,,,,6,audit:4;leadership:3;stakeholders:3;reconciliation:2;accounting:1;automation:1
 mongodb:8403443,United States,United States,,,54000,106000,USD,listing,2,stakeholders:5;mna:1;presenting:1
 mongodb:8404811,Brazil; Mexico; Mexico City,Brazil; Mexico; Mexico City,,,,,,,3,automation:3;ml:1;presenting:1;python:1;sql:1
+mongodb:8406014,London,London,,,,,,,5,stakeholders:2;forecasting:1;ml:1;valuation:1
+mongodb:8406025,Berlin; Frankfurt; Munich,Berlin; Frankfurt; Munich,,,,,,,5,stakeholders:2;forecasting:1;ml:1;valuation:1
 mongodb:8406130,California; Los Angeles; San Diego; San Francisco,California; Los Angeles; San Diego; San Francisco,,,104000,204000,USD,listing,3,automation:3;ml:1;presenting:1;python:1;sql:1
 mongodb:8406252,New York City,New York City,,,0,0,USD,listing,6,stakeholders:1
 mongodb:8406812,United States,United States,,,106000,190000,USD,listing,,leadership:3;automation:2;python:1
@@ -8098,10 +8159,16 @@ mongodb:8411524,Gurugram,Gurugram,,,,,,,5,stakeholders:2;quant:1;sql:1
 mongodb:8411720,Sydney,Sydney,,,,,,,2,stakeholders:3;forecasting:1;presenting:1
 mongodb:8412006,United States,United States,,,54000,106000,USD,listing,5,stakeholders:2;mna:1
 mongodb:8412160,Palo Alto,Palo Alto,,,76000,149000,USD,listing,,budgeting:4;risk:4;leadership:2;realestate:2;stakeholders:2;forecasting:1
+mongodb:8412394,"Dublin, Ireland",Dublin,Ireland,,,,,,5,leadership:2
 mongodb:8414057,"Dublin, Ireland",Dublin,Ireland,,,,,,2,
 mongodb:8414731,"Dublin, Ireland",Dublin,Ireland,,,,,,3,leadership:2;stakeholders:1
 mongodb:8418729,Bengaluru; Gurugram; Mumbai,Bengaluru; Gurugram; Mumbai,,,,,,,3,presenting:3;leadership:1;ml:1;python:1;sql:1;stakeholders:1;valuation:1
 mongodb:8418808,"Cork, Ireland; Dublin, Ireland",Cork,Ireland; Dublin,Ireland,,,,,,forecasting:1;leadership:1;stakeholders:1;tableau:1
+mongodb:8419289,London,London,,,,,,,3,presenting:3;leadership:1;ml:1;python:1;sql:1;stakeholders:1;valuation:1
+mongodb:8419294,Tel Aviv,Tel Aviv,,,,,,,3,presenting:3;leadership:1;ml:1;python:1;sql:1;stakeholders:1;valuation:1
+mongodb:8419307,Germany,Germany,,,,,,,3,presenting:3;leadership:1;ml:1;python:1;sql:1;stakeholders:1;valuation:1
+mongodb:8419310,London,London,,,,,,,3,presenting:3;leadership:1;ml:1;python:1;sql:1;stakeholders:1;valuation:1
+mongodb:8419313,Paris,Paris,,,,,,,3,presenting:3;leadership:1;ml:1;python:1;sql:1;stakeholders:1;valuation:1
 monzo:5018066,"Cardiff, London or Remote (UK)",Cardiff,London or Remote (UK),,,,,,,stakeholders:2;budgeting:1
 monzo:6036797,"Cardiff, London or Remote (UK)",Cardiff,London or Remote (UK),,,,,,,leadership:2;budgeting:1;stakeholders:1
 monzo:6369658,"Cardiff, London or Remote (UK)",Cardiff,London or Remote (UK),,,,,,,budgeting:1;leadership:1;looker:1
@@ -8153,7 +8220,7 @@ monzo:8379323,Dublin,Dublin,,,,,,,5,treasury:6;forecasting:2;accounting:1;budget
 monzo:8385191,London,London,,,,,,,,automation:3;leadership:2;budgeting:1;forecasting:1
 monzo:8385203,"Cardiff, London or Remote (UK)",Cardiff,London or Remote (UK),,,,,,,stakeholders:4;automation:3;accounting:2;treasury:2;audit:1;budgeting:1;gaap:1;sox:1;variance:1
 monzo:8385865,London,London,,,,,,,,treasury:3;automation:2;budgeting:1;sql:1
-monzo:8392368,London,London,,,,,,,,budgeting:1;ml:1
+monzo:8392368,"Cardiff, London or Remote (UK)",Cardiff,London or Remote (UK),,,,,,,budgeting:1;ml:1
 monzo:8392439,London,London,,,,,,,,stakeholders:2;budgeting:1;quant:1;reconciliation:1
 monzo:8392560,London,London,,,,,,,,budgeting:1;ml:1
 monzo:8392754,Barcelona,Barcelona,,,,,,,,budgeting:1
@@ -8199,6 +8266,7 @@ nium:bcea9c5e-0b38-4c2e-80f2-76dcda23789e,São Paulo,São Paulo,,BR,,,,,2,presen
 nium:c405586e-b134-43af-a7e0-324491499a6a,Malta,Malta,,MT,,,,,,sql:8;automation:6;audit:5;python:2;valuation:2;crypto:1;leadership:1
 nium:d16b05ba-c1c6-476f-a3e7-bdb618305f72,Mumbai,Mumbai,,IN,,,,,6,treasury:15;stakeholders:5;audit:1;cfa:1;excel:1;forecasting:1;powerbi:1;presenting:1;python:1;sox:1;sql:1;tableau:1
 nium:d94595e4-4b11-4f9c-a08a-d1edb877698d,San Francisco,San Francisco,,US,80000,100000,USD,listing,,presenting:1
+nium:ddbf40c6-dc1f-44fc-aa57-f4f9192b7d7a,Vilnius,Vilnius,,LT,58960,88440,EUR,listing,7,stakeholders:6;risk:4;valuation:2;audit:1;crypto:1
 nium:e57bac2f-2e80-44d4-9412-0aa4a5092904,Mexico,Mexico,,MX,,,,,8,crypto:2;stakeholders:2;forecasting:1;mna:1;presenting:1;treasury:1
 nium:f28dfd96-414a-43f5-9f6a-1fe1c73dd0db,Singapore,Singapore,,SG,,,,,10,valuation:2;automation:1;crypto:1;mna:1;risk:1;stakeholders:1
 nium:f37f91b1-9894-4516-a84d-9dc9cb22ec1e,Bangalore,Bangalore,,IN,,,,,,crypto:13;valuation:2
@@ -8413,7 +8481,7 @@ okta:7696955,"Bengaluru, India",Bengaluru,India,,,,,,8,automation:4;leadership:2
 okta:7703330,"Bengaluru, India",Bengaluru,India,,,,,,,automation:4;python:3;leadership:2;ml:1
 okta:7741663,"Bengaluru, India",Bengaluru,India,,,,,,6,automation:14;stakeholders:2;audit:1;leadership:1;ml:1;python:1
 okta:7744555,"Bengaluru, India",Bengaluru,India,,,,,,4,automation:11;ml:2;python:2;sql:2
-okta:7765038,"Bengaluru, India",Bengaluru,India,,,,,,4,automation:12;leadership:3;python:2;ml:1;sql:1
+okta:7765038,Bengaluru,Bengaluru,,,,,,,4,automation:12;leadership:3;python:2;ml:1;sql:1
 okta:7770733,"Bengaluru, India",Bengaluru,India,,,,,,3,stakeholders:3;automation:2;ml:1
 okta:7780488,"Bengaluru, India",Bengaluru,India,,,,,,5,warehouse:4;automation:3;stakeholders:3;looker:1;ml:1;powerbi:1;python:1;sql:1;tableau:1
 okta:7781674,"Bengaluru, India",Bengaluru,India,,,,,,7,automation:2;leadership:2;ml:1;sql:1;valuation:1
@@ -8495,6 +8563,7 @@ okta:8139694,"Toronto, ON, Canada",Toronto,ON,Canada,140000,192500,CAD,listing,5
 okta:8139696,"Toronto, Ontario, Canada",Toronto,Ontario,Canada,168000,231000,CAD,listing,7,ml:12;valuation:4;automation:3;audit:1;leadership:1;python:1;stakeholders:1
 okta:8139707,"Bellevue, WA, United States; Chicago, Illinois, United States; New York, New York, United States; San Francisco, CA, United States; Washington, District of Columbia, United States",Bellevue,WA,United States,166000,248000,USD,listing,4,stakeholders:5;automation:2;ml:1;python:1
 okta:8143141,"Toronto, ON, Canada",Toronto,ON,Canada,120000,165000,CAD,listing,4,automation:6;ml:1;mna:1;python:1
+okta:8147075,"Bengaluru, India",Bengaluru,India,,,,,,7,automation:3;sql:2;ml:1
 okta:8154916,"Bengaluru, India",Bengaluru,India,,,,,,8,netsuite:12;ml:4;automation:2;sql:1
 okta:8155202,"Bellevue, Washington; Los Angeles, California; San Francisco, California",Bellevue,Washington; Los Angeles,California,288000,396000,USD,listing,,automation:2;ml:1;presenting:1
 okta:8155421,"Chicago, Illinois; New York, New York; San Francisco, California; Seattle, Washington; Washington, DC",Chicago,Illinois; New York,DC,162000,222000,USD,listing,,stakeholders:6;automation:2;ml:1
@@ -8555,6 +8624,7 @@ okta:8237524,"Bellevue, Washington; San Francisco, California",Bellevue,Washingt
 okta:8237676,"Toronto, ON, Canada",Toronto,ON,Canada,140000,192500,CAD,listing,4,automation:5;audit:1;ml:1
 okta:8237681,"San Francisco, California",San Francisco,California,,194000,267000,USD,listing,7,automation:5;leadership:2;crypto:1;ml:1;stakeholders:1
 okta:8237695,"Toronto, ON, Canada",Toronto,ON,Canada,136000,187000,CAD,listing,,automation:7;audit:5;python:2;ml:1;stakeholders:1
+okta:8239244,Bengaluru,Bengaluru,,,,,,,5,automation:2;audit:1;ml:1;sql:1;stakeholders:1
 okta:8239380,"Washington D.C.; Washington, District of Columbia, United States",Washington D.C.; Washington,District of Columbia,United States,165000,227000,USD,listing,4,ml:4;automation:2;sql:2;warehouse:2;leadership:1;mna:1;python:1
 okta:8239382,"Toronto, Ontario, Canada",Toronto,Ontario,Canada,160000,220000,CAD,listing,8,ml:4;automation:2;warehouse:2;leadership:1
 okta:8239421,"Toronto, Ontario, Canada",Toronto,Ontario,Canada,160000,220000,CAD,listing,8,automation:2;leadership:2;stakeholders:2;ml:1
@@ -8769,6 +8839,8 @@ okta:8407829,Bengaluru,Bengaluru,,,,,,,5,automation:6;netsuite:5;oracle:3;stakeh
 okta:8411574,Bengaluru,Bengaluru,,,,,,,12,automation:5;netsuite:4;anaplan:3;audit:3;oracle:3;fpa:2;sox:2;stakeholders:2;valuation:2;accounting:1;forecasting:1;ml:1;mna:1;python:1
 okta:8415766,"Bellevue, WA, United States; Chicago, Illinois, United States; New York, New York, United States; Washington, District of Columbia, United States",Bellevue,WA,United States,152000,209000,USD,listing,5,automation:2;leadership:2;ml:1;sql:1
 okta:8416402,Tokyo,Tokyo,,,,,,,2,automation:3;stakeholders:2;crypto:1;ml:1
+okta:8419201,Tokyo,Tokyo,,,,,,,,stakeholders:4;automation:2;ml:1;presenting:1
+okta:8420236,Bengaluru,Bengaluru,,,,,,,8,automation:6;stakeholders:6;audit:3;leadership:2;ml:2;mna:1;sox:1;statistics:1
 oportun:4133342005,"León, Guanajuato, Mexico",León,Guanajuato,Mexico,,,,,,budgeting:1
 oportun:4326069005,"León, Guanajuato, Mexico",León,Guanajuato,Mexico,,,,,,budgeting:1
 oportun:4690516005,Remote - US,Remote - US,,,148100,237000,USD,text,7,stakeholders:5;budgeting:1;sql:1
@@ -8779,6 +8851,7 @@ oportun:4727491005,Remote - India,Remote - India,,,,,,,5,stakeholders:5;budgetin
 oportun:4732930005,"Long Beach, CA",Long Beach,CA,,,,,,,budgeting:1
 oportun:4733756005,"Northlake, Illinois",Northlake,Illinois,,,,,,,budgeting:1
 oportun:4739781005,Remote - India,Remote - India,,,,,,,5,ml:12;leadership:4;python:2;automation:1;budgeting:1;sql:1;stakeholders:1;valuation:1
+oportun:4739783005,Remote - US,Remote - US,,,148100,237000,USD,text,8,stakeholders:4;automation:2;budgeting:2;leadership:2
 oportun:4743482005,"Aurora, IL",Aurora,IL,,,,,,,budgeting:1
 oportun:4743955005,"San Bernardino, CA",San Bernardino,CA,,,,,,,budgeting:1
 oportun:4744255005,Remote - US,Remote - US,,,,,,,7,stakeholders:3;budgeting:1
@@ -8811,9 +8884,10 @@ oportun:4757790005,"Long Beach, CA",Long Beach,CA,,,,,,1,budgeting:1;excel:1;pow
 oportun:4758109005,"Waukegan, IL",Waukegan,IL,,,,,,1,budgeting:1;excel:1;powerpoint:1
 oportun:4758111005,"Gilroy, CA",Gilroy,CA,,,,,,1,budgeting:1;excel:1;powerpoint:1
 oportun:4758144005,Remote - US,Remote - US,,,148100,237000,USD,text,,stakeholders:7;automation:2;risk:2;audit:1;budgeting:1;excel:1;mna:1
-oportun:4758469005,"Aurora, Illinois",Aurora,Illinois,,,,,,,budgeting:1
-oportun:4758471005,"San Pablo, California",San Pablo,California,,,,,,,budgeting:1
-oportun:4758473005,"San Pablo, California",San Pablo,California,,,,,,1,budgeting:1;excel:1;powerpoint:1
+oportun:4758469005,"Aurora, IL",Aurora,IL,,,,,,,budgeting:1
+oportun:4758471005,"San Pablo, CA",San Pablo,CA,,,,,,,budgeting:1
+oportun:4758473005,"San Pablo, CA",San Pablo,CA,,,,,,1,budgeting:1;excel:1;powerpoint:1
+oportun:4758942005,"Compton, CA",Compton,CA,,,,,,1,budgeting:1;excel:1;powerpoint:1
 palantir:00c2c97b-8514-4617-9883-e53e486b6dcd,"London, United Kingdom",London,United Kingdom,GB,,,,,,forecasting:2;stakeholders:2;python:1;sql:1
 palantir:0492e9c4-9ba9-4da0-896f-75be5151bae9,"Palo Alto, CA",Palo Alto,CA,US,70000,170000,USD,text,5,forecasting:2;automation:1;leadership:1;risk:1
 palantir:09846827-b931-4a9f-bd64-c3bb8860187b,"New York, NY",New York,NY,US,,,,,,forecasting:2;audit:1;python:1;valuation:1
@@ -9224,6 +9298,8 @@ payoneer:8398541,"Gurugram, India",Gurugram,India,,,,,,6,stakeholders:1;tax:1
 payoneer:8401763,"London, UK",London,UK,,,,,,3,forecasting:1;mna:1;stakeholders:1
 payoneer:8414114,"Gurugram, India",Gurugram,India,,,,,,2,leadership:4;stakeholders:1
 payoneer:8414116,"Gurugram, India",Gurugram,India,,,,,,2,automation:1;leadership:1
+payoneer:8418744,"Shanghai, China",Shanghai,China,,,,,,3,automation:5;forecasting:2;powerbi:2;python:2;sql:2;stakeholders:2;risk:1;statistics:1;variance:1
+payoneer:8418815,"Shanghai, China",Shanghai,China,,,,,,,excel:2;presenting:1;statistics:1
 plaid:027e260d-230b-4f7c-b145-dfade9d49bd6,Remote United States,Remote United States,,United States,125000,170000,USD,listing,8,stakeholders:2
 plaid:058c0896-18fb-47a5-8b34-2f1a78623312,"New York, New York, United States",New York,New York,United States,190800,262800,USD,listing,8,stakeholders:4
 plaid:07cde72b-a127-48a8-b01a-570de5768340,"San Francisco, California, United States",San Francisco,California,United States,207600,273600,USD,listing,8,automation:3;budgeting:2
@@ -9446,7 +9522,7 @@ point72:8428205002,"Bengaluru, India",Bengaluru,India,,,,,,8,excel:3;automation:
 point72:8445688002,New York,New York,,,200000,300000,USD,text,,automation:2;stakeholders:1
 point72:8468870002,New York,New York,,,240000,260000,USD,text,7,valuation:20;markets:3;pricing:3;stakeholders:2;automation:1;bloomberg:1;quant:1;risk:1
 point72:8470606002,London,London,,,,,,,2,quant:3;excel:2;portfolio:2;bloomberg:1;markets:1;python:1;risk:1;sql:1;statistics:1;treasury:1
-point72:8487494002,"Bengaluru, India",Bengaluru,India,,,,,,10,ml:7;leadership:1;python:1;stakeholders:1
+point72:8487494002,"Bengaluru, India",Bengaluru,India,,,,,,14,ml:7;leadership:1;python:1;stakeholders:1
 point72:8488485002,"New York, NY",New York,NY,,90000,100000,USD,text,3,automation:1;presenting:1
 point72:8488736002,"Bengaluru, India",Bengaluru,India,,,,,,7,automation:2
 point72:8491138002,Japan,Japan,,,,,,,,leadership:2;accounting:1
@@ -9803,6 +9879,7 @@ rho:a118380b-5cdf-4ef4-a36d-1cc0fdf11412,"New York City, New York, United States
 rho:a5e42be0-1082-4384-9491-a073b35fc0bc,"New York City, New York, United States",New York City,New York,United States,100500,110000,USD,text,2,forecasting:1;presenting:1;stakeholders:1
 rho:b75b2387-1519-4bac-95de-8e1c2ebefd2b,"New York City, New York, United States",New York City,New York,United States,70000,90000,USD,text,,budgeting:3;realestate:1
 rho:ca325dc0-de57-40d1-9982-969798f8160b,"Salt Lake City, Utah, United States",Salt Lake City,Utah,United States,,,,,2,risk:2;mna:1
+rho:cdc64667-2a73-43ed-8e22-a90ba3d1f689,"Belgrade, Šumadija, Serbia",Belgrade,Šumadija,Serbia,,,,,7,leadership:2;audit:1;automation:1;budgeting:1;python:1;sql:1;stakeholders:1
 rho:d2333828-d453-4d3d-913a-545eb182ff32,"Los Angeles, California, United States",Los Angeles,California,United States,83000,115000,USD,text,1,budgeting:1;forecasting:1;mna:1;treasury:1
 rho:d86e599c-55d1-408d-9609-3bd894827dee,"New York City, New York, United States",New York City,New York,United States,73000,110000,USD,text,4,
 rho:df320a8b-217d-46e3-a73a-6be53c2278ff,"New York City, New York, United States",New York City,New York,United States,,,,,7,
@@ -11120,6 +11197,7 @@ servicenow:744000163825559,"Tokyo, JP",Tokyo,,JP,,,,,,
 servicenow:744000163833889,"Munich, DE",Munich,,DE,,,,,,
 servicenow:744000163834739,"Staines, GB",Staines,,GB,,,,,,
 servicenow:744000163889069,"Frankfurt, DE",Frankfurt,,DE,,,,,,
+servicenow:744000164004019,"Bangalore, Karnataka, IN",Bangalore,Karnataka,IN,,,,,,
 sofi:7573978003,"Frisco, TX",Frisco,TX,,,,,,,credit:10;pricing:2;underwriting:2
 sofi:7593403003,CA - San Francisco,CA - San Francisco,,,,,,,3,leadership:3;stakeholders:3;credit:1;ml:1;python:1;risk:1;warehouse:1
 sofi:7704156003,"NY-New York, SF-San Francisco. TX-Frisco, FL-Jacksonville, DE-Greenville, UT-Cottonwood Heights, NC-Charlotte",NY-New York,SF-San Francisco. TX-Frisco,NC-Charlotte,,,,,10,stakeholders:8
@@ -11216,6 +11294,7 @@ spotify:4e375351-b130-4f51-b9f1-e0fffee023d2,"New York, NY",New York,NY,US,11998
 spotify:4e4ab485-06f1-46b1-88e0-44f3fda4b62a,Tokyo,Tokyo,,JP,,,,,,mna:3;sql:1;stakeholders:1
 spotify:529a1618-32b9-4619-b727-ae28ddf0dc61,London,London,,GB,,,,,5,automation:2;budgeting:1
 spotify:56ea6f2e-f20b-4e46-ab94-d3eb0a89482d,"New York, NY",New York,NY,US,,,,,,warehouse:2;python:1;quant:1;sql:1;stakeholders:1;statistics:1;tableau:1
+spotify:5861816e-7ac4-4921-8e90-8e093707e27d,London,London,,GB,,,,,,automation:2;stakeholders:2
 spotify:5ddb2fa1-4494-48a9-84c0-b646da91edb8,London,London,,GB,,,,,,
 spotify:65d6caca-6d7c-4049-8256-a128e0e7249e,"New York, NY",New York,NY,US,151942,189927,USD,text,,ml:1;stakeholders:1
 spotify:66184cac-4d6c-46f6-868c-bac0c184fd22,London,London,,GB,,,,,6,forecasting:5;stakeholders:1
@@ -11590,6 +11669,7 @@ stripe:8176254,"NYC, Chicago, Seattle, San Francisco",NYC,Chicago,San Francisco,
 stripe:8176256,Singapore,Singapore,,,,,,,5,automation:1;reconciliation:1
 stripe:8176724,Poland OR Romania,Poland OR Romania,,,,,,,10,forecasting:2;mna:2;leadership:1;stakeholders:1
 stripe:8176726,Germany,Germany,,,,,,,5,leadership:3;mna:2;stakeholders:1
+stripe:8176728,Dublin,Dublin,,,,,,,8,mna:3;forecasting:2;leadership:1;stakeholders:1
 stripe:8176730,"Dublin, Ireland",Dublin,Ireland,,,,,,4,excel:2;forecasting:1;leadership:1;stakeholders:1
 stripe:8176733,Dublin,Dublin,,,,,,,12,mna:4;pricing:2;stakeholders:1
 stripe:8177513,"SEA, San Francisco",SEA,San Francisco,,,,,,10,leadership:3;stakeholders:2;audit:1
@@ -12097,6 +12177,14 @@ stripe:8417067,Dublin,Dublin,,,,,,,2,stakeholders:2;presenting:1;python:1;tax:1
 stripe:8417785,"South San Francisco, CA",South San Francisco,CA,,124000,186000,USD,text,,stakeholders:4;sql:3;forecasting:1;ml:1;presenting:1;quant:1;statistics:1;tableau:1
 stripe:8417797,Seattle,Seattle,,,,,,,10,automation:5;python:2;leadership:1;ml:1;reconciliation:1;statistics:1;valuation:1
 stripe:8419418,Dublin,Dublin,,,,,,,,
+stripe:8421000,"South San Francisco, CA",South San Francisco,CA,,156800,235200,USD,text,,
+stripe:8421091,"Seattle, WA",Seattle,WA,,206086,235200,USD,text,,leadership:1;python:1;stakeholders:1
+stripe:8421263,"New York, NY",New York,NY,,161637,238700,USD,text,,crypto:4;excel:1;sql:1
+stripe:8421367,"New York, NY",New York,NY,,190400,285600,USD,text,,warehouse:2
+stripe:8421387,"South San Francisco, CA",South San Francisco,CA,,165131,235200,USD,text,,accounting:1;automation:1;python:1;stakeholders:1;treasury:1
+stripe:8421413,"San Francisco, CA",San Francisco,CA,,,,,,2,sql:2;crypto:1
+stripe:8421434,"South San Francisco, CA",South San Francisco,CA,,,,,,2,automation:1
+stripe:8421452,"South San Francisco, CA",South San Francisco,CA,,,,,,3,python:1;sql:1
 toast:7371232,"Brisbane, Australia",Brisbane,Australia,,,,,,1,presenting:1
 toast:7455101,Chennai,Chennai,,,,,,,6,leadership:2;sql:1;stakeholders:1
 toast:7473217,"Montgomery, AL",Montgomery,AL,,115000,185000,USD,listing,,presenting:1
@@ -12306,6 +12394,7 @@ toast:8338187,"Waco, TX",Waco,TX,,128000,205000,USD,listing,,presenting:1
 toast:8345739,"Bengaluru, Karnataka, India",Bengaluru,Karnataka,India,,,,,12,valuation:2;leadership:1
 toast:8346005,"Remote, United States",Remote,United States,,195000,312000,USD,listing,,stakeholders:3;leadership:2;warehouse:2
 toast:8348999,Chennai,Chennai,,,,,,,6,tax:14;audit:3;excel:1
+toast:8349001,Chennai,Chennai,,,,,,,3,accounting:8;stakeholders:3
 toast:8349013,"Boston, Massachusetts, USA",Boston,Massachusetts,USA,123000,197000,USD,listing,,stakeholders:1
 toast:8349427,"Bangalore, india",Bangalore,india,,,,,,4,stakeholders:3;sql:2;leadership:1
 toast:8349440,"Remote, US",Remote,US,,,,,,,leadership:1

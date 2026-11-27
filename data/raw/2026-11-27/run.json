@@ -1,0 +1,352 @@
+[
+  {
+    "name": "stripe",
+    "ok": true,
+    "count": 771,
+    "error": "",
+    "seconds": 15.0
+  },
+  {
+    "name": "robinhood",
+    "ok": true,
+    "count": 161,
+    "error": "",
+    "seconds": 5.4
+  },
+  {
+    "name": "coinbase",
+    "ok": true,
+    "count": 256,
+    "error": "",
+    "seconds": 7.6
+  },
+  {
+    "name": "affirm",
+    "ok": true,
+    "count": 218,
+    "error": "",
+    "seconds": 3.5
+  },
+  {
+    "name": "sofi",
+    "ok": true,
+    "count": 57,
+    "error": "",
+    "seconds": 1.0
+  },
+  {
+    "name": "block",
+    "ok": true,
+    "count": 183,
+    "error": "",
+    "seconds": 7.7
+  },
+  {
+    "name": "brex",
+    "ok": true,
+    "count": 266,
+    "error": "",
+    "seconds": 7.6
+  },
+  {
+    "name": "chime",
+    "ok": true,
+    "count": 76,
+    "error": "",
+    "seconds": 1.0
+  },
+  {
+    "name": "carta",
+    "ok": true,
+    "count": 82,
+    "error": "",
+    "seconds": 2.0
+  },
+  {
+    "name": "adyen",
+    "ok": true,
+    "count": 233,
+    "error": "",
+    "seconds": 7.5
+  },
+  {
+    "name": "gusto",
+    "ok": true,
+    "count": 86,
+    "error": "",
+    "seconds": 5.4
+  },
+  {
+    "name": "toast",
+    "ok": true,
+    "count": 298,
+    "error": "",
+    "seconds": 10.9
+  },
+  {
+    "name": "airbnb",
+    "ok": true,
+    "count": 200,
+    "error": "",
+    "seconds": 8.5
+  },
+  {
+    "name": "lyft",
+    "ok": true,
+    "count": 143,
+    "error": "",
+    "seconds": 3.1
+  },
+  {
+    "name": "databricks",
+    "ok": true,
+    "count": 889,
+    "error": "",
+    "seconds": 28.9
+  },
+  {
+    "name": "datadog",
+    "ok": true,
+    "count": 390,
+    "error": "",
+    "seconds": 11.5
+  },
+  {
+    "name": "cloudflare",
+    "ok": true,
+    "count": 533,
+    "error": "",
+    "seconds": 30.8
+  },
+  {
+    "name": "okta",
+    "ok": true,
+    "count": 360,
+    "error": "",
+    "seconds": 12.1
+  },
+  {
+    "name": "mongodb",
+    "ok": true,
+    "count": 424,
+    "error": "",
+    "seconds": 14.5
+  },
+  {
+    "name": "anthropic",
+    "ok": true,
+    "count": 634,
+    "error": "",
+    "seconds": 29.7
+  },
+  {
+    "name": "point72",
+    "ok": true,
+    "count": 200,
+    "error": "",
+    "seconds": 4.0
+  },
+  {
+    "name": "ripple",
+    "ok": true,
+    "count": 106,
+    "error": "",
+    "seconds": 4.2
+  },
+  {
+    "name": "payoneer",
+    "ok": true,
+    "count": 94,
+    "error": "",
+    "seconds": 3.7
+  },
+  {
+    "name": "monzo",
+    "ok": true,
+    "count": 56,
+    "error": "",
+    "seconds": 2.4
+  },
+  {
+    "name": "betterment",
+    "ok": true,
+    "count": 22,
+    "error": "",
+    "seconds": 1.0
+  },
+  {
+    "name": "billcom",
+    "ok": true,
+    "count": 38,
+    "error": "",
+    "seconds": 2.1
+  },
+  {
+    "name": "lendingtree",
+    "ok": true,
+    "count": 20,
+    "error": "",
+    "seconds": 1.3
+  },
+  {
+    "name": "aqr",
+    "ok": true,
+    "count": 44,
+    "error": "",
+    "seconds": 1.2
+  },
+  {
+    "name": "virtu",
+    "ok": true,
+    "count": 40,
+    "error": "",
+    "seconds": 0.9
+  },
+  {
+    "name": "dvtrading",
+    "ok": true,
+    "count": 70,
+    "error": "",
+    "seconds": 2.1
+  },
+  {
+    "name": "drweng",
+    "ok": true,
+    "count": 148,
+    "error": "",
+    "seconds": 5.9
+  },
+  {
+    "name": "akunacapital",
+    "ok": true,
+    "count": 31,
+    "error": "",
+    "seconds": 1.4
+  },
+  {
+    "name": "oportun",
+    "ok": true,
+    "count": 39,
+    "error": "",
+    "seconds": 3.2
+  },
+  {
+    "name": "upgrade",
+    "ok": true,
+    "count": 30,
+    "error": "",
+    "seconds": 2.0
+  },
+  {
+    "name": "clearwater",
+    "ok": true,
+    "count": 16,
+    "error": "",
+    "seconds": 1.2
+  },
+  {
+    "name": "palantir",
+    "ok": true,
+    "count": 305,
+    "error": "",
+    "seconds": 15.6
+  },
+  {
+    "name": "spotify",
+    "ok": true,
+    "count": 98,
+    "error": "",
+    "seconds": 3.7
+  },
+  {
+    "name": "nium",
+    "ok": true,
+    "count": 37,
+    "error": "",
+    "seconds": 2.8
+  },
+  {
+    "name": "wealthfront",
+    "ok": true,
+    "count": 19,
+    "error": "",
+    "seconds": 2.0
+  },
+  {
+    "name": "crypto",
+    "ok": true,
+    "count": 94,
+    "error": "",
+    "seconds": 3.1
+  },
+  {
+    "name": "ramp",
+    "ok": true,
+    "count": 183,
+    "error": "",
+    "seconds": 10.2
+  },
+  {
+    "name": "plaid",
+    "ok": true,
+    "count": 144,
+    "error": "",
+    "seconds": 5.9
+  },
+  {
+    "name": "notion",
+    "ok": true,
+    "count": 174,
+    "error": "",
+    "seconds": 10.2
+  },
+  {
+    "name": "wealthsimple",
+    "ok": true,
+    "count": 36,
+    "error": "",
+    "seconds": 2.5
+  },
+  {
+    "name": "airwallex",
+    "ok": true,
+    "count": 502,
+    "error": "",
+    "seconds": 12.3
+  },
+  {
+    "name": "rho",
+    "ok": true,
+    "count": 49,
+    "error": "",
+    "seconds": 3.7
+  },
+  {
+    "name": "experian",
+    "ok": true,
+    "count": 413,
+    "error": "",
+    "seconds": 4.2
+  },
+  {
+    "name": "servicenow",
+    "ok": true,
+    "count": 969,
+    "error": "",
+    "seconds": 5.0
+  },
+  {
+    "name": "equinox",
+    "ok": true,
+    "count": 791,
+    "error": "",
+    "seconds": 3.8
+  },
+  {
+    "name": "jpmorgan",
+    "ok": true,
+    "count": 961,
+    "error": "",
+    "seconds": 13.7
+  }
+]

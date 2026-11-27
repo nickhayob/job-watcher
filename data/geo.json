@@ -134,6 +134,10 @@
 44.804,
 20.465
 ],
+"Belgrade, Šumadija, Serbia": [
+44.804,
+20.465
+],
 "Bellevue, WA": [
 47.61,
 -122.201
@@ -282,6 +286,7 @@
 -27.468,
 153.028
 ],
+"British Columbia": null,
 "British Columbia, Alberta": null,
 "Brooklyn, NY, United States": [
 40.65,
@@ -510,6 +515,10 @@
 "Distributed": null,
 "Distributed; Hybrid": null,
 "District of Columbia, USA, Remote; Maryland, USA, Remote; Virginia, USA, Remote": null,
+"Draper, Utah, United States; San Jose, California, United States": [
+40.525,
+-111.864
+],
 "Dubai": [
 25.077,
 55.309
@@ -1018,6 +1027,7 @@
 40.714,
 -74.006
 ],
+"New York City, NY; San Francisco, CA | New York City, NY; Seattle, WA": null,
 "New York City, NY; San Francisco, CA; Seattle, WA": null,
 "New York City, New York": [
 40.714,
@@ -1111,6 +1121,7 @@
 -1.15
 ],
 "OH, United States": null,
+"Ontario, CAN": null,
 "Orlando, Florida, US": [
 28.538,
 -81.379
@@ -1208,7 +1219,10 @@
 "Remote - California; San Francisco, California": null,
 "Remote - Canada": null,
 "Remote - Denmark": null,
+"Remote - Illinois": null,
 "Remote - India": null,
+"Remote - Ireland": null,
+"Remote - Luxembourg": null,
 "Remote - MX": null,
 "Remote - New York": null,
 "Remote - Singapore": null,
@@ -1217,9 +1231,11 @@
 "Remote - UK": null,
 "Remote - US": null,
 "Remote - USA": null,
+"Remote - United Kingdom": null,
 "Remote - United States": null,
 "Remote - Virginia; Remote - Washington D.C.": null,
 "Remote - Washington D.C.": null,
+"Remote - Washington D.C.; Washington, D.C.": null,
 "Remote Canada": null,
 "Remote Poland": null,
 "Remote Spain": null,
@@ -1235,6 +1251,10 @@
 "Remote-Friendly (Travel Required) | San Francisco, CA": null,
 "Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY": null,
 "Remote-Friendly, United States": null,
+"Rio de Janeiro": [
+-22.906,
+-43.182
+],
 "Riyadh, SA": [
 24.688,
 46.722
@@ -1287,6 +1307,10 @@
 "San Francisco, CA | New York City, NY | Washington, DC": null,
 "San Francisco, CA | Seattle, WA": null,
 "San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC": null,
+"San Francisco, CA, New York City, New York": [
+37.775,
+-122.419
+],
 "San Francisco, CA, US": [
 37.775,
 -122.419
@@ -1468,6 +1492,10 @@
 1.29,
 103.85
 ],
+"Sofia": [
+42.698,
+23.324
+],
 "Sofia, BG": [
 42.698,
 23.324
@@ -1525,6 +1553,7 @@
 -33.868,
 151.207
 ],
+"Sydney, NSW": null,
 "Sydney, NSW, AU": [
 -33.868,
 151.207
@@ -1578,6 +1607,10 @@
 121.0
 ],
 "Tampa, FL, United States": [
+27.948,
+-82.458
+],
+"Tampa, FL, United States of America": [
 27.948,
 -82.458
 ],
